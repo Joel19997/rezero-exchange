@@ -236,7 +236,7 @@ header .cart {
   .recomended-sec .title {
     margin-bottom: 70px; }
   .recomended-sec .item {
-    border: 1px solid #d5d5d5;
+    /* border: 1px solid #d5d5d5; */
     padding: 36px 10px;
     cursor: pointer;
     position: relative; }
@@ -400,17 +400,17 @@ header .cart {
   .features-sec ul li {
     text-align: center;
     padding: 0 20px 60px;
-    border: 1px solid #cacaca;
+    /* border: 1px solid #cacaca; */
     float: left;
     width: 33.333%;
     list-style: none;
     border-left: 0; }
-    .features-sec ul li:first-child {
-      border-left: 1px solid #cacaca; }
+    /* .features-sec ul li:first-child {
+      border-left: 1px solid #cacaca; } */
     .features-sec ul li span.icon {
       width: 65px;
       height: 65px;
-      border: 1px solid #cbcbcb;
+      /* border: 1px solid #cbcbcb; */
       display: block;
       border-radius: 50%;
       margin-top: -33px;
