@@ -6,7 +6,8 @@
     <title>Book Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#03a6f3">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
@@ -36,11 +37,17 @@
                             <li class="navbar-item">
                                 <a href="about.html" class="nav-link">About</a>
                             </li>
-                            <li class="navbar-item">
-                                <a href="faq.html" class="nav-link">FAQ</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a href="login.html" class="nav-link">Login</a>
+                            <li class="navbar-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  My Account
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="login.html">Login</a>
+                                  <a class="dropdown-item" href="register.html">Register</a>
+                                  <!-- bottom 2 can do the divider thing if the user has logged in and want to logout -->
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Help</a>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -56,7 +63,7 @@
                         <img src="images/slide1.jpg" alt="slide1">
                         <div class="content">
                             <div class="title">
-                                <h1>welcome to rezero-exchange</h1>
+                                <h1>welcome to Re-zeroXchange</h1>
                                 <h5>have too many old books that you no longer need?</h5>
                                 <a href="#" class="btn">list books for trade</a>
                             </div>
@@ -68,7 +75,7 @@
                         <img src="images/slide2.jpg" alt="slide1">
                         <div class="content">
                             <div class="title">
-                                <h1>welcome to rezero-exchange</h1>
+                                <h1>welcome to Re-zeroXchange</h1>
                                 <h5>trade your old books for new reads</h5>
                                 <a href="#" class="btn">search books</a>
                             </div>
@@ -80,7 +87,7 @@
                         <img src="images/slide3.jpg" alt="slide1">
                         <div class="content">
                             <div class="title">
-                                <h1>welcome to rezero-exchange</h1>
+                                <h1>welcome to Re-zeroXchange</h1>
                                 <h5>give your old books a new lease of life</h5>
                                 <a href="#" class="btn">shop books</a>
                             </div>
@@ -219,14 +226,14 @@
         <div class="container">
             <div id="testimonal" class="owl-carousel owl-theme">
                 <div class="item">
-                    <h3>Rezero-exchange has allowed me to trade my old books and through this platform I managed to find Cyberpunk genre books that are actually quite hard to get hold of. </h3>
+                    <h3>Re-zeroXchange has allowed me to trade my old books and through this platform I managed to find Cyberpunk genre books that are actually quite hard to get hold of. </h3>
                     <div class="box-user">
                         <h4 class="author">Joel Seah</h4>
                         <span class="country">Jurong West</span>
                     </div>
                 </div>
                 <div class="item">
-                    <h3>Being an avid reader, my collection of books have grown exponentially over time. I am glad to be able to give my books a new home through Rezero-exchange</h3>
+                    <h3>Being an avid reader, my collection of books have grown exponentially over time. I am glad to be able to give my books a new home through Re-zeroXchange</h3>
                     <div class="box-user">
                         <h4 class="author">Kenny Goh</h4>
                         <span class="country">Tiong Bahru</span>
@@ -259,7 +266,7 @@
                         <h6>​Sunday: 8am - 11pm</h6>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-8">
                     <div class="navigation">
                         <h4>Navigation</h4>
                         <ul>
@@ -277,29 +284,6 @@
                             <li><a href="privacy-policy.html">Privacy</a></li>
                             <li><a href="faq.html">FAQ’s</a></li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="form">
-                        <h3>Quick Contact us</h3>
-                        <h6>We are now offering some good discount 
-                            on selected books go and shop them</h6>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input placeholder="Name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" placeholder="Email" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea placeholder="Messege"></textarea>
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="btn black">Alright, Submit</button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
