@@ -14,7 +14,8 @@
 </head>
 
 <body>
-    <header>
+    <!-- start of nav bar -->
+    <nav class="navbar sticky-top navbar-light bg-light" style="position:sticky; position: -webkit-sticky;top:0;">
         <div class="main-menu">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -24,23 +25,29 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
-                            <li class="navbar-item">
-                                <a href="index.html" class="nav-link">Home</a>
-                            </li>
                             <li class="navbar-item active">
+                                <a href="index.html" class="nav-link">Hello</a>
+                            </li>
+                            <li class="navbar-item">
                                 <a href="shop.html" class="nav-link">Search</a>
                             </li>
-                            <li class="navbar-item active">
+                            <li class="navbar-item">
                                 <a href="shop.html" class="nav-link">All Listings</a>
                             </li>
                             <li class="navbar-item">
                                 <a href="about.html" class="nav-link">About</a>
                             </li>
-                            <li class="navbar-item">
-                                <a href="faq.html" class="nav-link">FAQ</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a href="login.html" class="nav-link">Login</a>
+                            <li class="navbar-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  My Account
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="login.html">Login</a>
+                                  <a class="dropdown-item" href="register.html">Register</a>
+                                  <!-- bottom 2 can do the divider thing if the user has logged in and want to logout -->
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Help</a>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -48,6 +55,30 @@
             </div>
         </div>
     </header>
+<div class="container text-center" style="width: 50%;">
+    <form>
+        <div class="form-group">
+            <div class="form-row">
+             <!-- radio buttons -->
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="user" value="user">
+            <label class="form-check-label" for="inlineRadio1">User</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Books" value="book">
+            <label class="form-check-label" for="inlineRadio2">Book</label>
+          </div>
+          <!-- user-input -->
+          <input type="text" class="form-control col-md-6  " id="user_input" placeholder="Search for an item or user!">
+          <!-- unable to make button same height as search bar -->
+          <button type="submit" class="btn btn-primary"><img src="images/search_icon.png" style="width: 20px;"></button>
+        </div>
+        </div>
+    </div>
+      </form>
+    </div>
+    </nav>
+    <!-- end of nav bar -->
     <div class="breadcrumb">
         <div class="container">
             <a class="breadcrumb-item" href="index.html">Home</a>
@@ -56,7 +87,7 @@
     </div>
     <section class="static about-sec">
         <div class="container">
-            <h2>highly recommendes books</h2>
+            <h2>highly recommended books</h2>
             <div class="recomended-sec">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
