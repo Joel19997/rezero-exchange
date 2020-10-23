@@ -16,80 +16,76 @@
 
 <body>
       <!-- start of nav bar -->
-      <nav class="navbar sticky-top navbar-light bg-light" style="position:sticky; position: -webkit-sticky;top:0;">
-        <div class="main-menu">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light">
+      <header class='sticky-top' style="background-color: #ffffff;">
+        <!-- i hard coded this cause the nav bar is taking up too much space -->
+        <div class="main-menu" style="height: 100px;">
+            <div class="container-fluid">
+                <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="position:sticky; position: -webkit-sticky;top:0;">
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="navbar-item active">
-                                <a href="index.html" class="nav-link">Hello</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a href="shop.html" class="nav-link">Search</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a href="shop.html" class="nav-link">All Listings</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a href="about.html" class="nav-link">About</a>
-                            </li>
-                            <li class="navbar-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  My Account
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="login.html">Login</a>
-                                  <a class="dropdown-item" href="register.html">Register</a>
-                                  <a class="dropdown-item" href="profile.html">Profile</a>
-                                  <!-- bottom 2 can do the divider thing if the user has logged in and want to logout -->
-                                  <div class="dropdown-divider"></div>
-                                  <a class="dropdown-item" href="faq.html">Help</a>
+                      <!-- search bar -->
+                      <div class="container">
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                            <li class="navbar-item active">
+                                                <a href="index.html" class="nav-link">Home</a>
+                                            </li>
+                                            <li class="navbar-item">
+                                                <a href="shop.html" class="nav-link">Listings</a>
+                                            </li>
+                                            <li class="navbar-item">
+                                                <a href="about.html" class="nav-link">About</a>
+                                            </li>
+                                            <li class="navbar-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  My Account
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                  <a class="dropdown-item" href="login.html">Login</a>
+                                                  <a class="dropdown-item" href="register.html">Register</a>
+                                                  <a class="dropdown-item" href="profile.html">Profile</a>
+                                                  <!-- bottom 2 can do the divider thing if the user has logged in and want to logout -->
+                                                  <div class="dropdown-divider"></div>
+                                                  <a class="dropdown-item" href="faq.html">Help</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
+
+                                    <div class="col">
+                            <div class="form-group">
+                                <div class="form-row">
+                              <!-- user-input -->
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">book</button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" value="book" selected>book</a>
+                                    <a class="dropdown-item" value="author">author</a>
+                                    <a class="dropdown-item" value="genre">genre</a>
+                                    <a class="dropdown-item" value="genre">user</a>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Search for books, author, genre...">
+                              </div>
+                              <!-- unable to make button same height as search bar -->
+                              <button type="submit" class="btn btn-primary"><img src="images/search_icon.png" style="width:26px;"></button>
+                            </div>
+                            </div>
+                        </div>
+                                </div>
+                <!-- end of search bar -->
+                </div>
                 </nav>
             </div>
         </div>
     </header>
-<div class="container text-center" style="width: 50%;">
-    <form>
-        <div class="form-group">
-            <div class="form-row">
-             <!-- radio buttons -->
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Books" value="book">
-            <label class="form-check-label" for="inlineRadio2">Book</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genre" value="genre">
-            <label class="form-check-label" for="inlineRadio1">Genre</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="author" value="author">
-            <label class="form-check-label" for="inlineRadio1">Author</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="User" value="User">
-            <label class="form-check-label" for="inlineRadio1">User</label>
-          </div>
-          <!-- user-input -->
-          <input type="text" class="form-control col-md-6  " id="user_input" placeholder="Search for an item or user!">
-          <!-- unable to make button same height as search bar -->
-          <button type="submit" class="btn btn-primary"><img src="images/search_icon.png" style="width: 20px;"></button>
-        </div>
-        </div>
-    </div>
-      </form>
-    </div>
-    </nav>
     <!-- end of nav bar -->
-       
     <section class="slider">
         <div class="container">
             <div id="owl-demo" class="owl-carousel owl-theme">
