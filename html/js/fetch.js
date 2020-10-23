@@ -1,6 +1,5 @@
 // fetches the book information by making api calls
 
-const key = 'AIzaSyB5nf15DmxIV-ZQkbVgwZQNX47lUY6BHec';
 
 function getInfo(){
     event.preventDefault();
