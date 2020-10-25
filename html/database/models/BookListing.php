@@ -7,7 +7,7 @@
         private $listing_desc;
         private $genre;
         private $availability;
-
+        
 
         public function __construct($l_id, $ownerEmail, $book_title, $isbn, $genre, $listing_desc, $availability){
             $this->l_id = $l_id;
