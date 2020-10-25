@@ -259,9 +259,67 @@
             return $results;
         }
 
+        
+        function getL_id($email,$isbn)//Get last value of entry of that session ID and ISBN, add into db
+        {
+        $connManager = new ConnectionManager();
+        $pdo = $connManager->getConnection();
+        $sql = "SELECT * FROM BOOK_LISTING WHERE isbn = :isbn AND owner_email = :owner_email ORDER by l_id DESC LIMIT 1";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+        $stmt->bindParam(':owner_email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 
-    }//end of class
+        $row = $stmt->fetch();
+        $l_id = $row['l_id'];
+
+        $pdo = null;
+        $stmt = null;
+        return $l_id;
+
+        }
+
+        function addNewListGenre($l_id,$genre){
+
+            $connManager = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = "INSERT into BOOK_GENRE (l_id,genre) VALUES (:l_id,:genre)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':l_id', $l_id, PDO::PARAM_STR);
+            $stmt->bindParam(':genre', $genre, PDO::PARAM_STR);
+            $stmt->execute();
+            $isOk = FALSE;
+            $stmt = null;
+            $pdo = null;
+            return $isOk;
+        }
+
+        function updateAvailability($email,$status)//1 = available, 2 = Pending, 3 = rejected
+        {
+            $connManager = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = "Update book_listing SET availability = :status WHERE owner_email = :email";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            // STEP 4 - Is this cat found in cat table?
+            $stmt->execute();
+
+            // STEP 3 - Run Query
+            $isOk = FALSE;
+
+            // STEP 4
+            $stmt = null;
+            $pdo = null;
+
+            // STEP 5
+            return $isOk;
+        }
+
+     }//end of class
 
 
 
