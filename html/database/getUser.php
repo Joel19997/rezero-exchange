@@ -12,7 +12,7 @@
     foreach($resultArr as $user)
     {
         $result["user"][] = array(
-            "uid" => $user->getUid(),
+            // "uid" => $user->getUid(),
             "firstName" => $user->getFirstName(),
             "lastName" => $user->getLastName(),
             "password" => $user->getPassword(),
