@@ -7,9 +7,10 @@
         private $listing_desc;
         private $genre;
         private $availability;
+        private $author;
         
 
-        public function __construct($l_id, $ownerEmail, $book_title, $isbn, $genre, $listing_desc, $availability){
+        public function __construct($l_id, $ownerEmail, $book_title, $isbn, $genre, $listing_desc, $availability, $author){
             $this->l_id = $l_id;
             $this->ownerEmail = $ownerEmail;
             $this->book_title = $book_title;
@@ -17,6 +18,7 @@
             $this->listing_desc = $listing_desc;
             $this->isbn = $isbn;
             $this->availability = $availability;
+            $this->author = $author;
         }
         
 
@@ -68,6 +70,11 @@
         public function setAvailability($status)
         {
             $this->availability = $status;
+        }
+
+        public function getAuthor()
+        {
+            return $this->author;
         }
 
     }
