@@ -55,9 +55,10 @@
                 $isbn = $row['isbn'];
                 $bookTitle = $row['book_title'];  
                 $itemDesc = $row['item_desc'];  
-                $availability = $row['availability'];       
+                $availability = $row['availability'];    
+                $author = $row['author'];
                 
-                $user = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability);
+                $user = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
                 $results[] = $user;
             }
             $pdo = null;

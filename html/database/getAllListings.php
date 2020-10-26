@@ -13,8 +13,13 @@
     foreach($result as $book)
     {
         $listings["listing"][] = array(
+            'Lid' => $book->getLid(),
+            'isbn' => $book->getIsbn(),
             "title" => $book->getTitle(),
+            'description' => $book->getDesc(),
             "availability" => $book->getAvailability(),
+            'author' => $book->getAuthor()
+
         );
     }
 
