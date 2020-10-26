@@ -17,7 +17,7 @@ USE `WAD2PROJ`;
 DROP TABLE IF EXISTS `USERS`;
 CREATE TABLE IF NOT EXISTS `USERS` 
 (
-	email varchar(255) NOT NULL,
+	email varchar(100) NOT NULL,
 	last_Name varchar(255) NOT NULL,
 	first_Name varchar(255) DEFAULT NULL, 
 	password varchar(255) NOT NULL,
@@ -31,12 +31,12 @@ DROP TABLE IF EXISTS `BOOK_LISTING`;
 CREATE TABLE IF NOT EXISTS BOOK_LISTING
 (
 	l_id INT(10) NOT NULL AUTO_INCREMENT,
-	owner_email varchar(255) NOT NULL,
+	owner_email varchar(100) NOT NULL,
 	isbn varchar(255),
 	book_title varchar(50) NOT NULL,
 	item_desc varchar(255),
 	author varchar(255),
-	availability boolean DEFAULT 1,
+	availability int(1) default 1,
 	
 	PRIMARY KEY(l_id),
 	FOREIGN KEY (owner_email) REFERENCES Users(email)
@@ -53,20 +53,23 @@ CREATE TABLE IF NOT EXISTS BOOK_GENRE
 	FOREIGN KEY (l_id) REFERENCES BOOK_LISTING(l_id)
 );
 
-/*
+
 DROP TABLE IF EXISTS `TRADES`;
 CREATE TABLE IF NOT EXISTS TRADES
 (
-	l_id INT(10) NOT NULL,
-	email varchar(255) NOT NULL,
-	email2 varchar(255) NOT NULL,
-	status int(3) DEFAULT 1,
-	PRIMARY KEY(l_id, email, email2),
-	FOREIGN KEY (l_id) REFERENCES BOOK_LISTING(l_id),
-	FOREIGN KEY (email) REFERENCES USERS(email),
-	FOREIGN KEY (email2) REFERENCES USERS(email)
+	first_lid INT(10) NOT NULL,
+	sec_lid INT(10) NOT NULL, 
+	first_email varchar(100) NOT NULL,
+	sec_email varchar(100) NOT NULL,
+	availability int(1) DEFAULT 1,
+	PRIMARY KEY(first_lid, sec_lid, first_email, sec_email),
+	FOREIGN KEY (first_lid) REFERENCES BOOK_LISTING(l_id),
+	FOREIGN KEY (sec_lid) REFERENCES BOOK_LISTING(l_id),
+	FOREIGN KEY (first_email) REFERENCES USERS(email),
+	FOREIGN KEY (sec_email) REFERENCES USERS(email)
 );
-*/
+
+
 
 
 /*10 users*/
@@ -222,3 +225,6 @@ VALUES ("justinbieber@mail.com", "Biz", "A wonderful book that sleeps", "Ellie M
 INSERT INTO BOOK_GENRE (l_id, genre) VALUES (25, "Business");
 
 
+#Trade 
+INSERT INTO TRADES(first_lid, sec_lid, first_email, sec_email, availability)
+VALUES(11, 12, "googleplot@gmail.com", "ofcourseweA@gmail.com", 1 );
