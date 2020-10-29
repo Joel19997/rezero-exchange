@@ -22,9 +22,12 @@
         </header>
     
         <div class="overlay" >
-            <div class='container-fluid row mx-auto pt-5 pb-5' id='listings'>
-            </div>
+            <?php
+                $listing = $_GET['listingID'];
+                echo "<p>$listing</p>";
+            ?>
         </div>
+
         
 
 
