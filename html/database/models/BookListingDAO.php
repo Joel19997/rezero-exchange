@@ -109,9 +109,10 @@
                 $isbn = $row['isbn'];
                 $bookTitle = $row['book_title'];  
                 $itemDesc = $row['item_desc'];  
-                $availability = $row['availability'];       
+                $availability = $row['availability'];     
+
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
                 $results[] = $book;
 
 
@@ -151,9 +152,11 @@
                 $isbn = $row['isbn'];
                 $bookTitle = $row['book_title'];  
                 $itemDesc = $row['item_desc'];  
-                $availability = $row['availability'];       
+                $availability = $row['availability'];
+                $author = $row['author'];
+       
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
                 $results[] = $book;
 
 
@@ -193,9 +196,11 @@
                 $isbn = $row['isbn'];
                 $bookTitle = $row['book_title'];  
                 $itemDesc = $row['item_desc'];  
-                $availability = $row['availability'];       
+                $availability = $row['availability'];    
+                $author = $row['author'];
+   
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
                 $results[] = $book;
 
 
@@ -225,7 +230,7 @@
             $pdo = $connManager->getConnection();
             $sql = "select * from book_listing where isbn = :isbn";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(":isbn", $title, PDO::PARAM_STR);
+            $stmt->bindParam(":isbn", $isbn, PDO::PARAM_STR);
             $stmt->execute();
             $results = [];
             while ($row = $stmt->fetch()){
@@ -234,9 +239,54 @@
                 $isbn = $row['isbn'];
                 $bookTitle = $row['book_title'];  
                 $itemDesc = $row['item_desc'];  
+                $availability = $row['availability']; 
+                $author = $row['author'];
+
+                      
+                
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
+                $results[] = $book;
+
+
+                for($z = 0; $z < count($results); $z++)
+                {
+                    $genre = $this->getListingGenre($results[$z]->getLid());
+                    if($results[$z]->getGenre() == "")
+                    {
+                        $results[$z]->setGenre($genre);
+                    }
+                    else
+                    {
+                        $currGenre = $results[$z]->getGenre();
+                        $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                    }
+                }
+
+            }
+            $pdo = null;
+            $stmt = null;
+            return $results;
+        }
+
+        function getListingByListingID($l_id)
+        {
+            $connManager = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = "select * from book_listing where l_id = :l_id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(":l_id", $l_id, PDO::PARAM_STR);
+            $stmt->execute();
+            $results = [];
+            while ($row = $stmt->fetch()){
+                $l_id = $row['l_id'];
+                $ownerEmail = $row['owner_email'];
+                $isbn = $row['isbn'];
+                $bookTitle = $row['book_title'];  
+                $itemDesc = $row['item_desc'];  
+                $author = $row['author'];
                 $availability = $row['availability'];       
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
                 $results[] = $book;
 
 
@@ -263,23 +313,23 @@
         
         function getL_id($email,$isbn)//Get last value of entry of that session ID and ISBN, add into db
         {
-        $connManager = new ConnectionManager();
-        $pdo = $connManager->getConnection();
-        $sql = "SELECT * FROM BOOK_LISTING WHERE isbn = :isbn AND owner_email = :owner_email ORDER by l_id DESC LIMIT 1";
+            $connManager = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = "SELECT * FROM BOOK_LISTING WHERE isbn = :isbn AND owner_email = :owner_email ORDER by l_id DESC LIMIT 1";
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
-        $stmt->bindParam(':owner_email', $email, PDO::PARAM_STR);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+            $stmt->bindParam(':owner_email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 
-        $row = $stmt->fetch();
-        $l_id = $row['l_id'];
+            $row = $stmt->fetch();
+            $l_id = $row['l_id'];
 
-        $pdo = null;
-        $stmt = null;
-        return $l_id;
+            $pdo = null;
+            $stmt = null;
+            return $l_id;
 
         }
 
