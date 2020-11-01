@@ -14,16 +14,21 @@
     $user = $dao->selectUser($email);
     var_dump($user);
     $hashed = $user->getPassword();
+    var_dump($password);
     var_dump($hashed);
-    $status = password_verify($password, $hashed); // return true if user entered password matches database hashed pw
+    $testHash = md5($password);
+    $status = $testHash == $hashed;
+    //(NOT usable since password was hashed using md5)$status = password_verify($password, $hashed); // return true if user entered password matches database hashed pw
+    var_dump($status);
     if ($status){
-        session_start();
+        
         $_SESSION["user"] = $email;
         header("Location: ../testHome2.html");
     }
     else{
-        session_start();
-        $_SESSION["error"] = "Failed login";
+        
+        $_SESSION["error"] = "You have entered the wrong email and/ password";
+        //var_dump($_SESSION); 
         header("Location: ../loginPage.html");
     }
     
