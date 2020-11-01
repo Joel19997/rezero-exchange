@@ -15,6 +15,24 @@
                 <li><a href="allListings.html">Books</a></li>
                 <li><a href="#">About</a></li>
                 <li class="login"><a href="loginPage.html" >Log In</a></li>
+                <li>
+                    <form action="searched.html" method="GET">     
+                        <div class="col-md">
+                        <div class="input-group md-form">
+                                <button class="btn btn-outline-secondary dropdown-toggle btn-sm" name="search_option_title" type="button" data-toggle="dropdown" style='padding: 3px 5px;'>Search by</button>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item" id="book" name="book" onclick="ChangeDropDownBox('Book')">Book</a>
+                                <a class="dropdown-item" id="author" name="author" onclick="ChangeDropDownBox('Author')">Author</a>
+                                <a class="dropdown-item" id="genre" name="genre" onclick="ChangeDropDownBox('Genre')">Genre</a>
+                                <a class="dropdown-item" id="user" name="user" onclick="ChangeDropDownBox('User')">User</a>
+                                </div>
+                                <input class="form-control my-0 py-1 amber-border" name="user_input" placeholder="Search on Re-Zero!" aria-label="Search">
+                                <button type="submit" action="searched.html" class="btn btn-primary col-md-2" onclick="search()">
+                                </button>
+                        </div>
+                        </div>
+                    </form>  
+                </li>
             </ul>
         </header>
         <div class="overlay">
