@@ -91,15 +91,14 @@
             }
 
             return $bookList;
-
         }
-
         function getListingByAuthor($author)
         {
             $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
-            $sql = "select * from book_listing where author = :author";
+            $sql = "select * from book_listing where author like :author";
             $stmt = $pdo->prepare($sql);
+            $author = '%' . $author . '%';
             $stmt->bindParam(":author", $author, PDO::PARAM_STR);
             $stmt->execute();
             $results = [];
