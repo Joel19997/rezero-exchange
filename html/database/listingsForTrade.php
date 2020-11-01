@@ -3,7 +3,10 @@
 
             //$book_id = $_GET["book_id"]; #get post value from previous page
             //$user = $_SESSION['email'];
-            $user = $_POST["username"];
+            // $user = $_POST["username"];
+
+            $user = 'infinty@yahoo.com';
+
             //$user ="infinty@yahoo.com";
             //$book_id = intval($book_id);
             //$book_id = 4;

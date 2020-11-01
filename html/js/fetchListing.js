@@ -70,7 +70,7 @@ function fetchUserInfo(email){
                                 Email: ${email}<br>
                                 Telegram Handle: ${telegram}
                             </address>
-                            <button type="button" class="btn btn-primary mt-5">Request Trade</button>
+                            <a href="./listingsForTrade.html" role="button"><button type="button" class="btn btn-primary mt-5">Request Trade</button></a>
                             `;
         
         console.log(listing)
