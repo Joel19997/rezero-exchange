@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="testHome2.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     </head>
     <body class="body1">
@@ -18,6 +19,65 @@
             </ul>
         </header>
         <div class="overlay" >
+
+            <div class="container">
+                <h1>My Account / Add A Listing</h1>
+                <div class='form' id='search'>
+                    <form>
+                        <div class='row'>
+                            <p class='pl-3'>Simply enter the ISBN of the book that you are trying to list and we will fill up the rest of the fields for you.</p>
+                            <div class='col-6'>
+                                <div class="form-group">
+                                    <label for="ISBN">ISBN</label>
+                                    <input v-model='isbn' type="text" class="form-control" id="ISBN" aria-describedby="emailHelp">
+                                </div>          
+                            </div>
+                            <button v-on:click='getInfo' class="btn btn-primary text-center" style="height: 50px; margin-top: 30px; width: 30px; padding-left: 10px; padding-right: 69px;">Search</button>
+                        </div>
+                        <div class='row'>
+                            <div class='col-9 mx-auto justify-content-center'>
+                                <div class='text-center'>Cover</div>
+                                <!-- <div  class="text-center container" id='img' style='height: 300px; width: 300px'> -->
+                                    <img v-if='showImage' class='mx-auto d-block' :src=url style='height:70%; width: 50%'>
+    
+                                <!-- </div>        -->
+                                <div v-else class="form-group mx-auto" id='img'>
+                                </div>             
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-6'>
+                                <div class="form-group">
+                                    <label for="title">Book Title</label>
+                                    <input v-model='title' type="text" class="form-control" id="title" aria-describedby="emailHelp" >
+                                  </div>          
+                            </div>
+                            <div class='col-6'>
+                                <div class="form-group">
+                                    <label for="author">Author</label>
+                                    <input v-model='author' type="text" class="form-control" id="author" aria-describedby="emailHelp">
+                                  </div>          
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-6'>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea v-model='description' type="text" class="form-control" id="description" aria-describedby="emailHelp" style='height: 150px;'></textarea>
+                                  </div>          
+                            </div>
+                            <div class='col-6'>
+                                <div class="form-group">
+                                    <label for="genre">Genre</label>
+                                    <input v-model='genre' type="text" class="form-control" id="genre" aria-describedby="emailHelp">
+                                  </div>          
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary mb-4">Add Listing!</button>
+                    </form>
+                </div>
+            </div>
+    
         </div>
         
 
@@ -29,5 +89,8 @@
             header.classList.toggle("sticky", window.scrollY > 0);
         })
         </script>
+
+        <script src='js/fetchInfo.js'></script>
+
     </body>
 </html>
