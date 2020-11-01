@@ -377,14 +377,14 @@
             return $isOk;
         }
 
-        function updateAvailability($email,$status)//1 = available, 2 = Pending, 3 = rejected
+        function updateAvailability($l_id,$status)//1 = available, 2 = Pending, 3 = rejected
         {
             $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
-            $sql = "Update book_listing SET availability = :status WHERE owner_email = :email";
+            $sql = "Update book_listing SET availability = :status WHERE l_id = :l_id";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':status', $status, PDO::PARAM_STR);
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':l_id', $l_id, PDO::PARAM_STR);
             // STEP 4 - Is this cat found in cat table?
             $stmt->execute();
 
