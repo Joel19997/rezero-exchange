@@ -6,7 +6,8 @@ if ( !isset($_SESSION["user"]) ) {
     $_SESSION["error"] = "You have not logged in";
     
     // redirect to login page
-    header("Location: login.php"); 
+    header("Location: loginPage.html"); 
     exit;
 }
+echo("test");
 ?>

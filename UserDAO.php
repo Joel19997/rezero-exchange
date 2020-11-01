@@ -48,7 +48,7 @@
             return $isAddOk;
         }
 
-        public function selectUser($email) #Selects one user based on email
+        public function selectUser($email) #Selects one user based on email (returns user Object directly now)
         {
             $conn = new ConnectionManager();
             $connManager = new ConnectionManager();

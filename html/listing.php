@@ -22,15 +22,7 @@
         </header>
     
         <div class="overlay-listing d-flex justify-content-center  pb-5" >
-            <?php
-                $listing = $_GET['listingID'];
-                // echo "<p>$listing</p>";
-            ?>
             <div class='container-fluid row pt-5 pb-5' >
-                <!-- <div class="col-lg-7 pl-5 " id='left'>
-                </div>
-                <div class="col-lg-5 pr-5" id='right'>
-                </div> -->
                 <div class="col-lg-6 text-center container-fluid pr-5 pl-0" id='left'>
                 </div>
                 <div class="col-lg-6 text-center mt-5 " id='right'>
@@ -48,6 +40,9 @@
             header.classList.toggle("sticky", window.scrollY > 0);
         })
         </script>
+        <?php
+            $listing = $_GET['listingID'];
+        ?>
         <script> var id = "<?=$listing ?>";  </script>
         <script src='./js/fetchListing.js'></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

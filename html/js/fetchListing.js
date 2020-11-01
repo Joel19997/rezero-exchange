@@ -10,12 +10,13 @@ request.onreadystatechange = function(){
         console.log(listing);
 
         var id = listing.Lid;
+        var email = listing.email;
         var author = listing.author;
         var availability = listing.availability;
         var description = listing.description;
         var isbn = listing.isbn;
         var title = listing.title;
-        createListing(isbn, author, description, title);
+        createListing(isbn, author, description, title, email);
 
 
         
@@ -26,7 +27,7 @@ request.open("GET", `database/getListingByID.php?id=${id}`, true);
 request.send();
 
 
-function createListing(isbn, author, description, title){
+function createListing(isbn, author, description, title, email){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200){
@@ -40,11 +41,46 @@ function createListing(isbn, author, description, title){
                                     <h1 class='display-4'>${title} <h1>
                                     <h3>by ${author}</h3>
                                  </div>`;
-            right.innerHTML = `<h3 class='mt-3'>${description}</h3>
-                                <button type="button" class="btn btn-primary mt-5">Request Trade</button>
-                                `;
+            
+            right.innerHTML = `<h3 class='mt-3'>${description}</h3>`;
+            fetchUserInfo(email);
         }
     }
     request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
     request.send();
 }
+
+
+function fetchUserInfo(email){
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200){
+        var listing = JSON.parse(this.responseText);
+
+        var lastName = listing.lastName;
+        var firstName = listing.firstName;
+        var telegram = listing.telegram;
+        var email = listing.email;
+
+        var profile = document.createElement('div');
+        profile.className = 'container';
+        profile.innerHTML = `<address class='mt-5'>
+                                <strong>Owner Details:</strong><br>
+                                ${lastName} ${firstName}<br>
+                                Email: ${email}<br>
+                                Telegram Handle: ${telegram}
+                            </address>
+                            <a href="./listingsForTrade.html" role="button"><button type="button" class="btn btn-primary mt-5">Request Trade</button></a>
+                            `;
+        
+        console.log(listing)
+
+        right.appendChild(profile);
+
+
+        
+    }
+}
+request.open("GET", `database/getUserByEmail.php?email=${email}`, true);
+request.send()
+};
