@@ -12,6 +12,7 @@
     {
         echo json_encode(array(
         'Lid' => $result[$i]->getLid(),
+        'email' => $result[$i]->getOwnerEmail(),    
         'isbn' => $result[$i]->getIsbn(),
         "title" => $result[$i]->getTitle(),
         'description' => $result[$i]->getDesc(),
