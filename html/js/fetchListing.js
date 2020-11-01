@@ -36,13 +36,14 @@ function createListing(isbn, author, description, title, email){
             var image = data.imageLinks.thumbnail;
             console.log(image)
             // left.innerHTML = `<img src='${image}' style="width: 45%; height: 85%" class='pl-5'> 
-            left.innerHTML = `<img src='${image}' class='pl-5 w-50'> 
+            left.innerHTML = `<img src='${image}' class='pl-2 w-50 mx-auto'> 
                                 <div class='container mt-3'> 
                                     <h1 class='display-4'>${title} <h1>
                                     <h3>by ${author}</h3>
                                  </div>`;
-            
-            right.innerHTML = `<h3 class='mt-3'>${description}</h3>`;
+             
+            right.innerHTML = `<h2 class='text-center mb-1'>Synopsis</h2>
+            <h4 class='mt-1'>${description}</h4>`;
             fetchUserInfo(email);
         }
     }
