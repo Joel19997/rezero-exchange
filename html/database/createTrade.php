@@ -10,7 +10,7 @@
             #first get seller's ID
             $dao  = new BookListingDAO();
             
-            $myListings = $dao->getListingBylid($book_id);
+            $myListings = $dao->getListingByListingID($book_id);
             $listings = array("listings" => array());
             foreach($myListings as $book)
             {
