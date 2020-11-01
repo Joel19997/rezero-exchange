@@ -53,7 +53,7 @@
             $conn = new ConnectionManager();
             $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
-            $sql = "SELECT * FROM USERS WHERE EMAIL = email)"; 
+            $sql = "select * from users where email = :email"; 
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(":email", $email, PDO::PARAM_STR);
             $stmt->execute();
@@ -67,11 +67,11 @@
                 $telegram = $row['telegram'];       
                 
                 $user = new User($firstName, $lastName, $password, $email, $contactNum, $telegram);
-                $results[] = $user;
+                //$results[] = $user;
             }
             $pdo = null;
             $stmt = null;
-            return $results;
+            return $user;
         }
 
 
