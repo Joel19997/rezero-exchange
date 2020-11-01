@@ -49,8 +49,8 @@ const vm = new Vue({
                         // console.log(authors)
                         // console.log(description);
                         // console.log(genre);
-                        var zoomImage = image.replace('zoom=1', 'zoom=3')
-                        fill(title, authors, description, genre, zoomImage);
+                        // var zoomImage = image.replace('zoom=1', 'zoom=3')
+                        fill(title, authors, description, genre, image);
                         // this.title = title;
                         // this.description = description;
                         
