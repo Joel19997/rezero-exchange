@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS BOOK_LISTING
 	l_id INT(10) NOT NULL AUTO_INCREMENT,
 	owner_email varchar(100) NOT NULL,
 	isbn varchar(255),
-	book_title varchar(50) NOT NULL,
+	book_title varchar(200) NOT NULL,
 	item_desc varchar(3000),
 	author varchar(255),
 	availability int(1) default 1,
@@ -145,10 +145,10 @@ INSERT INTO BOOK_GENRE (l_id, genre) VALUES (8, "Romance");
 #History and Biography
 
 INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author, availability) 
-VALUES ("jackandthebean@hotmail.com", '0593136306', "Agent Sonya: Moscow's Most Daring Wartime Spy", "The true story behind the Cold War’s most intrepid female spy.", "Ben Macintyre",  1);
+VALUES ("jackandthebean@hotmail.com", '0593136306', "Agent Sonya", "The true story behind the Cold War’s most intrepid female spy.", "Ben Macintyre",  1);
 
 INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author, availability) 
-VALUES ("yomhanks@yahoo.com", '1616209100', "Down Along with That Devil's Bones: A Reckoning with Monuments, Memory, and the Legacy of White Supremacy", "In Down Along with That Devil’s Bones, journalist Connor Towne O’Neill takes a deep dive into American history, exposing the still-raging battles over monuments dedicated to one of the most notorious Confederate generals, Nathan Bedford Forrest. Through the lens of these conflicts, O’Neill examines the legacy of white supremacy in America, in a sobering and fascinating work.", "Connor Towne O'Neill",  1);
+VALUES ("yomhanks@yahoo.com", '1616209100', "Down Along with That Devil's Bones", "In Down Along with That Devil’s Bones, journalist Connor Towne O’Neill takes a deep dive into American history, exposing the still-raging battles over monuments dedicated to one of the most notorious Confederate generals, Nathan Bedford Forrest. Through the lens of these conflicts, O’Neill examines the legacy of white supremacy in America, in a sobering and fascinating work.", "Connor Towne O'Neill",  1);
 
 INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author, availability) 
 VALUES ("googleplot@gmail.com", '1948742721',"Clutter: An Untidy History", "I am sitting on the floor in my mother's house, surrounded by stuff. So begins Jennifer Howard's Clutter, an expansive assessment of our relationship to the things that share and shape our lives. Sparked by the painful two-year process of cleaning out her mother's house in the wake of a devastating physical and emotional collapse, Howard sets her own personal struggle with clutter against a meticulously researched history of just how the developed world came to drown in material goods. With sharp prose and an eye for telling detail, she connects the dots between the Industrial Revolution, the Sears & Roebuck catalog, and the Container Store, and shines unsparing light on clutter's darker connections to environmental devastation and hoarding disorder. In a confounding age when Amazon can deliver anything at the click of a mouse and decluttering guru Marie Kondo can become a reality TV star, Howard's bracing analysis has never been more timely.", "Jennifer Howard ", 1);
@@ -163,7 +163,7 @@ INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author, availabi
 VALUES ("infinty@yahoo.com", '1250155932', "Mill Town: Reckoning with What Remains", "A galvanizing and powerful debut, Mill Town is an American story, a human predicament, and a moral wake-up call that asks: what are we willing to tolerate and whose lives are we willing to sacrifice for our own survival?", "Kerri Arsenault", 1);
 
 INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author,  availability) 
-VALUES ("justinbieber@mail.com", '1982128658', "Once I Was You: A Memoir of Love and Hate in a Torn America", "Emmy Award–winning journalist and anchor of NPR’s Latino USA, Maria Hinojosa, tells the story of immigration in America through her family’s experiences and decades of reporting, painting an unflinching portrait of a country in crisis.", "María Hinojosa", 1);
+VALUES ("justinbieber@mail.com", '1982128658', "Once I Was You", "Emmy Award–winning journalist and anchor of NPR’s Latino USA, Maria Hinojosa, tells the story of immigration in America through her family’s experiences and decades of reporting, painting an unflinching portrait of a country in crisis.", "María Hinojosa", 1);
 
 INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author,  availability) 
 VALUES ("justinbieber@mail.com", '0812997131', "JFK: Coming of Age in the American Century, 1917-1956", "A Pulitzer Prize-winning historian takes us as close as we have ever been to the real John F. Kennedy in the first truly definitive biography of the elusive 35th president.", "Fredrik Logevall", 1);
