@@ -14,22 +14,26 @@
             <a href="testHome2.html" class="logo">Re-Zero</a>
             <ul>
                 <li><a href="testHome2.html">Home</a></li>
-                <li><a href="#">Books</a></li>
+                <li><a href="allListings.html">Books</a></li>
                 <li><a href="#">About</a></li>
                 <li class="login"><a href="loginPage.html" >Log In</a></li>
             </ul>
             
         </header>
     
-        <div class="overlay" >
+        <div class="overlay-listing d-flex justify-content-center  pb-5" >
             <?php
                 $listing = $_GET['listingID'];
-                echo "<p>$listing</p>";
+                // echo "<p>$listing</p>";
             ?>
-            <div class='container-fluid row mx-auto pt-5 pb-5' >
-                <div class="col-8" id='left'>
+            <div class='container-fluid row pt-5 pb-5' >
+                <!-- <div class="col-lg-7 pl-5 " id='left'>
                 </div>
-                <div class="col-4" id='right'>
+                <div class="col-lg-5 pr-5" id='right'>
+                </div> -->
+                <div class="col-lg-6 text-center container-fluid pr-5 pl-0" id='left'>
+                </div>
+                <div class="col-lg-6 text-center mt-5 " id='right'>
                 </div>
             </div>
         </div>

@@ -3,9 +3,10 @@
 
     $l_id = $_GET['id'];
 
+
     $dao  = new BookListingDAO();
 
-    $result = $dao->getListingByListingID(8);
+    $result = $dao->getListingByListingID($l_id);
 
     for($i = 0; $i < count($result); $i++)
     {
