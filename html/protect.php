@@ -1,5 +1,4 @@
 <?php
-session_start();
 if ( !isset($_SESSION["user"]) ) {
     // No session variable "user" =>no login
    
@@ -10,4 +9,5 @@ if ( !isset($_SESSION["user"]) ) {
     exit;
 }
 echo("test");
+var_dump($_SESSION);
 ?>
