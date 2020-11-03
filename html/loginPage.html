@@ -1,5 +1,11 @@
+<?php 
+    require 'database/common.php';
+    if ( isset($_SESSION["user"]) ){  
+        // if user tries to be a troll and manually types in log-in url after logging in
+        header("database/profile.html");
+    }
+?>
 <!DOCTYPE html>
-<?php require 'database/common.php' ?>
 <html>
     <head>
         <title>Login Form</title>
@@ -52,7 +58,7 @@
                                 <?php
                                     if ( isset($_SESSION["error"]) ){
                                         echo("<p style='color: red'>" . $_SESSION["error"] . "</p>");
-                                        
+                                        unset($_SESSION["error"]);
                                     }
                                 ?>
                             </div>

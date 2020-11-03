@@ -4,7 +4,7 @@
     //var_dump($_POST['password']);
     
     $dao = new UserDAO();
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     // $allEntries = $dao->retrieveAll();
@@ -30,7 +30,6 @@
         //var_dump($_SESSION); 
         header("Location: ../loginPage.html");
     }
-=======
    
 
     
