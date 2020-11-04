@@ -15,7 +15,12 @@ const vm = new Vue({
         description: '',
         genre: '',
         showImage: false,
-        url: ''
+        url: '',
+        titleValid: true,
+        authorValid: true,
+        descriptionValid: true,
+        genreValid: true,
+        errors: [],
         
 
     },
@@ -28,7 +33,9 @@ const vm = new Vue({
                 this.genre = '';
                 this.author = '';
                 this.url = '';
-                this.showImage = false;
+                this.showImage = false
+
+
     
                 
             }else{
@@ -45,14 +52,7 @@ const vm = new Vue({
                         var description = data.description;
                         var genre = data.categories;
                         var image = data.imageLinks.thumbnail;
-                        // console.log(title);
-                        // console.log(authors)
-                        // console.log(description);
-                        // console.log(genre);
-                        // var zoomImage = image.replace('zoom=1', 'zoom=3')
                         fill(title, authors, description, genre, image);
-                        // this.title = title;
-                        // this.description = description;
                         
                     }
                 }
@@ -67,6 +67,22 @@ const vm = new Vue({
             this.author = authors;
             this.url = image;
             this.showImage = true;
+        },
+        validateForm: function(){
+            if (this.title && this.author) {
+                return true;
+              }
+        
+              this.errors = [];
+        
+              if (!this.author) {
+                this.errors.push('Author required.');
+              }
+              if (!this.title) {
+                this.errors.push('Title required.');
+              }
+        
+              event.preventDefault();
         }
     }
 })

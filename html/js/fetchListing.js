@@ -42,7 +42,7 @@ function createListing(isbn, author, description, title, email){
                                     <h3>by ${author}</h3>
                                  </div>`;
              
-            right.innerHTML = `<h2 class='text-center mb-1'>Synopsis</h2>
+            right.innerHTML = `<h2 class='text-center mb-1'><u>Synopsis</u></h2>
             <h4 class='mt-1'>${description}</h4>`;
             fetchUserInfo(email);
         }
@@ -65,12 +65,12 @@ function fetchUserInfo(email){
 
         var profile = document.createElement('div');
         profile.className = 'container';
-        profile.innerHTML = `<address class='mt-5'>
-                                <strong>Owner Details:</strong><br>
+        profile.innerHTML = `<h5 class='mt-5'>
+                                <strong><u>Owner Details:</u></strong><br>
                                 ${lastName} ${firstName}<br>
                                 Email: ${email}<br>
                                 Telegram Handle: ${telegram}
-                            </address>
+                            </h5>
                             <a href="./listingsForTrade.html" role="button"><button type="button" class="btn btn-primary mt-5">Request Trade</button></a>
                             `;
         
