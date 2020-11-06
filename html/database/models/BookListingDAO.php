@@ -399,6 +399,27 @@
             return $isOk;
         }
 
+
+        public function createListing($l_id, $email, $title, $isbn, $description, $author, $availability)
+        {
+            $conn = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = "INSERT INTO book_listing (l_id, email, title, isbn, description, author, availability) 
+            VALUES(:l_id, :email, :title, :isbn, :description, :author, :availability)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(":l_id", $l_id, PDO::PARAM_INT);
+            $stmt->bindParam(":email",$email, PDO::PARAM_STR);
+            $stmt->bindParam(":title",$title, PDO::PARAM_STR);
+            $stmt->bindParam(":isbn",$isbn, PDO::PARAM_INT);
+            $stmt->bindParam(":description",$description, PDO::PARAM_STR);
+            $stmt->bindParam(":author",$author, PDO::PARAM_STR);
+            $stmt->bindParam(":availability",$availability, PDO::PARAM_STR);
+            $isAddOk = $stmt->execute();
+            $pdo = null;
+            $stmt = null;
+            return $isAddOk;
+        }
+
      }//end of class
 
 

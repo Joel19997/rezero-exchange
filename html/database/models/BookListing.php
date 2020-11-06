@@ -77,6 +77,11 @@
             return $this->author;
         }
 
+        public function setAuthor()
+        {
+            $this->author = $author;
+        }
+
     }
 
 

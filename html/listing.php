@@ -23,16 +23,12 @@
     
         <div class="overlay-listing d-flex justify-content-center  pb-5" >
             <div class='container-fluid row pt-5 pb-5' >
-                <div class="col-lg-6 text-center container-fluid pr-5 pl-0" id='left'>
+                <div class="col-lg-5 text-center container-fluid " id='left'>
                 </div>
-                <div class="col-lg-6 text-center mt-5 " id='right'>
+                <div class="col-lg-7 text-center mt-3 " id='right'>
                 </div>
             </div>
         </div>
-
-        
-
-
 
         <script type="text/javascript">
         window.addEventListener("scroll", function(){
