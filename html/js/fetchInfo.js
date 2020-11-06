@@ -26,6 +26,7 @@ const vm = new Vue({
         getInfo: function(){
             event.preventDefault();
             if (this.isbn === ''){
+                this.isbnError = true;
                 this.title = '';
                 this.description = '';
                 this.genre = '';
@@ -81,23 +82,39 @@ const vm = new Vue({
 
               if (!this.author) {
                 this.authorError = true;
+                event.preventDefault();
+              }else{
+                  this.authorError = false;
               }
               if (!this.isbn) {
                 this.isbnError = true;
+                event.preventDefault();
+              }else{
+                  this.isbnError = false;
               }
               if (!this.title) {
                 this.titleError = true;
+                event.preventDefault();
+              }else{
+                  this.titleError = false;
               }
               if (!this.genre) {
                 this.genreError = true;
+                event.preventDefault();
+              }else{
+                  this.genreError = false;
               }
               if (!this.description) {
                 this.descriptionError = true;
+                event.preventDefault();
+              }else{
+                  this.descriptionError = false;
               }
-              event.preventDefault();
+            //   
         }, 
         invalidISBN: function(){
             this.isbnInvalid = true;
+            this.isbnError = false;
             this.title = '';
             this.description = '';
             this.genre = '';

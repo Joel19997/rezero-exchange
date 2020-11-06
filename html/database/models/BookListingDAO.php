@@ -370,11 +370,10 @@
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':l_id', $l_id, PDO::PARAM_STR);
             $stmt->bindParam(':genre', $genre, PDO::PARAM_STR);
-            $stmt->execute();
-            $isOk = FALSE;
-            $stmt = null;
+            $isAddOk = $stmt->execute();
             $pdo = null;
-            return $isOk;
+            $stmt = null;
+            return $isAddOk;
         }
 
         function updateAvailability($l_id,$status)//1 = available, 2 = Pending, 3 = rejected
@@ -398,14 +397,13 @@
             // STEP 5
             return $isOk;
         }
-
-
+        
+        
         public function createListing($l_id, $email, $title, $isbn, $description, $author, $availability)
         {
-            $conn = new ConnectionManager();
+            $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
-            $sql = "INSERT INTO book_listing (l_id, email, title, isbn, description, author, availability) 
-            VALUES(:l_id, :email, :title, :isbn, :description, :author, :availability)";
+            $sql = 'INSERT INTO book_listing (l_id, owner_email, isbn, book_title, item_desc, author, availability) VALUES (:l_id, :email, :isbn, :title, :description, :author, :availability)';
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(":l_id", $l_id, PDO::PARAM_INT);
             $stmt->bindParam(":email",$email, PDO::PARAM_STR);
@@ -414,10 +412,27 @@
             $stmt->bindParam(":description",$description, PDO::PARAM_STR);
             $stmt->bindParam(":author",$author, PDO::PARAM_STR);
             $stmt->bindParam(":availability",$availability, PDO::PARAM_STR);
+            var_dump($stmt);
             $isAddOk = $stmt->execute();
             $pdo = null;
             $stmt = null;
             return $isAddOk;
+        }
+
+        public function getMaxListingID(){
+            $connManager = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = 'SELECT max(l_id) from book_listing';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            
+            while ($row = $stmt->fetch()){
+                $results = $row['max(l_id)'];
+            }
+            $pdo = null;
+            $stmt = null;
+            return $results;
+
         }
 
      }//end of class
