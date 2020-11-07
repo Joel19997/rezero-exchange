@@ -8,9 +8,10 @@
         private $genre;
         private $availability;
         private $author;
+        private $additional_images;
         
 
-        public function __construct($l_id, $ownerEmail, $book_title, $isbn, $genre, $listing_desc, $availability, $author){
+        public function __construct($l_id, $ownerEmail, $book_title, $isbn, $genre, $listing_desc, $availability, $author, $additional_images ){
             $this->l_id = $l_id;
             $this->ownerEmail = $ownerEmail;
             $this->book_title = $book_title;
@@ -19,6 +20,7 @@
             $this->isbn = $isbn;
             $this->availability = $availability;
             $this->author = $author;
+            $this->additional_images = $additional_images;
         }
         
 
@@ -76,6 +78,22 @@
         {
             return $this->author;
         }
+
+        public function setAuthor($author)
+        {
+            $this->author = $author;
+        }
+
+        public function setAdditionalImages($additional_images)
+        {
+            $this->additional_images = $additional_images;
+        }
+
+        public function getAdditionalImages()
+        {
+            return $this->additional_images;
+        }
+
 
     }
 
