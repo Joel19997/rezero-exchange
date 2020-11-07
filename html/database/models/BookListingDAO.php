@@ -57,8 +57,9 @@
                 $itemDesc = $row['item_desc'];  
                 $availability = $row['availability'];    
                 $author = $row['author'];
+                $additional_images = $row['additional_images'];
                 
-                $user = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
+                $user = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
                 $results[] = $user;
             }
             $pdo = null;
@@ -109,9 +110,10 @@
                 $bookTitle = $row['book_title'];  
                 $itemDesc = $row['item_desc'];  
                 $availability = $row['availability'];     
+                $additional_images = $row['additional_images'];
 
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
                 $results[] = $book;
 
 
@@ -153,9 +155,10 @@
                 $itemDesc = $row['item_desc'];  
                 $availability = $row['availability'];
                 $author = $row['author'];
+                $additional_images = $row['additional_images'];
        
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
                 $results[] = $book;
 
 
@@ -197,9 +200,11 @@
                 $itemDesc = $row['item_desc'];  
                 $availability = $row['availability'];    
                 $author = $row['author'];
+                $additional_images = $row['additional_images'];
+
    
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
                 $results[] = $book;
 
 
@@ -240,10 +245,12 @@
                 $itemDesc = $row['item_desc'];  
                 $availability = $row['availability']; 
                 $author = $row['author'];
+                $additional_images = $row['additional_images'];
+
 
                       
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
                 $results[] = $book;
 
 
@@ -283,9 +290,11 @@
                 $bookTitle = $row['book_title'];  
                 $itemDesc = $row['item_desc'];  
                 $author = $row['author'];
-                $availability = $row['availability'];       
+                $availability = $row['availability'];     
+                $additional_images = $row['additional_images'];
+  
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
                 $results[] = $book;
 
 
@@ -329,9 +338,10 @@
                 $bookTitle = $row['book_title'];  
                 $itemDesc = $row['item_desc'];  
                 $availability = $row['availability'];   
-                $author = $row['author'];    
+                $author = $row['author'];  
+                $additional_images = $row['additional_images'];
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
                 $results[] = $book;
             }
             $pdo = null;
@@ -399,11 +409,11 @@
         }
         
         
-        public function createListing($l_id, $email, $title, $isbn, $description, $author, $availability)
+        public function createListing($l_id, $email, $title, $isbn, $description, $author, $availability, $additional_images)
         {
             $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
-            $sql = 'INSERT INTO book_listing (l_id, owner_email, isbn, book_title, item_desc, author, availability) VALUES (:l_id, :email, :isbn, :title, :description, :author, :availability)';
+            $sql = 'INSERT INTO book_listing (l_id, owner_email, isbn, book_title, item_desc, author, availability, additional_images) VALUES (:l_id, :email, :isbn, :title, :description, :author, :availability, :additional_images)';
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(":l_id", $l_id, PDO::PARAM_INT);
             $stmt->bindParam(":email",$email, PDO::PARAM_STR);
@@ -412,6 +422,7 @@
             $stmt->bindParam(":description",$description, PDO::PARAM_STR);
             $stmt->bindParam(":author",$author, PDO::PARAM_STR);
             $stmt->bindParam(":availability",$availability, PDO::PARAM_STR);
+            $stmt->bindParam(":additional_images",$additional_images, PDO::PARAM_INT);
             var_dump($stmt);
             $isAddOk = $stmt->execute();
             $pdo = null;

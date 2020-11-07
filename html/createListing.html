@@ -103,8 +103,9 @@
                                     <div v-if='genreError' class='error text-danger'>Please enter a genre</div>
                                 </div>   
                                 <div class="form-group">
-                                    <label for="formControlFile1">[OPTIONAL] Add your image (<b>JPG</b> files only)</label>
-                                    <input type="file" name="file" class="form-control-file" id="formControlFile1">
+                                    <label for="formControlFile1">[OPTIONAL] Add any images you have (<b>JPG</b> or <b>PNG</b> files only)</label>
+                                    <input type="file" name="file[]" class="form-control-file" id="formControlFile1">
+                                    <input type="file" name="file[]" class="form-control-file" id="formControlFile1">
                                 </div>                             
                             </div>
                         </div>
