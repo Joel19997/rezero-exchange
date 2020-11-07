@@ -45,7 +45,7 @@
                 <h1>Add A Listing</h1>
                 <p>Simply enter the ISBN of the book that you are trying to list and we will fill up the rest of the fields for you.</p>
                 <div class='form'>
-                    <form action='' method="POST" enctype="multipart/form-data" @submit='validateForm'>
+                    <form action='./database/addListing.php' method="POST" enctype="multipart/form-data" @submit='validateForm'>
                         <!-- <div v-if="errors.length" >
                             <b>Please correct the following error(s):</b>
                             <ul>
@@ -56,7 +56,7 @@
                             <div class='col-6'>
                                 <div class="form-group">
                                     <label for="ISBN">ISBN</label>
-                                    <input v-model='isbn' type="text" class="form-control" id="ISBN" aria-describedby="emailHelp">
+                                    <input v-model='isbn' type="text" class="form-control" name="ISBN" aria-describedby="emailHelp">
                                     <div v-if='isbnError' class='error text-danger' >Please enter an ISBN number</div>
                                     <div v-if='isbnInvalid' class='error text-danger' >Please enter a valid ISBN number</div>
                                 </div>          
@@ -76,14 +76,14 @@
                             <div class='col-6'>
                                 <div class="form-group">
                                     <label for="title">Book Title</label>
-                                    <input v-model='title' type="text" class="form-control" id="title" aria-describedby="emailHelp" >
+                                    <input v-model='title' type="text" class="form-control" name="title" aria-describedby="emailHelp" >
                                     <div v-if='titleError' class='error text-danger'>Please enter a book title</div>
                                   </div>          
                             </div>
                             <div class='col-6'>
                                 <div class="form-group">
                                     <label for="author">Author</label>
-                                    <input v-model='author' type="text" class="form-control" id="author" aria-describedby="emailHelp">
+                                    <input v-model='author' type="text" class="form-control" name="author" aria-describedby="emailHelp">
                                     <div v-if='authorError' class='error text-danger'>Please enter at least one author</div>
                                   </div>          
                             </div>
@@ -92,19 +92,20 @@
                             <div class='col-6'>
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <textarea v-model='description' type="text" class="form-control" id="description" aria-describedby="emailHelp" style='height: 150px;'></textarea>
+                                    <textarea v-model='description' type="text" class="form-control" name="description" style='height: 150px;'></textarea>
                                     <div v-if='descriptionError' class='error text-danger'>Please enter a book description. No spoilers though!</div>
                                   </div>          
                             </div>
                             <div class='col-6'>
                                 <div class="form-group">
                                     <label for="genre">Genre</label>
-                                    <input v-model='genre' type="text" class="form-control" id="genre" aria-describedby="emailHelp">
+                                    <input v-model='genre' type="text" class="form-control" name="genre" aria-describedby="emailHelp">
                                     <div v-if='genreError' class='error text-danger'>Please enter a genre</div>
                                 </div>   
                                 <div class="form-group">
-                                    <label for="formControlFile1">[OPTIONAL] Add your image (<b>JPG</b> files only)</label>
-                                    <input type="file" name="file" class="form-control-file" id="formControlFile1">
+                                    <label for="formControlFile1">[OPTIONAL] Add any images you have (<b>JPG</b> or <b>PNG</b> files only)</label>
+                                    <input type="file" name="file[]" class="form-control-file" id="formControlFile1">
+                                    <input type="file" name="file[]" class="form-control-file" id="formControlFile1">
                                 </div>                             
                             </div>
                         </div>
