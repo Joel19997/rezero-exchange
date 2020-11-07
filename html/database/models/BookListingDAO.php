@@ -118,17 +118,22 @@
                 for($z = 0; $z < count($results); $z++)
                 {
                     $genre = $this->getListingGenre($results[$z]->getLid());
-                    if($results[$z]->getGenre() == "")
+
+                    if(count($genre) == 1)
                     {
-                        $results[$z]->setGenre($genre);
+                        $results[$z]->setGenre($genre[0]);
                     }
-                    else
+                    
+                    if(count($genre) > 1)
                     {
-                        $currGenre = $results[$z]->getGenre();
-                        $results[$z]->setGenre($currGenre . ", " . $genre);
+                        for($g = 1; $g < count($genre); $g++)
+                        {
+                            $gen = $results[$z]->getGenre();
+                            $results[$z]->setGenre($gen . ", " . $genre[$g]);
+                        }
                     }
                 }
-
+                //var_dump($results);
             }
             $pdo = null;
             $stmt = null;
