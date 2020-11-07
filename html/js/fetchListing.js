@@ -16,7 +16,8 @@ request.onreadystatechange = function(){
         var description = listing.description;
         var isbn = listing.isbn;
         var title = listing.title;
-        createListing(isbn, author, description, title, email);
+        var additionalImages = listing.additional_images;
+        createListing(isbn, author, description, title, email, additionalImages);
 
 
         
@@ -27,7 +28,7 @@ request.open("GET", `database/getListingByID.php?id=${id}`, true);
 request.send();
 
 
-function createListing(isbn, author, description, title, email){
+function createListing(isbn, author, description, title, email, additional_images){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200){

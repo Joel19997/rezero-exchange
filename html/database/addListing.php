@@ -82,7 +82,7 @@
     }
     elseif ($uploadOk === 0){
         // redirects back to add listing page with error 
-        // header("Location: posts.html");
+        header("Location: ../createListing.html?error=true");
         echo "negative image is ok ";
 
     }
