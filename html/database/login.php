@@ -1,7 +1,7 @@
 <?php
     require_once "common.php";
-    //var_dump($_POST['username']);
-    //var_dump($_POST['password']);
+    // var_dump($_POST['email']);
+    // var_dump($_POST['password']);
     
     $dao = new UserDAO();
     $email = $_POST['email'];
@@ -22,7 +22,7 @@
     if ($status){
         
         $_SESSION["user"] = $email;
-        header("Location: ../testHome2.html");
+        header("Location: ../testHome.html");
     }
     else{
         
