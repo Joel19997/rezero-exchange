@@ -4,9 +4,9 @@
 
     $dao = new BookListingDAO();
     $searching = $_GET["book_title"];
-
-    $result = $dao->getListingByTitle("cemetery");
-    var_dump($result);
+    //echo($searching);
+    $result = $dao->getListingByTitle($searching);
+    //var_dump($result);
     $searched_books = [];
     for($i = 0; $i < count($result); $i++)
     {
@@ -14,6 +14,6 @@
         array_push($searched_books,$temp_Lid);
 
     }
-    var_dump($searched_books);
+    //var_dump($searched_books);
     echo json_encode($searched_books);
 ?>
