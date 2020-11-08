@@ -36,7 +36,8 @@
         <div class = 'container-fluid-sm'>
         <div class="overlay" style="background-color:#8f846f;position:relative;" >
             <div id = 'transactionMessage'></div>
-            <div id = 'resultStatus' style='margin-top:20px'></div>
+            <div><span id = 'resultStatus' style='margin-top:20px'></span><button class = 'btn btn-danger' id ='createListing' style = 'position:absolute;right:20px;top:30px' onclick = 'createListing()'><nobr><span style = font-size:20px;font-weight:bold>+</span>  Add new listing </nobr></button></div>
+            
             <div id = 'displayTable'></div>
            
         </div>
@@ -74,13 +75,13 @@
                 }
                 else
                 {
-                    document.getElementById('resultStatus').innerHTML = '<h1 style = margin-bottom:-20px>Available listings to trade</h1></br><h2 style = margin-bottom:-50px>You have '+myList['listing'].length+' listings to choose from:<h2>';
+                    document.getElementById('resultStatus').innerHTML = '<h1 style="margin-bottom:-50px">Your current listings: <h1><br><h2 style = margin-bottom:-50px>You have currently '+myList['listing'].length+' book listed for trade<h2>';
                 let counter =1;
                 output +='<thead><tr style ="background-color:#463f3a">';
                 output+='<th scope="col" >#</th>';
                 output+='<th scope="col" style ="max-width:100px"><h4>Image</h4></th>';
                 output+='<th scope="col" style ="max-width:200px"><h4>Book</h4></th>';
-                output+='<th scope="col"><h4>Trade book</h4></th></tr></thead><tbody class = "panel">';
+                output+='</thead><tbody class = "panel">';
                 for( var i=0;i<myList['listing'].length;i++)
                 {
                     //main row of table
@@ -89,7 +90,7 @@
                     output+='<td scope="col" id = "main_image'+i+'"></td>';
                     output+='<td scope="col"><h3>'+myList['listing'][i]['title']+'</h3></br><p style = "margin-top:-30px"> ISBN: '+myList['listing'][i]['isbn']+'</p></br><p style = "margin-top:-30px"> Author: '+myList['listing'][i]['author']+'</p></td>';
                     selected = myList['listing'][i]['lid']
-                    output +=`<td scope="col"><button type = "button" class = "btn btn-lg" style ='color:white; background-color:#60d394 ;margin-left:30px;margin-top:40px'onclick = "createTradeReq(${selected})">Trade</button></td></tr>`;
+                    output +=`</tr>`;
                     //additional expand information
                     //Need to collect data about the book
                     let book_isbn = myList['listing'][i]['isbn'];
@@ -136,34 +137,7 @@
             createTradeReq(selected)
         }
     }
-   function createTradeReq(selected)
-   {
-        //$username = $_SESSION['username'];
-        //$book_id = $_POST['bookID'];// get post value from previous page
-        
-            let username ="infinty@yahoo.com";
-            let book_id = 4;
-            
-            var request = new XMLHttpRequest();
-            
-            request.onreadystatechange = function()
-            {
-                console.log('request created');
-                if(this.readyState == 4 && this.status == 200)
-                {
-                    
-                    console.log(this.responseText);
-                    window.location.href = "myCurrentListings.html";
-                }
-            }
-            let url = "./database/createTrade.php";
-            request.open("POST",url, true);
-            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            request.send("username="+username+"&book_id="+book_id+"&my_book_id="+selected);
-        
-        
-   
-}
+  
     function displayMainImage(isbn,i){
         var request= new XMLHttpRequest();
         let image ='';
@@ -233,7 +207,10 @@
         }
         }
 
-
+    function createListing()
+    {
+        window.location.href = "placeHolder.html";
+    }
     
 
 

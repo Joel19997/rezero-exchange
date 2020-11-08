@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="testHome2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://mdbootstrap.com/docs/standard/data/tables/" target="_blank">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="body1" onload='getData()'>
+    <header class="header1">
+        <a href="testHome2.html" class="logo">Re-Zero</a>
+        <ul>
+            <li><a href="testHome2.html">Home</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">About</a></li>
+            <li class="login"><a href="loginPage.html">Log In</a></li>
+
+        </ul>
+        <style>
+
+            
+            .table th, .table td { 
+                border-top: none !important; 
+                }
+            tr:nth-child(even) {background-color: #704148;}
+
+        </style>
+    </header>
+
+
+    </div>
+    <div class="overlay">
+        <div class = "container-fluid" id='resultStatus' style='margin-bottom:-8px;background-color:brown'></div>
+        <div id='displayTable'></div>
+        <!-- <div class="container">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div> -->
+
+    </div>
+    
+        <div class="modal fade" id="booksInformation" tabindex="-1" role="dialog" aria-labelledby="booksInformation" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-title"><p id = 'mod-title'></p></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"onclick = 'removeData()'>
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                                <div class = "row">
+                                    <div class ="col-sm-6" id ='modal-image'>
+
+                                    </div>
+                                    <div class = "col-sm-6" id = 'modal-desc'>
+
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class ="col-sm-12" id ='modal-info'>
+
+                                    </div>
+                                </div>
+                                
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id = 'readMore'></div>
+                </div>
+              </div>
+            </div>
+      
+        
+    </body>
+    
+  
+
+
+    <script type="text/javascript">
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+
+    </script>
+    <script>
+        //Call to populate data on load
+        //$username = $_SESSION['username'];
+        //$book_id = $_POST['bookID'];// get post value from previous page
+        var img = '';
+        function getData() {
+            let username = "yomhanks@yahoo.com";
+            let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white">';
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    let myList = JSON.parse(this.responseText);
+                    if (myList['trades'].length == 0) {
+                        document.getElementById('resultStatus').innerHTML = '<h2>You do not have any trade!<h2>';
+                    }
+                    else {
+                        
+                        document.getElementById('resultStatus').innerHTML = '<h2>You have ' + myList['trades'].length + ' listings to choose from:<h2>';
+                        
+                        output += '<thead><tr>';
+                        output += '<th scope="col"></th>';
+                        output += '<th scope="col" style = max-width: 200px>User</th>';
+                        output += '<th scope="col">Would like to trade</th>';
+                        output += '<th scope="col">For your book</th>';
+                        output += '<th scope="col" style="margin-left:20px">Action</th></tr></thead><tbody class = "panel">';
+                        let idArr =[];
+                        for (var i = 0; i < myList['trades'].length; i++) {
+                            
+                            idArr.push(getBookBylid(myList['trades'][i]['s_lid'], i));
+                            idArr.push(getBookBylid(myList['trades'][i]['f_lid'], i));
+                            //main row of table
+                            output += '<tr  data-toggle="collapse" data-target="#demo' + i + '" data-parent="#myTable"><td class="expand-button"></td>';
+                            let myBook = 'myBook'+i;
+                            output += '<td scope="col" ><p id = "username' + i + '" style ="margin:30px 0px 20px 0px"></p></td>';
+                            output += '<td scope="col"> <p id = "hisBook' + i + '"></p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#booksInformation" onclick = "generateModal(' + i + ',' + myList['trades'][i]['s_lid'] + ')">Book info</button></td> ';
+                            output += '<td scope="col" style = "max-width:200px"> <p id = "' + myBook+ '"></p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#booksInformation" onclick = "generateModal(' + i + ',' + myList['trades'][i]['f_lid'] + ')">Book info</button></td>';
+                            output += '<td scope="col"><button type = "button" class = "btn bg-success" style ="color:white ;display: flex;margin-top:10px">Accept</button><button type = "button" class = "btn bg-danger" style ="color:white; margin-top:10px">Reject</button></td></tr>';
+
+                            //output+= '<tr id="demo'+i+'" class="collapse"><td colspan="2" class="hiddenRow"><p id = "userDescription'+i+'" style =margin-left:80px ></p><td></td><td></td><td></td></tr>';
+                            getUserParticulars(myList['trades'][i]['s_email'], i);
+                            getBookBylid( myList['trades'][i]['f_lid'],i);
+                            getBookBylid2(myList['trades'][i]['s_lid'],i);
+                           
+                            
+                        }
+
+                            // populate with owner first +last name, email, contact and tele
+                        
+                        output += '</tbody></table></div>';
+
+                        
+
+                        document.getElementById('displayTable').innerHTML = output;
+                    }
+                }
+
+            }
+            let url = 'database/tradeRequest.php';
+            request.open("POST", url, true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send("username=" + username);
+           
+        };
+        
+
+        function generateModal(i, book_id) {
+            $('#booksInformation').modal('toggle');
+
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //console.log(this.responseText);
+                    let data = JSON.parse(this.responseText);
+                   // console.log('this->' + data['listing'][0]['title']);
+                    let title = data['listing'][0]['title'];
+                    
+                    let display = document.getElementById('mod-title');
+                   // console.log('get'+title);
+                    display.innerHTML = title;
+                    let desc = '';
+                    let isbn = data['listing'][0]['isbn'];
+                    let author = data['listing'][0]['author'];
+                    let description = data['listing'][0]['description'];
+                    document.getElementById('modal-desc').innerHTML = '<p><b>ISBN: </b> '+isbn+'</p></br><p><b>Author: </b>'+author+'</p>';
+                    //document.getElementById('modal-info').innerHTML ='<b>Sypnosis</b><p>'+description+'</p>';
+                    //document.getElementsByClassName('modal-footer')[0]= '<tr id="demo'+i+'" class="collapse"><td colspan="2" class="hiddenRow"><div id = "'+img+'"></div> </td><td colspan="2" class="hiddenRow"><div id = "'+desc+'"> Sypnosis</div> </br><button class = "btn btn-info" onclick="readSettings('+i+')" id="'+read+'">Read more</button></td></tr>';
+                    
+                    document.getElementById('readMore').innerHTML = ' <button class = "btn btn-info" onclick="readSettings()" id="read">Read more</button></td>';
+
+                    getBookDataForModal(isbn);
+                
+                    
+                }
+            }
+            request.open("POST", 'database/getBookByLid.php', true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send('book_id=' + book_id);
+        }
+        function getBookDataForModal(isbn) {
+
+            var request = new XMLHttpRequest();
+            let image = '';
+            request.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText).items[0].volumeInfo;
+                    image = data.imageLinks.thumbnail;
+                    let description = data.description;
+                    document.getElementById('modal-image').innerHTML = '<img src=' + image + 'style="height: 300px; margin-left:50px"  >';
+                    if (description.length == 0) {
+                        document.getElementById('modal-info').innerHTML = 'No description';
+                    }
+                    else {
+                        document.getElementById('modal-info').innerHTML = '<b>Sypnosis</b></br><p style=text-align:justify;>' + description.slice(0, 300) + '<span id="dots">...</span><span id="more" style = "display: none">' + description.slice(300, description.length) + '</span></p>';
+                    }
+                }
+            }
+            request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
+            request.send();
+        }
+
+        function getUserParticulars(email, i) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                console.log('user Found');
+                if (this.readyState == 4 && this.status == 200) {
+                    let $userData = JSON.parse(this.responseText);
+                    console.log($userData);
+                    let $userName = $userData['user'][0]['lastName'] + ' ';
+                    $userName += $userData['user'][0]['firstName'];
+                    document.getElementById('username'+i).innerHTML =$userName;
+                    $docEle = 'username' + i;
+                    console.log($docEle);
+                
+                }
+            }
+            let url = "database/getTradeUserInfo.php";
+            request.open("POST", url, true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send("email=" + email);
+
+
+        }
+        function createTradeReq(selected) {
+            //$username = $_SESSION['username'];
+            //$book_id = $_POST['bookID'];// get post value from previous page
+            let username = "infinty@yahoo.com";
+            let book_id = 4;
+            var request = new XMLHttpRequest();
+
+            request.onreadystatechange = function () {
+                console.log('request created');
+                if (this.readyState == 4 && this.status == 200) {
+
+                    console.log(this.responseText);
+                    location.reload();
+                }
+            }
+            let url = "database/createTrade.php";
+            request.open("POST", url, true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send("username=" + username + "&book_id=" + book_id + "&my_book_id=" + selected);
+
+
+        }
+        function getBookBylid(book_id, i)//called By getData()
+        {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //console.log(this.responseText);
+                    let data = JSON.parse(this.responseText);
+                    console.log('this->' + data['listing'][0]['title']);
+                    let title = data['listing'][0]['title'];
+                    document.getElementById('myBook' + i).innerHTML = '<p> Title: ' + data['listing'][0]['title'] + '</p></br><p style =margin-top:-30px> ISBN: ' + data['listing'][0]['isbn'] + '</P>';
+                }
+            }
+            request.open("POST", 'database/getBookByLid.php', true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send('book_id=' + book_id);
+        }
+        function getBookBylid2(book_id, i)//called By getData()
+        {
+            console.log('called', book_id);
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //console.log(this.responseText);
+                    let data = JSON.parse(this.responseText);
+                    console.log('this->' + data['listing'][0]['title']);
+                    let title = data['listing'][0]['title'];
+                    document.getElementById('hisBook' + i).innerHTML = '<p> Title: ' + data['listing'][0]['title'] + '</p></br><p style =margin-top:-30px> ISBN: ' + data['listing'][0]['isbn'] + '</P>';
+                }
+            }
+            request.open("POST", 'database/getBookByLid.php', true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send('book_id=' + book_id);
+        }
+
+        function getBookFromApi(isbn, img, desc) {
+
+            var request = new XMLHttpRequest();
+            let image = '';
+            request.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText).items[0].volumeInfo;
+                    image = data.imageLinks.thumbnail;
+                    console.log(data);
+                    /*if(cb) cb(image);*/
+                    let description = data.description;
+                    console.log(description);
+                    document.getElementById(img).innerHTML = '<img src=' + image + 'style="height: 300px; margin-left:50px"  >';
+                    if (description.length == 0) {
+                        document.getElementById(desc).innerHTML = 'No description';
+                    }
+                    else {
+                        document.getElementById(desc).innerHTML = '<b>Sypnosis</b></br><p style=text-align:justify;>' + description.slice(0, 300) + '<span id="dots">...</span><span id="more" style = "display: none">' + description.slice(300, description.length) + '</span></p>';
+                    }
+                }
+            }
+            request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
+            request.send();
+
+        }
+
+        function readSettings() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("read");
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+
+            }
+        }
+
+
+        function removeData()
+        {
+            document.getElementById('modal-image').innerHTML = '';
+            document.getElementById('modal-desc').innerHTML = '';
+            document.getElementById('modal-info').innerHTML = '';
+
+        }
+
+    
+    </script>
+
+
+
+</html>
