@@ -1,5 +1,3 @@
-
-        
 <?php
             require_once "common.php";
 
@@ -10,7 +8,7 @@
             #first get seller's ID
             $dao  = new BookListingDAO();
             
-            $myListings = $dao->getListingByListingID($book_id);
+            $myListings = $dao->getListingBylid($book_id);
             $listings = array("listings" => array());
             foreach($myListings as $book)
             {
