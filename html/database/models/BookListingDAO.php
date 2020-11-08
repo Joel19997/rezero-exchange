@@ -420,12 +420,12 @@
                 $ownerEmail = $row['owner_email'];
                 $isbn = $row['isbn'];
                 $bookTitle = $row['book_title'];  
-                $itemDesc = $row['item_desc'];  
+                //$itemDesc = $row['item_desc'];  
                 $availability = $row['availability'];   
                 $author = $row['author'];  
                 $additional_images = $row['additional_images'];
                 
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , '', $availability, $author, $additional_images);
                 $results[] = $book;
             }
             $pdo = null;
