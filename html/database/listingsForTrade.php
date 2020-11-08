@@ -3,8 +3,8 @@
 
             //$book_id = $_GET["book_id"]; #get post value from previous page
             //$user = $_SESSION['email'];
-            $user = $_POST["username"];
-
+            //$user = $_POST["username"];
+            $user = 'yomhanks@yahoo.com';
             // $user = 'infinty@yahoo.com';
 
             //$user ="infinty@yahoo.com";
@@ -22,7 +22,7 @@
                     'lid' => $book->getLid(),
                     'isbn' => $book->getIsbn(),
                     "title" => $book->getTitle(),
-                    'description' => $book->getDesc(),
+                   
                     "availability" => $book->getAvailability(),
                     'author' => $book->getAuthor(),
                     
