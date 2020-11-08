@@ -8,5 +8,7 @@
     for($i = 0; $i < count($result); $i++)
     {
         echo $result[$i]->getTitle();
+        echo "</br>";
+
     }
 ?>

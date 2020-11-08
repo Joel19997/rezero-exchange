@@ -147,8 +147,9 @@
         {
             $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
-            $sql = "select * from book_listing where owner_email = :email";
+            $sql = "select * from book_listing where owner_email like :email";
             $stmt = $pdo->prepare($sql);
+            $email = '%' . $email . '%';
             $stmt->bindParam(":email", $email, PDO::PARAM_STR);
             $stmt->execute();
             $results = [];
@@ -167,33 +168,52 @@
                 $results[] = $book;
 
 
+                // for($z = 0; $z < count($results); $z++)
+                // {
+                //     $genre = $this->getListingGenre($results[$z]->getLid());
+                //     if($results[$z]->getGenre() == "")
+                //     {
+                //         $results[$z]->setGenre($genre);
+                //     }
+                //     else
+                //     {
+                //         $currGenre = $results[$z]->getGenre();
+                //         $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                //     }
+                // }
                 for($z = 0; $z < count($results); $z++)
                 {
                     $genre = $this->getListingGenre($results[$z]->getLid());
-                    if($results[$z]->getGenre() == "")
+
+                    if(count($genre) == 1)
                     {
-                        $results[$z]->setGenre($genre);
+                        $results[$z]->setGenre($genre[0]);
                     }
-                    else
+                    
+                    if(count($genre) > 1)
                     {
-                        $currGenre = $results[$z]->getGenre();
-                        $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                        for($g = 1; $g < count($genre); $g++)
+                        {
+                            $gen = $results[$z]->getGenre();
+                            $results[$z]->setGenre($gen . ", " . $genre[$g]);
+                        }
                     }
                 }
-
             }
+            var_dump($results);
             $pdo = null;
             $stmt = null;
             return $results;
         }
 
-
+        // Unable to get it to work
         function getListingByTitle($title)
         {
             $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
-            $sql = "select * from book_listing where book_title = :title";
+            $sql = "select * from book_listing where book_title like :title";
             $stmt = $pdo->prepare($sql);
+            $title = '%' . $title . '%';
             $stmt->bindParam(":title", $title, PDO::PARAM_STR);
             $stmt->execute();
             $results = [];
@@ -213,21 +233,40 @@
                 $results[] = $book;
 
 
+                // for($z = 0; $z < count($results); $z++)
+                // {
+                //     $genre = $this->getListingGenre($results[$z]->getLid());
+                //     if($results[$z]->getGenre() == "")
+                //     {
+                //         $results[$z]->setGenre($genre);
+                //     }
+                //     else
+                //     {
+                //         $currGenre = $results[$z]->getGenre();
+                //         $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                //     }
+                // }
                 for($z = 0; $z < count($results); $z++)
                 {
                     $genre = $this->getListingGenre($results[$z]->getLid());
-                    if($results[$z]->getGenre() == "")
+
+                    if(count($genre) == 1)
                     {
-                        $results[$z]->setGenre($genre);
+                        $results[$z]->setGenre($genre[0]);
                     }
-                    else
+                    
+                    if(count($genre) > 1)
                     {
-                        $currGenre = $results[$z]->getGenre();
-                        $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                        for($g = 1; $g < count($genre); $g++)
+                        {
+                            $gen = $results[$z]->getGenre();
+                            $results[$z]->setGenre($gen . ", " . $genre[$g]);
+                        }
                     }
                 }
 
             }
+            var_dump($results);
             $pdo = null;
             $stmt = null;
             return $results;
@@ -259,17 +298,35 @@
                 $results[] = $book;
 
 
+                // for($z = 0; $z < count($results); $z++)
+                // {
+                //     $genre = $this->getListingGenre($results[$z]->getLid());
+                //     if($results[$z]->getGenre() == "")
+                //     {
+                //         $results[$z]->setGenre($genre);
+                //     }
+                //     else
+                //     {
+                //         $currGenre = $results[$z]->getGenre();
+                //         $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                //     }
+                // }
                 for($z = 0; $z < count($results); $z++)
                 {
                     $genre = $this->getListingGenre($results[$z]->getLid());
-                    if($results[$z]->getGenre() == "")
+
+                    if(count($genre) == 1)
                     {
-                        $results[$z]->setGenre($genre);
+                        $results[$z]->setGenre($genre[0]);
                     }
-                    else
+                    
+                    if(count($genre) > 1)
                     {
-                        $currGenre = $results[$z]->getGenre();
-                        $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                        for($g = 1; $g < count($genre); $g++)
+                        {
+                            $gen = $results[$z]->getGenre();
+                            $results[$z]->setGenre($gen . ", " . $genre[$g]);
+                        }
                     }
                 }
 
@@ -303,20 +360,37 @@
                 $results[] = $book;
 
 
+                // for($z = 0; $z < count($results); $z++)
+                // {
+                //     $genre = $this->getListingGenre($results[$z]->getLid());
+                //     if($results[$z]->getGenre() == "")
+                //     {
+                //         $results[$z]->setGenre($genre);
+                //     }
+                //     else
+                //     {
+                //         $currGenre = $results[$z]->getGenre();
+                //         $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                //     }
+                // }
                 for($z = 0; $z < count($results); $z++)
                 {
                     $genre = $this->getListingGenre($results[$z]->getLid());
-                    if($results[$z]->getGenre() == "")
+
+                    if(count($genre) == 1)
                     {
-                        $results[$z]->setGenre($genre);
+                        $results[$z]->setGenre($genre[0]);
                     }
-                    else
+                    
+                    if(count($genre) > 1)
                     {
-                        $currGenre = $results[$z]->getGenre();
-                        $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                        for($g = 1; $g < count($genre); $g++)
+                        {
+                            $gen = $results[$z]->getGenre();
+                            $results[$z]->setGenre($gen . ", " . $genre[$g]);
+                        }
                     }
                 }
-
             }
             $pdo = null;
             $stmt = null;
