@@ -237,7 +237,7 @@
             $stmt->execute();
             $results = [];
             while ($row = $stmt->fetch()){
-                var_dump($row);
+               // var_dump($row);
                 $l_id = $row['l_id'];
                 $ownerEmail = $row['owner_email'];
                 $isbn = $row['isbn'];
