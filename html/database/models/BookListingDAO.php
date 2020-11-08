@@ -142,6 +142,25 @@
             return $results;
         }
         
+        function getListingByGenre($genre)
+        {
+            $connManager = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = "select * from book_genre where genre like :genre";
+            $stmt = $pdo->prepare($sql);
+            $genre = '%' . $genre . '%';
+            $stmt->bindParam(":genre", $genre, PDO::PARAM_STR);
+            $stmt->execute();
+            $results = [];
+            while ($row = $stmt->fetch()){
+                $l_id = $row['l_id'];
+                $results[] += $l_id;
+            }
+            //var_dump($results);
+            $pdo = null;
+            $stmt = null;
+            return $results;
+        }
 
         function getListingByOwner($email)
         {
@@ -200,7 +219,7 @@
                     }
                 }
             }
-            var_dump($results);
+           // var_dump($results);
             $pdo = null;
             $stmt = null;
             return $results;
@@ -218,6 +237,7 @@
             $stmt->execute();
             $results = [];
             while ($row = $stmt->fetch()){
+                var_dump($row);
                 $l_id = $row['l_id'];
                 $ownerEmail = $row['owner_email'];
                 $isbn = $row['isbn'];
@@ -231,21 +251,6 @@
                 
                 $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
                 $results[] = $book;
-
-
-                // for($z = 0; $z < count($results); $z++)
-                // {
-                //     $genre = $this->getListingGenre($results[$z]->getLid());
-                //     if($results[$z]->getGenre() == "")
-                //     {
-                //         $results[$z]->setGenre($genre);
-                //     }
-                //     else
-                //     {
-                //         $currGenre = $results[$z]->getGenre();
-                //         $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
-                //     }
-                // }
                 for($z = 0; $z < count($results); $z++)
                 {
                     $genre = $this->getListingGenre($results[$z]->getLid());
@@ -266,7 +271,7 @@
                 }
 
             }
-            var_dump($results);
+            //var_dump($results);
             $pdo = null;
             $stmt = null;
             return $results;

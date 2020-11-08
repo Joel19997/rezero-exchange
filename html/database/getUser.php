@@ -8,7 +8,7 @@
 
 
     $result = array("users" => array());
-
+    
     foreach($resultArr as $user)
     {
         $result["user"][] = array(
