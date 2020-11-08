@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -36,12 +40,28 @@
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="loginPage.html" id="login">Login</a>
+      <?php 
+        //Displays different buttons depending on user session status (whether user is logged in or not)
+        if ( !isset($_SESSION["user"]) ) {
+          echo "
+          <li class='nav-item'>
+            <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="registerPage.html" id="signup">Sign Up</a>
+          <li class='nav-item'>
+            <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
           </li>
+          ";
+        }
+        else{
+          echo "
+          <li class='nav-item'>
+            <a class='nav-link' href='logout.php' id='login'>Log Out</a>
+          </li>
+          ";
+        }
+      ?>
+
+          
         </ul>
       </div>
     </nav>

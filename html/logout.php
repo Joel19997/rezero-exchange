@@ -12,7 +12,7 @@
     setcookie(session_name(),'',0,'/'); //clears cookies so the user email isn't retrieved again even after logout
     session_regenerate_id(true);
 
-    header("Location:testHome2.html");
+    header("Location:testHome.html");
     //var_dump($_SESSION);
     exit();
     //var_dump($_SESSION);
