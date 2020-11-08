@@ -39,8 +39,27 @@
             ?> -->
             </ul>
         </header>
-        <div class="overlay" >
+        <div class="modal hide fade" id="exampleModalCenter">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header ">
+                        <h5 class="modal-title mx-auto" id="exampleModalLongTitle">Images Error</h5>
+                        <button type="button" class="close ml-0 pl-0" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>There was an issue with your images.</p>
+                        <p> Please try again.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="overlay" id='overlay'>              
             <div class="container" id='search'>
                 <h1>Add A Listing</h1>
                 <p>Simply enter the ISBN of the book that you are trying to list and we will fill up the rest of the fields for you.</p>
@@ -129,33 +148,16 @@
         <script src='js/fetchInfo.js'></script>
         <script>
             const params = new URLSearchParams(window.location.search);
-
-            if (params.has('error')) {
-                const body = document.getElementsByTagName('body')[0];
-                var modal = document.createElement('div');
-                modal.innerHTML = `<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>`;
-                body.appendChild(modal);
-            }
       
         </script>
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                if (params.has('error')) {
+                    $('#exampleModalCenter').modal('show');
+                }
+            });
+        </script>
+        
 
     </body>
 </html>

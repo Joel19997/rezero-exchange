@@ -42,9 +42,16 @@ function createListing(isbn, author, description, title, email, additional_image
                                     <h1 class='display-4'>${title} <h1>
                                     <h3>by ${author}</h3>
                                  </div>`;
-             
-            right.innerHTML = `<h2 class='text-center mb-1'><u>Synopsis</u></h2>
-            <h4 class='mt-1'>${description}</h4>`;
+
+            if (description.length < 300){
+                right.innerHTML = `<h2 class='text-center mb-1'><u>Synopsis</u></h2>
+                <h4 class='mt-1'>${description}</h4>
+                `;
+            }else{
+                right.innerHTML = `<h2 class='text-center mb-1'><u>Synopsis</u></h2>
+                <h4 class='mt-1'>${description.slice(0,250)}<span id='dots'>...</span><span id="more" class='d-none'>${description.slice(250,description.length)}</span></h4>
+                <button type="button" class="btn btn-primary mt-1" onclick="getMore()" id='moreButton'>Read More</button>`;    
+            }
             fetchUserInfo(email);
         }
     }
@@ -52,6 +59,22 @@ function createListing(isbn, author, description, title, email, additional_image
     request.send();
 }
 
+function getMore(){
+    event.preventDefault();
+    var more = document.getElementById('more');
+    var dots = document.getElementById('dots');
+    var button = document.getElementById('moreButton')
+    if (more.className == 'd-none'){
+        more.className = 'd-inline';
+        dots.className = 'd-none';
+        button.innerText = 'Read Less'
+    }else{
+        more.className = 'd-none';
+        dots.className = 'd-inline';
+        button.innerText = 'Read More'
+
+    }
+}
 
 function fetchUserInfo(email){
     var request = new XMLHttpRequest();
