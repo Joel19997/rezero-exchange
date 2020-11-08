@@ -17,7 +17,9 @@
         "title" => $result[$i]->getTitle(),
         'description' => $result[$i]->getDesc(),
         "availability" => $result[$i]->getAvailability(),
-        'author' => $result[$i]->getAuthor()));
+        'author' => $result[$i]->getAuthor(),
+        'additional_images' => $result[$i]->getAdditionalImages()
+    ));
         
     }
 ?>

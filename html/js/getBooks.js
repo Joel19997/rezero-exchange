@@ -41,10 +41,10 @@ function createListings(isbn, author, title, id){
             console.log(image)
             var individualListing = document.createElement('div');
             individualListing.className = 'col-lg-4 col-sm-6 col-md-6 d-flex justify-content-center mb-3';
-            individualListing.innerHTML = `<div class="card border-0" style="width: 70%; height: 450px">
-                                                <img src="${image}" class="card-img-top" style="height: 310px"  >
-                                                <div class="card-body">
-                                                    <h5 class="card-title text-primary">${title}</h5>
+            individualListing.innerHTML = `<div class="card border-0" style="width: 80%; height: 90%">
+                                                <img src="${image}" class="card-img-top" style="height: 70%"  >
+                                                <div class="card-body mt-3 pt-0">
+                                                    <h5 class="card-title text-primary ">${title}</h5>
                                                     <h6 class="card-subtitle mb-2 text-muted">${author}</h6>                                                
                                                 </div>
                                                 <div class="hover">

@@ -39,8 +39,27 @@
             ?> -->
             </ul>
         </header>
-        <div class="overlay" >
+        <div class="modal hide fade" id="exampleModalCenter">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header ">
+                        <h5 class="modal-title mx-auto" id="exampleModalLongTitle">Images Error</h5>
+                        <button type="button" class="close ml-0 pl-0" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>There was an issue with your images.</p>
+                        <p> Please try again.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="overlay" id='overlay'>              
             <div class="container" id='search'>
                 <h1>Add A Listing</h1>
                 <p>Simply enter the ISBN of the book that you are trying to list and we will fill up the rest of the fields for you.</p>
@@ -118,15 +137,27 @@
         
 
 
-
         <script type="text/javascript">
         window.addEventListener("scroll", function(){
             var header= document.querySelector("header");
             header.classList.toggle("sticky", window.scrollY > 0);
         })
         </script>
-
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         <script src='js/fetchInfo.js'></script>
+        <script>
+            const params = new URLSearchParams(window.location.search);
+      
+        </script>
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                if (params.has('error')) {
+                    $('#exampleModalCenter').modal('show');
+                }
+            });
+        </script>
+        
 
     </body>
 </html>
