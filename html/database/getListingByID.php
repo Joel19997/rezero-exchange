@@ -3,7 +3,6 @@
 
     $l_id = $_GET['id'];
 
-
     $dao  = new BookListingDAO();
 
     $result = $dao->getListingByListingID($l_id);

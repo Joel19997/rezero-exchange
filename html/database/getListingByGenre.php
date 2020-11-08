@@ -10,10 +10,8 @@
     for ($n=0 ;$n < count($result);$n++){
         $results2 = $dao->getListingByListingID($result[$n]);
         //var_dump($results2);
-         echo $results2[0]->getTitle();
-        
-         
-         echo "</br>";
+        $temp1 =  $results2[0]->getLid();
+        array_push($all_title,$temp1);
     }
-
+    var_dump($all_title);
 ?>
