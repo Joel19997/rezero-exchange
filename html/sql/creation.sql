@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS BOOK_LISTING
 (
 	l_id INT(10) NOT NULL AUTO_INCREMENT,
 	owner_email varchar(100) NOT NULL,
-	isbn varchar(255),
+	isbn varchar(255) NOT NULL,
 	book_title varchar(200) NOT NULL,
 	item_desc varchar(3000),
 	author varchar(255),
