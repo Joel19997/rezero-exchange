@@ -1,6 +1,13 @@
 // fetches the book information by making api calls
 
 
+const modal = new Vue({
+    el: 'modal',
+    methods:{
+        vm.validateForm,
+    }
+}), 
+
 
 const vm = new Vue({
     el: '#search',
@@ -78,8 +85,12 @@ const vm = new Vue({
             this.isbnInvalid = false;
 
         },
+        showPopUp: function(){
+            $('#modalConfirm').modal('show');
+            event.preventDefault();
+        },
         validateForm: function(){
-
+              console.log('hi');
               if (!this.author) {
                 this.authorError = true;
                 event.preventDefault();
@@ -110,6 +121,9 @@ const vm = new Vue({
               }else{
                   this.descriptionError = false;
               }
+
+
+
             //   
         }, 
         invalidISBN: function(){

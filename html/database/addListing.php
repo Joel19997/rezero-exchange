@@ -11,7 +11,7 @@
 
 //     $email = $_SESSION['user'];
 //     email for testing purpose
-    $email = 'yomhanks@yahoo.com'; 
+    // $email = 'yomhanks@yahoo.com'; 
 
 
      $max = $dao->getMaxListingID();
@@ -19,6 +19,7 @@
      var_dump($l_id);
      $status = True;
      $additional_images = 0;
+     var_dump("THIS WORKS");
 
      // image uploading  
      //adapted from Prof Chris's foodgramgram image upload
@@ -110,6 +111,7 @@
            if($listingOk && $genreOk)
            {
                   echo "Yes";
+                  // header("Location: ../createListing.html?confirm");
            }
            else
            {
