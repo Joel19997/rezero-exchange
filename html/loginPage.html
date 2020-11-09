@@ -35,12 +35,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">About</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="loginPage.html" id="login">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="registerPage.html" id="signup">Sign Up</a>
-                </li>
               </ul>
             </div>
           </nav>
@@ -93,14 +87,13 @@
                         <div class="heading mb-4">
                             <h4>Login into your account</h4>
                         </div>
-                        <form>
+                        <form method="post" action="database/login.php">
                             <div class="form-input">
-                                <span></span>
-                                    <input type="email" placeholder="Email Address" required>
+                                    <input type="email" name="email" placeholder="Email Address" required>
                             </div>
                             <div class="form-input">
-                                <span></span>
-                                <input type="password" placeholder="Password" required>
+              
+                                <input type="password" name="password" placeholder="Password" required>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-6 d-flex">
