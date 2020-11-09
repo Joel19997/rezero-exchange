@@ -11,7 +11,7 @@
 
 //     $email = $_SESSION['user'];
 //     email for testing purpose
-    // $email = 'yomhanks@yahoo.com'; 
+    $email = 'yomhanks@yahoo.com'; 
 
 
      $max = $dao->getMaxListingID();
@@ -19,7 +19,6 @@
      var_dump($l_id);
      $status = True;
      $additional_images = 0;
-     var_dump("THIS WORKS");
 
      // image uploading  
      //adapted from Prof Chris's foodgramgram image upload
@@ -70,29 +69,32 @@
     //  end of image uploading
 
     // Check if $uploadOk is set to 0 by an error
-    var_dump($uploadOk);
-    if ($uploadOk === 1) {
-      for ($i = 0; $i < count($_FILES['file']['name']); $i++){
-        if ($_FILES['file']['name'][$i] != ''){
-            move_uploaded_file($_FILES["file"]["tmp_name"][$i], $target_dir . $l_id . '-' . $i. '.jpg');
-
+    if ($additional_images > 0){
+      var_dump($uploadOk);
+      if ($uploadOk === 1) {
+        for ($i = 0; $i < count($_FILES['file']['name']); $i++){
+          if ($_FILES['file']['name'][$i] != ''){
+              move_uploaded_file($_FILES["file"]["tmp_name"][$i], $target_dir . $l_id . '-' . $i. '.jpg');
+  
+          }
+    
         }
+        echo "postive image is ok ";
+      }
+      elseif ($uploadOk === 0){
+          // redirects back to add listing page with error 
+          header("Location: ../createListing.html?error=true");
+          echo "negative image is ok ";
   
       }
-      echo "postive image is ok ";
-    }
-    elseif ($uploadOk === 0){
-        // redirects back to add listing page with error 
-        header("Location: ../createListing.html?error=true");
-        echo "negative image is ok ";
-
+  
     }
 
     if ($status){
-          echo "listing added ";
-          var_dump($additional_images);
+          // echo "listing added ";
+          // var_dump($additional_images);
            $title = $_POST["title"];
-           var_dump($_POST);
+          //  var_dump($_POST);
            $isbn = $_POST['ISBN'];
            $description = $_POST["description"];
            $author = $_POST["author"];
@@ -105,13 +107,13 @@
            $genreOk = $dao->addNewListGenre($l_id, $genre);
           
 
-           var_dump($listingOk);
-           var_dump($genreOk);
+          //  var_dump($listingOk);
+          //  var_dump($genreOk);
 
            if($listingOk && $genreOk)
            {
-                  echo "Yes";
-                  // header("Location: ../createListing.html?confirm");
+                  // echo "Yes";
+                  header("Location: ../myCurrentListings.html?success=true");
            }
            else
            {

@@ -145,21 +145,6 @@ h2
     background: rgba(99, 98, 98, 0.5);
 }
 
-.overlay-listing{
-
-    color: #fff;
-    margin: 130px 80px 50px;
-    content: " ";
-    z-index: 10;
-    display: block;
-    position: absolute;
-    height: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(150, 150, 150, 0.5);
-}
-
 .hover {
     position: absolute;
     background: rgba(204, 204, 204, 0.7);
@@ -198,3 +183,4 @@ h2
 .error {
     font-weight: bold;
 }
+

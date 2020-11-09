@@ -1,14 +1,6 @@
 // fetches the book information by making api calls
 
 
-const modal = new Vue({
-    el: 'modal',
-    methods:{
-        vm.validateForm,
-    }
-}), 
-
-
 const vm = new Vue({
     el: '#search',
     data: {
@@ -59,7 +51,11 @@ const vm = new Vue({
                             var authors = data.authors;
                             var description = data.description;
                             var genre = data.categories;
-                            var image = data.imageLinks.thumbnail;
+                            if (data.hasOwnProperty('imageLinks')){
+                                var image = data.imageLinks.thumbnail;
+                            }else{
+                                var image = 'no image';
+                            }
                             fill(title, authors, description, genre, image);
                             
                         }
@@ -75,7 +71,11 @@ const vm = new Vue({
             this.genre = genre;
             this.author = authors;
             this.url = image;
-            this.showImage = true;
+            if (image == 'no image'){
+                this.showImage = false;
+            }else{
+                this.showImage = true;
+            }
 
             this.authorError = false;
             this.isbnError = false;

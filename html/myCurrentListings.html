@@ -42,6 +42,26 @@
            
         </div>
     </div>
+    <div class="modal hide fade" id="modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <h5 class="modal-title mx-auto" id="error">Add Listing Success</h5>
+                    <button type="button" class="close ml-0 pl-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>You have successfully added a new book for trade!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     </body>
 
 
@@ -53,6 +73,21 @@
         })
 
     </script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        
+    </script>
+
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            if (params.has('success')) {
+                $('#modal').modal('show');
+                console.log('hello this works');
+            }
+        });
+    </script>
+
+
     <script>
         //Call to populate data on load
         //$username = $_SESSION['username'];
@@ -69,6 +104,7 @@
             if(this.readyState == 4 && this.status == 200)
             {
                 let myList = JSON.parse(this.responseText);
+                console.log(myList);
                 if(myList['listing'].length==0)
                 {
                     document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';

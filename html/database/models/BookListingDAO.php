@@ -495,6 +495,7 @@
         
         public function createListing($l_id, $email, $title, $isbn, $description, $author, $availability, $additional_images)
         {
+            var_dump($isbn);
             $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
             $sql = 'INSERT INTO book_listing (l_id, owner_email, isbn, book_title, item_desc, author, availability, additional_images) VALUES (:l_id, :email, :isbn, :title, :description, :author, :availability, :additional_images)';
@@ -502,12 +503,12 @@
             $stmt->bindParam(":l_id", $l_id, PDO::PARAM_INT);
             $stmt->bindParam(":email",$email, PDO::PARAM_STR);
             $stmt->bindParam(":title",$title, PDO::PARAM_STR);
-            $stmt->bindParam(":isbn",$isbn, PDO::PARAM_INT);
+            $stmt->bindParam(":isbn",$isbn, PDO::PARAM_STR);
             $stmt->bindParam(":description",$description, PDO::PARAM_STR);
             $stmt->bindParam(":author",$author, PDO::PARAM_STR);
             $stmt->bindParam(":availability",$availability, PDO::PARAM_STR);
             $stmt->bindParam(":additional_images",$additional_images, PDO::PARAM_INT);
-            var_dump($stmt);
+            // var_dump($stmt);
             $isAddOk = $stmt->execute();
             $pdo = null;
             $stmt = null;
