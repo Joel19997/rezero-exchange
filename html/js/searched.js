@@ -25,8 +25,8 @@ function get_searched_listings(){
                 const request = new XMLHttpRequest();
                 request.onreadystatechange = function() {
                     if (request.readyState == 4 && request.status == 200){
-                        console.log(data[s]);
-                        console.log(request.responseText);
+                        // console.log(data[s]);
+                        // console.log(request.responseText);
                         var listing_data = JSON.parse(request.responseText);
                         var isbn = listing_data.isbn;
                         var author = listing_data.author; 
@@ -85,7 +85,7 @@ function get_searched_listings(){
         request.onreadystatechange = function() {
             if (request.readyState == 4 && request.status == 200){
             var data = JSON.parse(request.responseText);
-            console.log(data);
+            //console.log(data);
             }
             if (data != undefined){
                 for (s=0; s < data.length;s++){
@@ -93,7 +93,7 @@ function get_searched_listings(){
                     request.onreadystatechange = function() {
                         if (request.readyState == 4 && request.status == 200){
                             var listing_data = JSON.parse(request.responseText);
-                            console.log(listing_data);
+                            //console.log(listing_data);
                             var isbn = listing_data.isbn;
                             var author = listing_data.author; 
                             var title = listing_data.title; 
@@ -126,7 +126,7 @@ function get_searched_listings(){
                 request.onreadystatechange = function() {
                     if (request.readyState == 4 && request.status == 200){
                         var listing_data = JSON.parse(request.responseText);
-                        console.log(listing_data);
+                        //console.log(listing_data);
                         var isbn = listing_data.isbn;
                         var author = listing_data.author; 
                         var title = listing_data.title; 
