@@ -532,6 +532,66 @@
         }
         
       
+ function getListingBylid($l_id)
+        {
+            $connManager = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = "select * from book_listing where l_id = :l_id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(":l_id", $l_id, PDO::PARAM_STR);
+            $stmt->execute();
+            $results = [];
+            while ($row = $stmt->fetch()){
+                $l_id = $row['l_id'];
+                $ownerEmail = $row['owner_email'];
+                $isbn = $row['isbn'];
+                $bookTitle = $row['book_title'];  
+                //$itemDesc = $row['item_desc'];  
+                $author = $row['author'];
+                $availability = $row['availability'];     
+                $additional_images = $row['additional_images'];
+  
+                
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' ,'', $availability, $author, $additional_images);
+                $results[] = $book;
+
+
+                // for($z = 0; $z < count($results); $z++)
+                // {
+                //     $genre = $this->getListingGenre($results[$z]->getLid());
+                //     if($results[$z]->getGenre() == "")
+                //     {
+                //         $results[$z]->setGenre($genre);
+                //     }
+                //     else
+                //     {
+                //         $currGenre = $results[$z]->getGenre();
+                //         $results[$z]->setGenre($currGenre . ", " . $genre);  #Bug not fixed yet but codes works, YOLO
+                //     }
+                // }
+                for($z = 0; $z < count($results); $z++)
+                {
+                    $genre = $this->getListingGenre($results[$z]->getLid());
+
+                    if(count($genre) == 1)
+                    {
+                        $results[$z]->setGenre($genre[0]);
+                    }
+                    
+                    if(count($genre) > 1)
+                    {
+                        for($g = 1; $g < count($genre); $g++)
+                        {
+                            $gen = $results[$z]->getGenre();
+                            $results[$z]->setGenre($gen . ", " . $genre[$g]);
+                        }
+                    }
+                }
+            }
+            $pdo = null;
+            $stmt = null;
+            return $results;
+        }
 
 
 
