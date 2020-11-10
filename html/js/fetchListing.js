@@ -1,7 +1,11 @@
 console.log('id at the top is',id);
 
 const left = document.getElementById('left');
+// const title = document.getElementById('title');
+const carousel = document.getElementById('swiper')
 const right = document.getElementById('right');
+
+
 
 var request = new XMLHttpRequest();
 request.onreadystatechange = function(){
@@ -36,76 +40,14 @@ function createListing(isbn, author, description, title, email, additional_image
 
             var image = data.imageLinks.thumbnail;
             console.log(image)
-            // left.innerHTML = `<img src='${image}' style="width: 45%; height: 85%" class='pl-5'> 
-            
-            if (additional_images == 1){
-                left.innerHTML = `<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                    </ol>
-                                    <div class="carousel-inner" >
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-50 mx-auto" src="${image}" >
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-75 mx-auto" src="../html/userAdded/${id}-0.jpg" >
-                                    </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                                <div class='container mt-3 '> 
-                                    <h1 class='display-4'>${title} <h1>
-                                    <h3>by ${author}</h3>
-                                </div>`;                
-
-            }else if(additional_images == 2){
-                left.innerHTML = `<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                    </ol>
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img class="d-block w-50 mx-auto" src="${image}" >
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-50 mx-auto" src="../html/userAdded/${id}-0.jpg" >
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-50 mx-auto" src="../html/userAdded/${id}-1.jpg" >
-                                        </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                                <div class='container mt-3'> 
-                                    <h1 class='display-4'>${title} <h1>
-                                    <h3>by ${author}</h3>
-                                </div>`;                
-
-            }else{
-                left.innerHTML = `<img src='${image}' class='pl-2 w-50 mx-auto'> 
-                <div class='container mt-3'> 
-                    <h1 class='display-4'>${title} <h1>
-                    <h3>by ${author}</h3>
-                 </div>`;
-
-            }
+            addImages(image, additional_images, id);
+            var details = document.createElement('div');
+            details.className = 'container mt-3';
+            details.innerHTML = `
+                                <h1 class='display-4'>${title} <h1>
+                                <h3>by ${author}</h3>
+                                `;        
+            left.appendChild(details);
 
 
             if (description.length < 300){
@@ -174,3 +116,46 @@ function fetchUserInfo(email){
 request.open("GET", `database/getUserByEmail.php?email=${email}`, true);
 request.send()
 };
+
+
+function addImages(image, additional_images, id){
+    if (additional_images == 1){
+        carousel.innerHTML = `
+                            <div class="swiper-slide"><img src="../html/userAdded/${id}-0.jpg" style="width: 70%; height: 80%"></div>
+                            <div class="swiper-slide"><img src="${image}" class="w-50 mx-auto"></div>`;
+                
+
+    }else if(additional_images == 2){
+        carousel.innerHTML = `
+        <div class="swiper-slide"><img src="../html/userAdded/${id}-0.jpg" style="width: 70%; height: 80%"></div>
+        <div class="swiper-slide"><img src="../html/userAdded/${id}-1.jpg" style="width: 70%; height: 80%"></div>
+        <div class="swiper-slide"><img src="${image}" class="w-50 mx-auto"></div>
+        `;                
+
+    }else{
+        left.innerHTML = `<img src='${image}' class='pl-2 w-50 mx-auto'> `;
+
+    }
+    var swiper = new Swiper('.swiper-container', {
+        observer: true,
+        autoHeight: true, //enable auto height
+        spaceBetween: 20,
+        loop: true,
+        slidesPerView: 1,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+
+}
