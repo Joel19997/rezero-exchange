@@ -13,5 +13,8 @@
         $temp1 =  $results2[0]->getLid();
         array_push($all_title,$temp1);
     }
-    var_dump($all_title);
+    //var_dump($all_title);
+    echo json_encode($all_title);
+    
+    
 ?>
