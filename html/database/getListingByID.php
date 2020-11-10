@@ -2,9 +2,8 @@
     require_once "common.php";
 
     $l_id = $_GET['id'];
-
     $dao  = new BookListingDAO();
-
+    $real_I_lid = "";
     $result = $dao->getListingByListingID($l_id);
 
     for($i = 0; $i < count($result); $i++)
@@ -21,4 +20,5 @@
     ));
         
     }
+
 ?>
