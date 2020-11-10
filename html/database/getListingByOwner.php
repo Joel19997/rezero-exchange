@@ -12,6 +12,6 @@
         $temp_Lid = $result[$i]->getLid();
         array_push($searched_books,$temp_Lid);
     }
-    var_dump($searched_books);
-
+    //var_dump($searched_books);
+    echo json_encode($searched_books);
 ?>

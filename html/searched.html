@@ -46,16 +46,19 @@
                     <div class="input-group md-form">
                         <button class="btn btn-outline-secondary dropdown-toggle btn-sm" id="search_option_title" type="button" data-toggle="dropdown" style='padding: 3px 5px;'>Search by</button>
                         <div class="dropdown-menu" id= "drop_down_input">
-                          <a class="dropdown-item" id="book" value="book" onclick="ChangeDropDownBox('Book')">Book</a>
+                          <a class="dropdown-item" id="book" value="book" onclick="ChangeDropDownBox('Book')">Title</a>
                           <a class="dropdown-item" id="author" value="author" onclick="ChangeDropDownBox('Author')">Author</a>
                           <a class="dropdown-item" id="genre" value="genre" onclick="ChangeDropDownBox('Genre')">Genre</a>
                           <a class="dropdown-item" id="user" value="user" onclick="ChangeDropDownBox('User')">User</a>
                         </div>
-                      <input class="form-control my-0 py-1 amber-border" type="text" id="user_input" placeholder="Search on Re-Zero!" aria-label="Search">
-                            <button type="submit" id="searched" href="searched.html" class="btn btn-primary col-md-2" onclick="get_searched_listings()"><img src="images/search_icon.png" style="height: 20px;"></button>
+                      <input class="form-control my-0 py-1 amber-border" type="text" id="user_input" placeholder="Search on Re-Zero!" aria-label="Search" onkeyup="get_searched_listings_by_enter(event)">
+                            <button type="submit" id="searched" href="searched.html" class="btn btn-primary col-md-2" onclick="get_searched_listings()" >
+                            <img src="images/search_icon.png" style="height: 20px;"></button>
                     </div>
                   </div>
                   <!-- end of search bar -->
+                    <div class='container-fluid row mx-auto pt-5 pb-5' id='listings1'>     
+                    </div>
             </div>
         </div>
         <script type="text/javascript">
