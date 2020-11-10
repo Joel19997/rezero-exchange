@@ -531,79 +531,8 @@
 
         }
         
-        function getMyListings($email)
-        {
-            $avail = 1;
-            $connManager = new ConnectionManager();
-            $pdo = $connManager->getConnection();
-            $sql = "select * from BOOK_LISTING WHERE owner_email = :email AND availability = :availability";
-            $stmt = $pdo->prepare($sql);
+      
 
-            $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-            $stmt->bindParam(":availability", $avail, PDO::PARAM_INT);
-            $stmt->execute();
-            $results = [];
-            while ($row = $stmt->fetch()){
-                $l_id = $row['l_id'];
-                $ownerEmail = $row['owner_email'];
-                $isbn = $row['isbn'];
-                $bookTitle = $row['book_title'];  
-                $itemDesc = $row['item_desc'];  
-                $availability = $row['availability'];       
-                $author = $row['author'];
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability,$author);
-                $results[] = $book;
-            }
-            $pdo = null;
-            $stmt = null;
-            return $results;
-
-        }
-
-        function getListingBylid($l_id)
-        {
-            $connManager = new ConnectionManager();
-            $pdo = $connManager->getConnection();
-            $sql = "select * from book_listing where l_id = :l_id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(":l_id", $l_id, PDO::PARAM_INT);
-            $stmt->execute();
-            $results = [];
-            while ($row = $stmt->fetch()){
-                $l_id = $row['l_id'];
-                $ownerEmail = $row['owner_email'];
-                $isbn = $row['isbn'];
-                $bookTitle = $row['book_title'];  
-                $itemDesc = $row['item_desc'];  
-                $availability = $row['availability'];  
-                $author = $row['author'];     
-                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author);
-                $results[] = $book;
-
-                
-                for($z = 0; $z < count($results); $z++)
-                {
-                    $genre = $this->getListingGenre($results[$z]->getLid());
-                    if($results[$z]->getGenre() == "")
-                    {
-                        $results[$z]->setGenre($genre);
-                    }
-                    else
-                    {
-                        $currGenre = $results[$z]->getGenre();
-                        $results[$z]->setGenre($currGenre . ", " . $genre);
-                    }
-                }
-
-            }
-
-            $pdo = null;
-            $stmt = null;
-            return $results;
-        }
-
-     }//end of class
-        
 
 
      }//end of class
