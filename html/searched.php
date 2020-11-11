@@ -82,7 +82,7 @@
             <div class="col-lg-10 mx-auto">
               <!-- <form action="registerPage.html" method="GET"> -->
                 <div class="p-1 bg-light shadow-sm">
-                  <form method="POST">
+                  <!-- <form method="POST" action> -->
                   <div class="input-group">
                     <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light" name="user_input" id="user_input">
                     <div class="input-group-append">
@@ -105,7 +105,7 @@
                     </div>
                   </div>
                 </div>
-              </form>
+              <!-- </form> -->
             </div>
           </div>
         </div>
@@ -132,36 +132,6 @@
                     </div>
                   </div>
             </div> -->
-
-            <!-- <div class="container mt-0">
-                <div class="row">
-                  <div class="col-lg-10 mx-auto">
-                    <form action="registerPage.html" method="GET">
-                      <div class="p-1 bg-light shadow-sm">
-                        <form method="POST">
-                        <div class="input-group">
-                          <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
-                          <div class="input-group-append">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Title
-                              </button>
-                              <div class="dropdown-menu">
-                                <option class="dropdown-item" href="#" selected>Title</option>
-                                <option class="dropdown-item" href="#">Author</option>
-                                <option class="dropdown-item" href="#">Genre</option>
-                              </div>
-                            </div>
-                            <div class="input-group-append">
-                              <button type="submit" class="btn btn-link"><a class="searchIcon"></a></button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div> -->
 
 
 
