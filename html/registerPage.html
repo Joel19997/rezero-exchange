@@ -17,8 +17,8 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1">
+    <body onload="clickSearchIcon()">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1">
             <a class="navbar-brand" href="#">Re-Zero</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon" style="color: white;"></span>
@@ -29,7 +29,7 @@
                   <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home</a>
+                  <a class="nav-link" href="testHome.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Browse</a>
@@ -38,11 +38,11 @@
                   <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" id="login">Login</a>
+                  <a class="nav-link" href="loginPage.html" id="login">Login</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" href="#" id="signup">Sign Up</a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </nav>
@@ -52,9 +52,8 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-10 mx-auto">
-                  <form action="registerPage.html" method="GET">
+                  <form action="loginPage.html" method="GET">
                     <div class="p-1 bg-light shadow-sm">
-                      <form method="POST">
                       <div class="input-group">
                         <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
                         <div class="input-group-append">
@@ -85,12 +84,12 @@
                 <div class="col-lg-6 col-md-6 d-none d-md-block image-container1">
 
                 </div>
-                <div class="col-lg-6 col-md-6 form-container">
+                <div class="col-lg-6 col-md-12 form-container">
                     <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
                         <div class="logo mb-3">
                             
                         </div>
-                        <div class="heading mb-4">
+                        <div class="heading mb-7">
                             <h4>Register for an account</h4>
                         </div>
                         <form action="database/addUser.php" method="POST">
