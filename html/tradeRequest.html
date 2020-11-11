@@ -7,8 +7,7 @@
         <link rel="stylesheet" href="css/homeresponsive.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://mdbootstrap.com/docs/standard/data/tables/"
-        target="_blank">
+        <link rel="stylesheet" href="https://mdbootstrap.com/docs/standard/data/tables/" target="_blank">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
         <!-- CSS -->
@@ -154,7 +153,9 @@
                             output += '<td scope="col" ><p id = "username' + i + '" style ="margin:10px 0px 20px 0px"></p></td>';
                             output += '<td scope="col"> <p id = "hisBook' + i + '"></p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#booksInformation" onclick = "generateModal(' + i + ',' + myList['trades'][i]['s_lid'] + ')">Book info</button></td> ';
                             output += '<td scope="col" style = "max-width:200px"> <p id = "' + myBook+ '"></p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#booksInformation" onclick = "generateModal(' + i + ',' + myList['trades'][i]['f_lid'] + ')">Book info</button></td>';
-                            output += '<td scope="col"><button type = "button" class = "btn bg-success" style ="color:white ;display: flex;margin-top:10px">Accept</button><button type = "button" class = "btn bg-danger" style ="color:white; margin-top:20px">Reject</button></td></tr>';
+                            temp = [];
+                            temp = myList['trades'][i]['s_lid'];
+                            output += '<td scope="col"><button type = "button" class = "btn bg-success" style ="color:white ;display: flex;margin-top:10px" onclick = "formTrade('+myList['trades'][i]['s_lid']+','+myList['trades'][i]['f_lid']+')">Accept</button><button type = "button" class = "btn bg-danger" style ="color:white; margin-top:20px"onclick = "rejectTrade('+myList['trades'][i]['s_lid']+','+myList['trades'][i]['f_lid']+')">Reject</button></td></tr>';
 
                             //output+= '<tr id="demo'+i+'" class="collapse"><td colspan="2" class="hiddenRow"><p id = "userDescription'+i+'" style =margin-left:80px ></p><td></td><td></td><td></td></tr>';
                             getUserParticulars(myList['trades'][i]['s_email'], i);
@@ -242,7 +243,6 @@
             var request = new XMLHttpRequest();
             request.onreadystatechange = function () {
                 console.log(email);
-            
                 if (this.readyState == 4 && this.status == 200) {
                     let $userData = JSON.parse(this.responseText);
                     console.log($userData);
@@ -256,17 +256,20 @@
                 }
             }
             let url = "database/getUserbyEmail.php?email="+email;
-            request.open("POST", url, true);
+            request.open("GET", url, true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send();
 
 
         }
-        function createTradeReq(selected) {
+        function formTrade(book_id,selected) {
+            
+            
             //$username = $_SESSION['username'];
             //$book_id = $_POST['bookID'];// get post value from previous page
-            let username = "infinty@yahoo.com";
-            let book_id = 4;
+            console.log('Options->',selected)
+            //let username = "infinty@yahoo.com";
+            //let book_id = 4;
             var request = new XMLHttpRequest();
 
             request.onreadystatechange = function () {
@@ -277,12 +280,40 @@
                     location.reload();
                 }
             }
-            let url = "database/createTrade.php";
+            let url = "database/completeTrade.php";
             request.open("POST", url, true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            request.send("username=" + username + "&book_id=" + book_id + "&my_book_id=" + selected);
+            request.send("&book_id=" + book_id + "&my_book_id=" + selected);
 
+            
+            console.log('hello!')
+        }
 
+        function rejectTrade(book_id,selected) {
+            
+            
+            //$username = $_SESSION['username'];
+            //$book_id = $_POST['bookID'];// get post value from previous page
+            console.log('Options->',selected)
+            //let username = "infinty@yahoo.com";
+            //let book_id = 4;
+            var request = new XMLHttpRequest();
+
+            request.onreadystatechange = function () {
+                console.log('request created');
+                if (this.readyState == 4 && this.status == 200) {
+
+                    console.log(this.responseText);
+                    location.reload();
+                }
+            }
+            let url = "database/rejectTrade.php";
+            request.open("POST", url, true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send("&book_id=" + book_id + "&my_book_id=" + selected);
+
+            
+            console.log('hello!')
         }
         function getBookBylid(book_id, i)//called By getData()
         {

@@ -47,13 +47,14 @@
        
         <div class = 'container-fluid-sm' style = 'animation: fadeIn;animation-duration: 1s'>
             <div class="overlay" style="position:relative" id = 'listing' >
-                <div class = 'container-fluid' >
-            
-                    <div id = 'transactionMessage' style = 'margin-left:20px'></div>
+                <div class = 'container-fluid'  >
+                    
+                    <div id = 'transactionMessage' class = 'text right' style = 'margin-left:20px'></div>
                     <div id = 'resultStatus' style='margin-top:20px;margin-left:20px'></div>
-                    <div id = 'displayTable'></div>
-            </div>
-            
+                    
+  
+                </div>
+                <div id = 'displayTable'></div>
         </div>
         </div>
             
@@ -110,7 +111,7 @@
         function getData(){
         username ="jackandthebean@hotmail.com";
         book_id = 4;
-        let output ='<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive" id = "myTable" style ="color:white; " >';
+        let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;background-color:#463f3a">';
         var request = new XMLHttpRequest();
         request.onreadystatechange = function()
         {
@@ -124,7 +125,7 @@
                 }
                 else
                 {
-                    document.getElementById('resultStatus').innerHTML = '<h1 style = margin-bottom:-20px>Available book listings to trade</h1></br><h2 style = margin-bottom:-50px>You have '+myList['listing'].length+' listings to choose from:<h2>';
+                    document.getElementById('resultStatus').innerHTML = '<h1 style = margin-bottom:-20px>Available book listings to trade</h1></br><h2 style = margin-bottom:-50px>You have '+myList['listing'].length+' book listings to choose from:<h2>';
                 let counter =1;
                 output +='<thead><tr style ="background-color:#463f3a">';
                 output+='<th scope="col" >#</th>';
