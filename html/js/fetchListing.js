@@ -27,7 +27,6 @@ request.onreadystatechange = function(){
         
     }
 }
-console.log('id at the bottom is ', id);
 request.open("GET", `database/getListingByID.php?id=${id}`, true);
 request.send();
 
