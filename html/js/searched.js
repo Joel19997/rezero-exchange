@@ -58,7 +58,7 @@ function get_searched_listings(){
                     request.onreadystatechange = function() {
                         if (request.readyState == 4 && request.status == 200){
                             var listing_data = JSON.parse(request.responseText);
-                            console.log(listing_data);
+                            //console.log(listing_data);
                             var isbn = listing_data.isbn;
                             var author = listing_data.author; 
                             var title = listing_data.title; 
