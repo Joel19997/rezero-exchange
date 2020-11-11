@@ -181,3 +181,19 @@
     color: blue;
     font-weight: bold;
 }
+
+
+@media screen and (max-width: 992px) {
+    .image-container1 {
+        display: none !important;
+    }
+
+    /* Change the md-6 to md-12 in order for the div to */
+
+
+    .form-container{
+        position:absolute;
+        left:0;
+        right:0;
+    }
+}
