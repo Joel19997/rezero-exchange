@@ -8,14 +8,22 @@ $(function(){
 
 function toggleSearch(){
     var x = document.getElementById("searchBar");
-    if(x.style.display === "none")
+    console.log(x);
+    if(x.style.display == "none")
     {
-        x.style.display = "";
+        console.log("True");
+        
+        x.style.display = "initial";
     }
     else
     {
         x.style.display = "none";
     }
+}
+
+function clickSearchIcon(){
+    x = document.getElementsByClassName("btn-linkNav");
+    x[0].click();
 }
 
 
