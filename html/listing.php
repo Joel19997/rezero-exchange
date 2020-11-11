@@ -1,12 +1,32 @@
+<?php
+    session_start();
+    if (isset($_SESSION["user"])){
+        $user = true;
+    }else{
+        $user = false;
+    }
+    
+    //require_once("protect.php"); //redirect to log in page since this is for logged in users to list
+?> 
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="testHome2.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
+        <link rel="stylesheet" href="../html/css/homeresponsive.css">
+        <link rel="stylesheet" href="../html/testhome2.css">
+        <link rel="stylesheet" href="../html/css/testHome.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+
         <style>
             .swiper-slide {
                 height: auto;
@@ -17,16 +37,84 @@
 
     </head>
     <body class="body1">
-        <header class="header1">
-            <a href="testHome2.html" class="logo">Re-Zero</a>
-            <ul>
-                <li><a href="testHome2.html">Home</a></li>
-                <li><a href="allListings.html">Books</a></li>
-                <li><a href="#">About</a></li>
-                <li class="login"><a href="loginPage.html" >Log In</a></li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1">
+        <a class="navbar-brand" href="#">Re-Zero</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: white;"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="testHome.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Browse</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        <?php 
+            //Displays different buttons depending on user session status (whether user is logged in or not)
+            if ( !isset($_SESSION["user"]) ) {
+            echo "
+            <li class='nav-item'>
+                <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
+            </li>
+            ";
+            }
+            else{
+            echo "
+            <li class='nav-item'>
+                <a class='nav-link' href='logout.php' id='login'>Log Out</a>
+            </li>
+            ";
+            }
+        ?>
+
             
-        </header>
+            </ul>
+        </div>
+        </nav>
+        
+        <!-- SearchBar -->
+        <section id="searchBar" class="search-bar">
+        <div class="container mt-0 ">
+            <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <form action="registerPage.html" method="GET">
+                <div class="p-1 bg-light shadow-sm">
+                    <form method="POST">
+                    <div class="input-group">
+                    <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
+                    <div class="input-group-append">
+                        <!-- Button -->
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Title
+                        </button>
+                        <div class="dropdown-menu">
+                            <option class="dropdown-item" href="#" selected>Title</option>
+                            <option class="dropdown-item" href="#">Author</option>
+                            <option class="dropdown-item" href="#">Genre</option>
+                        </div>
+                        </div>
+                        <div class="input-group-append">
+                        <button type="submit" class="btn btn-link"><a class="searchIcon"></a></button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        </section>
     
         <div class="overlay-listing d-flex justify-content-center  pb-5" >
             <div class='container-fluid row pt-5 pb-5' >
@@ -50,7 +138,8 @@
         <?php
             $listing = $_GET['listingID'];
         ?>
-        <script> var id = "<?=$listing ?>";  </script>
+        <script> var id = "<?=$listing ?>"; </script>
+        <script> var loggedIn = "<?=$user ?>"; </script>
         <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
         <script src='js/fetchListing.js'></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>

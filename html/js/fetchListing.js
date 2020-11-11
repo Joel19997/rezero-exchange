@@ -95,14 +95,24 @@ function fetchUserInfo(email){
 
         var profile = document.createElement('div');
         profile.className = 'container';
-        profile.innerHTML = `<h5 class='mt-5'>
-                                <strong><u>Owner Details:</u></strong><br>
-                                ${lastName} ${firstName}<br>
-                                Email: ${email}<br>
-                                Telegram Handle: ${telegram}
-                            </h5>
-                            <a href="./listingsForTrade.html" role="button"><button type="button" class="btn btn-primary mt-5">Request Trade</button></a>
-                            `;
+        if (loggedIn){
+            profile.innerHTML = `<h5 class='mt-5'>
+                                    <strong><u>Owner Details:</u></strong><br>
+                                    ${lastName} ${firstName}<br>
+                                    Email: ${email}<br>
+                                    Telegram Handle: ${telegram}
+                                </h5>
+                                <a href="./listingsForTrade.html" role="button"><button type="button" class="btn btn-primary mt-5">Request Trade</button></a>
+                                `;
+
+        }else{
+            profile.innerHTML = `<h5 class='mt-5'>
+                                    <strong><u>Owner Details:</u></strong><br>
+                                    Please Log In to see Owner Details!<br>
+                                </h5>
+                                <a href="./loginPage.html" role="button"><button type="button" class="btn btn-primary mt-2">Log In</button></a>
+                                `;            
+        }
         
         console.log(listing)
 
