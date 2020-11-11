@@ -35,7 +35,7 @@
             <a class="nav-link" href="testHome.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Browse</a>
+            <a class="nav-link" href="searched.html">Browse</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
@@ -71,9 +71,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <form action="registerPage.html" method="GET">
+            <!-- <form action="registerPage.html" method="GET"> -->
+              <form action="searched.php" method="POST">
               <div class="p-1 bg-light shadow-sm">
-                <form method="POST">
                 <div class="input-group">
                   <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
                   <div class="input-group-append">
@@ -82,14 +82,15 @@
                       <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Title
                       </button>
-                      <div class="dropdown-menu">
-                        <option class="dropdown-item" href="#" selected>Title</option>
-                        <option class="dropdown-item" href="#">Author</option>
-                        <option class="dropdown-item" href="#">Genre</option>
+                      <div class="dropdown-menu" name = 'drop_down_input'>
+                        <option class="dropdown-item" id="book" name="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
+                        <option class="dropdown-item" id="author" name="author" onclick="ChangeDropDownBox('Author')">Author</option>
+                        <option class="dropdown-item" id="genre" name="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
+                        <option class="dropdown-item" id="user" name="user" onclick="ChangeDropDownBox('User')">User</option> 
                       </div>
                     </div>
                     <div class="input-group-append">
-                      <button type="submit" class="btn btn-link"><a class="searchIcon"></a></button>
+                      <button type="submit" name="user_input" class="btn btn-link"><a class="searchIcon"></a></button>
                     </div>
                   </div>
                 </div>
