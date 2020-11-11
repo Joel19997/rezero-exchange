@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    
+    //require_once("protect.php"); //redirect to log in page since this is for logged in users to list
+?> 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -157,7 +163,17 @@
         const params = new URLSearchParams(window.location.search);
         
     </script>
-
+    <?php 
+    //Displays different buttons depending on user session status (whether user is logged in or not)
+    if ( !isset($_SESSION["user"]) ) {
+      header("location: loginPage.html");
+      
+    }
+    else{
+        $val = $_SESSION["user"];
+    }
+    
+  ?>
     <script type="text/javascript">
         $(window).on('load',function(){
             if (params.has('success')) {
@@ -186,7 +202,7 @@
         console.log(id);
         var img = '';
         function getData(){
-        username ="jackandthebean@hotmail.com";
+        let username = "<?php echo $val?>";
         book_id = 4;
         let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;background-color:#463f3a">';
         var request = new XMLHttpRequest();
@@ -365,8 +381,11 @@
             
         }
         }
-    
 
+    function getPrevBook(){
+      
+
+    }
     
 
 
