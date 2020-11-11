@@ -10,6 +10,7 @@
      */
 
 //     $email = $_SESSION['user'];
+    // var_dump($_SESSION);
 //     email for testing purpose
     $email = 'yomhanks@yahoo.com'; 
 
