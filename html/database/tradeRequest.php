@@ -3,12 +3,12 @@
 require_once "common.php";
 $dao = new BookTradeDAO();
 
-$email = 'justinbieber@mail.com';
+$email = 'googleplot@gmail.com';
 //$email = 'infinty@yahoo.com';
 $resultArr = $dao->getMyTrades($email);
 
 
-$result = array('trades' => array());
+$result = array("trades" => array());
 
 foreach($resultArr as $trade)
 {
@@ -23,7 +23,4 @@ foreach($resultArr as $trade)
 };
 
 echo json_encode($result);
-
-
-
 ?>
