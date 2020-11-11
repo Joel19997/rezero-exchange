@@ -28,7 +28,7 @@
             <a href="testHome.html" class="logo">Re-Zero</a>
             <ul>
                 <li><a href="testHome.html">Home</a></li>
-                <li><a href="#">Books</a></li>
+                <li><a href="searched.php">Books</a></li>
                 <li><a href="#">About</a></li>
             <?php 
               //Displays different buttons depending on user session status (whether user is logged in or not)
