@@ -1,9 +1,11 @@
 <?php
     session_start();
     if (isset($_SESSION["user"])){
-        $user = true;
+        $user = $_SESSION['user'];
+        $logged_In = true;
     }else{
-        $user = false;
+        $logged_In = false;
+        $user = null;
     }
     
     //require_once("protect.php"); //redirect to log in page since this is for logged in users to list
@@ -20,7 +22,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
         <link rel="stylesheet" href="../html/css/homeresponsive.css">
-        <link rel="stylesheet" href="../html/testhome2.css">
+        <link rel="stylesheet" href="../html/css/individualListing.css">
         <link rel="stylesheet" href="../html/css/testHome.css">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -37,7 +39,7 @@
 
     </head>
     <body class="body1">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="test1">
         <a class="navbar-brand" href="#">Re-Zero</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon" style="color: white;"></span>
@@ -138,8 +140,12 @@
         <?php
             $listing = $_GET['listingID'];
         ?>
+        <script src="js/homeui.js"></script>
+
         <script> var id = "<?=$listing ?>"; </script>
-        <script> var loggedIn = "<?=$user ?>"; </script>
+        <script> var loggedIn = "<?=$logged_In ?>"; </script>
+        <script> var $user = "<?=$user ?>"; </script>
+
         <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
         <script src='js/fetchListing.js'></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
