@@ -1,19 +1,16 @@
 <?php
     session_start();
-    // if ( isset($_POST['drop_down_input']) || isset($_POST['user_input'])) {
-    //   // collect value of input field
-    //   // $drop_down_input = $_POST['drop_down_input'];
-    //   // $user_input = $_POST['user_input'];  
-    //   var_dump("not from url");
-    // }
-    // else {
-    //   var_dump("from url");
-    // }
+    //var_dump($_POST['form1']);
+    $previous_user_input = $_GET['user_input'];
+    $previous_user_option = $_GET['user_searched_option'];
+    //var_dump($previous_user_input);
+    //var_dump($previous_user_option);
 ?>
 
 <!DOCTYPE html>
 
 <html>
+  
     <head>
         <meta charset="UTF-8">
 
@@ -29,7 +26,7 @@
 
 
     </head>
-    <body class="body1" onload="clickSearchIcon()">
+    <body class="body1" onload="clickSearchIcon()" onload= "onload=ChangeDropDownBox('Title')">
     <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1">
         <a class="navbar-brand" href="#">Re-Zero</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,6 +72,7 @@
         </div>
       </nav>
       
+      
       <!-- SearchBar -->
       <section id="searchBar" class="search-bar">
         <div class="container mt-0">
@@ -84,19 +82,16 @@
                 <div class="p-1 bg-light shadow-sm">
                   <!-- <form method="POST" action> -->
                   <div class="input-group">
-                    <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light" name="user_input" id="user_input">
+                    <input type="search" onkeyup="get_searched_listings_by_enter(event)" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light" name="user_input" id="user_input">
                     <div class="input-group-append">
                       <!-- Button -->
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="search_option_title">
-                          Title
-                        </button>
+                      <div class="btn-group" onload="ChangeDropDownBox('Title')">
+                        <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" id="search_option_title">Title</button>
                         <div class="dropdown-menu" id= "drop_down_input" name="drop_down_input">
-                          <option class="dropdown-item" id="book" value="book" onclick="ChangeDropDownBox('Book')">Title</option>
+                          <option class="dropdown-item" id="book" value="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
                           <option class="dropdown-item" id="author" value="author" onclick="ChangeDropDownBox('Author')">Author</option>
                           <option class="dropdown-item" id="genre" value="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
                           <option class="dropdown-item" id="user" value="user" onclick="ChangeDropDownBox('User')">User</option>
-
                         </div>
                       </div>
                       <div class="input-group-append">
@@ -110,7 +105,6 @@
           </div>
         </div>
       </section>
-
         <div class="overlay" >
 
           <div class='container-fluid row mx-auto pt-5 pb-5' id='listings1'>     
@@ -139,6 +133,8 @@
 
         <script src="js/homeui.js"></script>
         <script> var user_input = "<?=false?>"; </script>
+        <script> var previous_user_input = "<?=$previous_user_input ?>";</script>
+        <script> var previous_user_option = "<?=$previous_user_option ?>";</script>
         <script src="../html/js/searched.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

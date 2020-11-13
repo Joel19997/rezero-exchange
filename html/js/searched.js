@@ -1,21 +1,40 @@
-console.log(user_input);
+//console.log(user_input);
+//alert(previous_user_input);
+
+if (previous_user_input != null){
+    //alert("user came from home");
+    //alert(previous_user_input);
+    //alert(previous_user_option);
+    document.getElementById("search_option_title").innerText = previous_user_option;
+    document.getElementById("user_input").value = previous_user_input;
+    get_searched_listings();
+}
 function ChangeDropDownBox (option){
     var selected_search_option = option;
-    document.getElementById("search_option_title").innerHTML = selected_search_option;
+    document.getElementById("search_option_title").innerText = selected_search_option;
 }
-const allListings1 = document.getElementById('listings1');
+var allListings1 = document.getElementById('listings1');
+
+
  
 function get_searched_listings_by_enter(event){
     if (event.keyCode === 13) {
         get_searched_listings();
     }
 }
+
 function get_searched_listings(){
+    //alert("tried to fetch books");
     var searched = document.getElementById("user_input").value;
     var searched_option =  document.getElementById("search_option_title").innerText;
+    //alert(searched_option);
+    //alert(searched);
     if (searched_option == "Author")
     {
-        allListings1.innerText = "";
+        if (document.getElementById("listings1").innerHTML != undefined) {
+            document.getElementById("listings1").innerHTML = "";
+            //alert("element exist");
+        }
     const request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200){
@@ -46,8 +65,14 @@ function get_searched_listings(){
     request.open("GET", `database/getListingByAuthor.php?author=${searched}`, true);
     request.send();
     }
-    else if (searched_option=="Book"){
-        allListings1.innerText = "";
+    else if (searched_option=="Title"){
+        //alert("Is title");
+        //console.log(document.getElementById("listings1"));
+        //console.log(document.getElementById("listings1").innerHTML);
+        if (document.getElementById("listings1").innerHTML != undefined) {
+            document.getElementById("listings1").innerHTML = "";
+            //alert("element exist");
+        }
         const request = new XMLHttpRequest();
         request.onreadystatechange = function() {
             if (request.readyState == 4 && request.status == 200){
@@ -78,8 +103,10 @@ function get_searched_listings(){
     request.send();
     }
     else if (searched_option=="Genre"){
-        //alert("is genre");
-        allListings1.innerText = "";
+        if (document.getElementById("listings1").innerHTML != undefined) {
+            document.getElementById("listings1").innerHTML = "";
+            //alert("element exist");
+        }
         //alert(searched_option);
         //alert(searched);
         const request = new XMLHttpRequest();
@@ -114,7 +141,10 @@ function get_searched_listings(){
 
    }
    else if (searched_option=="User"){
-    allListings1.innerText = "";
+    if (document.getElementById("listings1").innerHTML != undefined) {
+        document.getElementById("listings1").innerHTML = "";
+        //alert("element exist");
+    }
     const request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200){
@@ -128,6 +158,8 @@ function get_searched_listings(){
                     if (request.readyState == 4 && request.status == 200){
                         var listing_data = JSON.parse(request.responseText);
                         //console.log(listing_data);
+                        //console.log("is owner");
+
                         var isbn = listing_data.isbn;
                         var author = listing_data.author; 
                         var title = listing_data.title; 
