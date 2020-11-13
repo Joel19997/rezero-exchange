@@ -2,103 +2,121 @@
     session_start();
     
     require_once("protect.php"); //redirect to log in page since this is for logged in users to list
-?> 
+?>
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" ng-href="https://mdbootstrap.com\docs\standard\data\tables\"target="_blank">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
-        <!-- CSS -->
-        
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
-            
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        
-        <!-- jQuery and JS bundle w/ Popper.js -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/testHome.css">
-        <link rel="stylesheet" href="css/homeresponsive.css">
-        <link rel="stylesheet" href="./css/createListing.css">
-        <style>
-            .table th, .table td { 
-                                    border-top: none !important; 
-                                }
-            tr:nth-child(even) {
-                background-color:rgb(201, 99, 99);
-            }
-        </style>
+
+<head>
+  <!-- Bootstrap, jQuery and JS bundle w/ Popper.js -->
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" ng-href="https://mdbootstrap.com\docs\standard\data\tables\" target="_blank">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/testHome.css">
+  <link rel="stylesheet" href="css/homeresponsive.css">
+  <link rel="stylesheet" href="./css/createListing.css">
+
+  <!-- CSS -->
+  <style>
+    .table th,
+    .table td {
+      border-top: none !important;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgb(201, 99, 99);
+    }
+  </style>
+
+  <!--HTML-->
     </head>
-    <body class="body1" onload = 'getData()'style = 'height:100%'>
-    </head>
-    <body onload="">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1" style = 'margin-top:-50px'>
-        <a class="navbar-brand" href="#">Re-Zero</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon" style="color: white;"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="testHome.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Browse</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-        <?php 
-          //Displays different buttons depending on user session status (whether user is logged in or not)
-          if ( !isset($_SESSION["user"]) ) {
-            echo "
-            <li class='nav-item'>
-              <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
-            </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
-            </li>
-            ";
-          }
-          else{
-            echo "
-            <li class='nav-item'>
-              <a class='nav-link' href='logout.php' id='login'>Log Out</a>
-            </li>
-            ";
-          }
-        ?>
-  
-            
-          </ul>
-        </div>
-      </nav>
-      
-      <!-- SearchBar -->
-      <section id="searchBar" class="search-bar" style = 'margin-top:-20px'>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-10 mx-auto">
-              <form action="registerPage.html" method="GET">
-                <div class="p-1 bg-light shadow-sm">
-                  <form method="POST">
+    <body class="body1" onload='getData()'>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1" style='margin-top:-50px'>
+          <a class="navbar-brand" href="#">Re-Zero</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: white;"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;"
+                  onclick="toggleSearch()"></button>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="testHome.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Browse</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <?php 
+                //Displays different buttons depending on user session status (whether user is logged in or not)
+                if ( !isset($_SESSION["user"]) ) {
+                  echo "
+                  <li class='nav-item'>
+                    <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
+                  </li>
+                  <li class='nav-item'>
+                    <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
+                  </li>
+                  ";
+                }
+                else{
+                  echo "
+                  <li class='nav-item'>
+                    <a class='nav-link' href='myCurrentListings.html'>Profile</a>
+                  </li>
+                  <li class='nav-item'>
+                    <a class='nav-link' href='logout.php' id='login'>Log Out</a>
+                  </li>
+                  ";
+                }
+              ?>
+
+
+            </ul>
+          </div>
+        </nav>
+
+    <!-- SearchBar -->
+    <section id="searchBar" class="search-bar" style='margin-top:-20px'>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <form action="registerPage.html" method="GET">
+              <div class="p-1 bg-light shadow-sm">
+                <form method="POST">
                   <div class="input-group">
-                    <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
+                    <input type="search" placeholder="Search based on title, genre, author"
+                      class="form-control border-0 bg-light">
                     <div class="input-group-append">
                       <!-- Button -->
                       <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
                           Title
                         </button>
                         <div class="dropdown-menu">
@@ -112,284 +130,238 @@
                       </div>
                     </div>
                   </div>
-                </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
-      </section>
-        
-        <div style='margin:50px;height:50px;'></div>
-       
-        <div class = 'container-fluid-sm' style = 'animation: fadeInRight;animation-duration: 1s'>
-            <div class="overlay" style="position:relative" id = 'listing' >
-                <div class = 'container-fluid' >
-                    
-                    <div id = 'transactionMessage' class = 'text right' style = 'margin-left:20px'></div>
-                    <div id = 'resultStatus' style='margin-top:20px;margin-left:20px'></div>
-                    
-  
-                </div>
-                <div id = 'displayTable'></div>
+      </div>
+    </section>
+
+  <div style='margin:50px;height:50px;'></div>
+  <div class='container-fluid-sm' style='animation:fadeInRight;animation-duration:1s;'>
+    <div class="overlay" style="position:relative" id='listing'>
+      <div class='container-fluid'>
+        <div id='transactionMessage' class='text right' style='margin-left:20px'></div>
+        <div id='resultStatus' style='margin-top:20px;margin-left:20px'></div>
+      </div>
+      <div id='displayTable'></div>
+    </div>
+  </div>
+
+  <!--Modal for trade -->
+  <div class="modal hide fade" id="modalReply">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header " style='background-color:Green;color:white'>
+          <h5 class="modal-title mx-auto" id="error">Add Listing Success</h5>
+          <button type="button" class="close ml-0 pl-0" data-dismiss="modal" aria-label="Close" onclick='modalReply()'>
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body text-center">
+          <p>You have successfully added a new book for trade!</p>
+          <div id='image_center'></div>
+          <div id='book_title'></div>
         </div>
-            
-           
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal" onclick='modalReply()'>Close</button>
         </div>
-    
-    <div class="modal hide fade" id="modalReply">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header "style = 'background-color:Green;color:white'>
-                    <h5 class="modal-title mx-auto" id="error">Add Listing Success</h5>
-                    <button type="button" class="close ml-0 pl-0" data-dismiss="modal" aria-label="Close"  onclick = 'modalReply()'>
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    <p>You have successfully added a new book for trade!</p>
-                    <div id = 'image_center'></div>
-                    <div id = 'book_title'></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal" onclick = 'modalReply()'>Close</button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
-    </body>
-    <?php 
-    //Displays different buttons depending on user session status (whether user is logged in or not)
-    if ( !isset($_SESSION["user"]) ) {
-      header("location: loginPage.html");
+
+  </body>
+<!-- Check if Session exists -->
+  <?php 
+      //Displays different buttons depending on user session status (whether user is logged in or not)
+      if ( !isset($_SESSION["user"]) ) {
+        header("location: loginPage.html");
+        
+      }
+      else{
+          $val = $_SESSION["user"];
+      }
       
+    ?>
+<script>
+  const params = new URLSearchParams(window.location.search);
+</script>
+
+
+
+
+<script type="text/javascript">
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+
+</script>
+
+
+
+<!-- Start of Java Functions -->
+<script>
+  //Functions retriieve data from the database and APIS to populate the table
+  function getData() {
+    var id = params.get('id');
+    if (id == null) {
+      window.location.replace('allListings.html');
     }
-    else{
-        $val = $_SESSION["user"];
+    let username = "<?php echo $val?>";
+    let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;background-color:#463f3a">';
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let myList = JSON.parse(this.responseText);
+        //Check if listing exists
+        if (myList['listing'] == undefined) {
+          document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';
+        }
+        else if (myList['listing'].length == 0) {
+          document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';
+        }
+        else {
+          document.getElementById('resultStatus').innerHTML = '<h1 style = margin-bottom:-20px>Available book listings to trade</h1></br><h2 style = margin-bottom:-50px>You have ' + myList['listing'].length + ' book listings to choose from:<h2>';
+          let counter = 1;
+          output += '<thead><tr style ="background-color:#463f3a">';
+          output += '<th scope="col" >#</th>';
+          output += '<th scope="col" style ="max-width:100px"><h4>Image</h4></th>';
+          output += '<th scope="col" style ="max-width:200px"><h4>Book</h4></th>';
+          output += '<th scope="col"><h4>Actions</h4></th></tr></thead><tbody class = "panel">';
+          for (var i = 0; i < myList['listing'].length; i++) {
+            count = i + 1;
+            output += '<tr data-toggle="collapse" data-target="#data' + i + '" style = "background-color:#463f3a;z-index:-1" data-parent="#myTable"><td class="expand-button">' + count + '</td>';
+            output += '<td scope="col" id = "main_image' + i + '"></td>';
+            output += '<td scope="col"><h3 id = "bktitle">' + myList['listing'][i]['title'] + '</h3></br><p style = "margin-top:-30px"> ISBN: ' + myList['listing'][i]['isbn'] + '</p></br><p style = "margin-top:-30px"> Author: ' + myList['listing'][i]['author'] + '</p></td>';
+            selected = myList['listing'][i]['lid']
+            output += `<td scope="col"><button type = "button" class = "btn btn-lg" style ='color:white; background-color:#60d394 ;margin-top:40px;z-index:1'onclick = "createTradeReq(${selected},${i})">Trade</button></td></tr>`;
+            let book_isbn = myList['listing'][i]['isbn'];
+            let image = '';
+            let img = 'img' + i;
+            let desc = 'desc' + i;
+            getBookFromApi(book_isbn, img, desc, i)//get book data from API
+            let read = 'read' + i;
+            displayMainImage(book_isbn, i);//get book image from API
+            output += '<tr id="data' + i + '" class="collapse"><td colspan="4" class="hiddenRow" ><div class="accordian-body collapse p-3"id = "data' + i + '" > <div id = "' + desc + '"style = "margin-left:50px;margin-right:50px;"><span id = "dots"+' + i + '></span></div><button class = "btn btn-info" onclick="readSettings(' + i + ')" style = "margin-left:50px" id="' + read + '" >Read more</button></div> </br></td></tr>';
+          }
+          output += '</tbody></table></div>';
+          document.getElementById('displayTable').innerHTML = output;
+        }
+      }
+
     }
-    
-  ?>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        
-    </script>
+    let url = './database/listingsForTrade.php';
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send("username=" + username);
 
-    <script type="text/javascript">
-        $(window).on('load',function(){
-            if (params.has('success')) {
-                $('#modal').modal('show');
-                console.log('hello this works');
-            }
-        });
-    </script>
+  }
 
+  //Function refreshes the page to repopulate the table using getData()
+  function modalReply() {
+    location.reload();
+  }
+  //create a Trade Request in the database.
+  function createTradeReq(selected, i) {
+    let book_id = params.get('id');
+    let username = "<?php echo $val?>";
+    let id = params.get('id');
 
-        <script type="text/javascript">
-        window.addEventListener("scroll", function(){
-            var header= document.querySelector("header");
-            header.classList.toggle("sticky", window.scrollY > 0);
-        })
-
-    </script>
-    <script>
-        //Call to populate data on load
-        //$username = $_SESSION['username'];
-        //$book_id = $_POST['bookID'];// get post value from previous page
-        var id = params.get('id');
-        
-
-        console.log(id);
-        var img = '';
-        function getData(){
-        let username = "<?php echo $val?>";
-        book_id = id;
-        let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;background-color:#463f3a">';
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function()
-        {
-            
-            if(this.readyState == 4 && this.status == 200)
-            {
-                let myList = JSON.parse(this.responseText);
-                
-                if ( myList['listing']== undefined)
-                {
-                  document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';
-                }
-                else if(myList['listing'].length==0 )
-                {
-                    document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';
-                }
-                else
-                {
-                    document.getElementById('resultStatus').innerHTML = '<h1 style = margin-bottom:-20px>Available book listings to trade</h1></br><h2 style = margin-bottom:-50px>You have '+myList['listing'].length+' book listings to choose from:<h2>';
-                let counter =1;
-                output +='<thead><tr style ="background-color:#463f3a">';
-                output+='<th scope="col" >#</th>';
-                output+='<th scope="col" style ="max-width:100px"><h4>Image</h4></th>';
-                output+='<th scope="col" style ="max-width:200px"><h4>Book</h4></th>';
-                output+='<th scope="col"><h4>Actions</h4></th></tr></thead><tbody class = "panel">';
-                for( var i=0;i<myList['listing'].length;i++)
-                {
-                    //main row of table
-                    count = i+1;
-                    output+='<tr data-toggle="collapse" data-target="#data'+i+'" style = "background-color:#463f3a;z-index:-1" data-parent="#myTable"><td class="expand-button">'+count+'</td>';
-                    output+='<td scope="col" id = "main_image'+i+'"></td>';
-                    output+='<td scope="col"><h3 id = "bktitle">'+myList['listing'][i]['title']+'</h3></br><p style = "margin-top:-30px"> ISBN: '+myList['listing'][i]['isbn']+'</p></br><p style = "margin-top:-30px"> Author: '+myList['listing'][i]['author']+'</p></td>';
-                    selected = myList['listing'][i]['lid']
-                    output +=`<td scope="col"><button type = "button" class = "btn btn-lg" style ='color:white; background-color:#60d394 ;margin-left:30px;margin-top:40px;z-index:1'onclick = "createTradeReq(${selected},${i})">Trade</button></td></tr>`;
-                    //additional expand information
-                    //Need to collect data about the book
-                    let book_isbn = myList['listing'][i]['isbn'];
-                    let image = '';
-                    let img = 'img'+i;
-                    let desc = 'desc'+i;
-                    console.log(img);
-                    getBookFromApi(book_isbn,img,desc,i)
-                    let read = 'read'+i;
-                    displayMainImage(book_isbn,i);
-                    /*image = getBookFromApi(book_isbn,function cb(image)
-                    {
-                        return image
-                        
-                    });*/
-                    output+= '<tr id="data'+i+'" class="collapse"><td colspan="4" class="hiddenRow" ><div class="accordian-body collapse p-3"id = "data'+i+'" > <div id = "'+desc+'"style = "margin-left:50px;margin-right:50px;"><span id = "dots"+'+i+'></span></div><button class = "btn btn-info" onclick="readSettings('+i+')" style = "margin-left:50px" id="'+read+'" >Read more</button></div> </br></td></tr>';
-                    //output+= '<tr id="data'+i+'" class="collapse"><td colspan="4" class="hiddenRow" "style= margin-left: 50px"><div id = "'+desc+'" > Sypnosis</div> </br><button class = "btn btn-info" onclick="readSettings('+i+')" id="'+read+'" style = "margin-left:100px">Read more</button></td></tr>';
-
-                    //populate with image, author, description
-                    
-                    // populate with owner first +last name, email, contact and tele
-                }
-                output +='</tbody></table></div>';
-                
-
-                
-                document.getElementById('displayTable').innerHTML = output;
-            }
-            }
-
-        }
-        let url = './database/listingsForTrade.php';
-        request.open("POST",url, true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send("username="+username);
-        //window.location.assign('database/listingsForTrade.php');
-        //request.send("username=yomhanks@yahoo.com&book_id=book_id");
+    if (id == '')//If empty, redirects user to all listings page
+    {
+      window.location.replace("allListings.html");
     }
-    //myList["listing"]['+i+']["lid"],username,book_id
-   function modalReply()
-   {
-       location.reload();
-   }
-   function createTradeReq(selected,i)
-   {
-        //$username = $_SESSION['username'];
-        //$book_id = $_POST['bookID'];// get post value from previous page
-        
-            let username ="<?php echo $val?>";
-            let id = params.get('id');
-            console.log(id);
-            var request = new XMLHttpRequest();
-            
-            request.onreadystatechange = function()
-            {
-                console.log('request created');
-                if(this.readyState == 4 && this.status == 200)
-                {
-                    
-                    console.log(this.responseText);
-                    let imgURL = document.getElementById('main_image'+i).innerHTML;
-                    document.getElementById('image_center').innerHTML = imgURL;
-                    document.getElementById('book_title').innerHTML = '<p>'+document.getElementById("bktitle").innerHTML+'</p>'
-                    $('#modalReply').modal('toggle');
-                    
-                   // modalReply();
-                }
-            }
-            let url = "./database/createTrade.php";
-            request.open("POST",url, true);
-            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            request.send("username="+username+"&book_id="+book_id+"&my_book_id="+selected);
-        
-        
-   
-}
-    function displayMainImage(isbn,i){
-        var request= new XMLHttpRequest();
-        let image ='';
-        request.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200){
-
-                var data = JSON.parse(this.responseText).items[0].volumeInfo;
-                image = data.imageLinks.thumbnail;
-                let description = data.description;
-                console.log(description);
-                let mainImage = 'main_image'+i;
-                
-                document.getElementById(mainImage).innerHTML='<img src='+image+'style="height: 500px; margin-left:50px"  >';
-                
-            }
-        }
-        request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
-        request.send();
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let imgURL = document.getElementById('main_image' + i).innerHTML;
+        document.getElementById('image_center').innerHTML = imgURL;
+        document.getElementById('book_title').innerHTML = '<p>' + document.getElementById("bktitle").innerHTML + '</p>'
+        $('#modalReply').modal('toggle');
+        // modalReply();
+      }
     }
+    let url = "./database/createTrade.php";
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send("username=" + username + "&book_id=" + book_id + "&my_book_id=" + selected);
+  }
 
-    function getBookFromApi(isbn,img,desc,i){
-        
-        var request= new XMLHttpRequest();
-        let image ='';
-        request.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200){
+  //function retrieve image from API to display on the table
+  function displayMainImage(isbn, i) {
+    var request = new XMLHttpRequest();
+    let image = '';
+    request.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
 
-                var data = JSON.parse(this.responseText).items[0].volumeInfo;
-                
-                let description = data.description;
-               
-                if(description==undefined)
-                {
-                    document.getElementById(desc).innerHTML='No description';
-                }
-                else
-                {
-                    let dots = 'dots'+i;
-                    let more = 'more'+i;
-                    let read = 'read'+i;
+        var data = JSON.parse(this.responseText).items[0].volumeInfo;
+        image = data.imageLinks.thumbnail;
+        let description = data.description;
+        let mainImage = 'main_image' + i;
 
-                document.getElementById(desc).innerHTML='<h4 style =margin-bottom:-20px>Sypnosis</h4></br><p style=text-align:justify;>'+description.slice(0,300)+'<span id="'+dots+'">...</span><span id="'+more+'" style = "display: none">'+description.slice(300,description.length)+'</span></p>';
-                }
-            }
-        }
-        request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
-        request.send();
-        
+        document.getElementById(mainImage).innerHTML = '<img src=' + image + 'style="height: 500px; margin-left:50px"  >';
+
+      }
     }
+    request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
+    request.send();
+  }
 
-    function readSettings(i) {
-        var dots = document.getElementById("dots"+i);
-        var moreText = document.getElementById("more"+i);
-        var btnText = document.getElementById("read"+i);
-        if (dots.style.display === "none") {
-            dots.style.display = "inline";
-            btnText.innerHTML = "Read more";
-            moreText.style.display = "none";
-        
-        } else {
-            dots.style.display = "none";
-            btnText.innerHTML = "Read less";
-            moreText.style.display = "inline";
-            
+  //function retrieve data from the API and populates the description
+  function getBookFromApi(isbn, img, desc, i) {
+    var request = new XMLHttpRequest();
+    let image = '';
+    request.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+
+        var data = JSON.parse(this.responseText).items[0].volumeInfo;
+
+        let description = data.description;
+
+        if (description == undefined) {
+          document.getElementById(desc).innerHTML = 'No description';
         }
+        else {
+          let dots = 'dots' + i;
+          let more = 'more' + i;
+          let read = 'read' + i;
+
+          document.getElementById(desc).innerHTML = '<h4 style =margin-bottom:-20px>Sypnosis</h4></br><p style=text-align:justify;>' + description.slice(0, 300) + '<span id="' + dots + '">...</span><span id="' + more + '" style = "display: none">' + description.slice(300, description.length) + '</span></p>';
         }
-    
+      }
+    }
+    request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
+    request.send();
 
-    
+  }
+
+  //function manages the settings for the read more button
+  function readSettings(i) {
+    var dots = document.getElementById("dots" + i);
+    var moreText = document.getElementById("more" + i);
+    var btnText = document.getElementById("read" + i);
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more";
+      moreText.style.display = "none";
+
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less";
+      moreText.style.display = "inline";
+
+    }
+  }
 
 
-    </script>
-    <script src="js/homeui.js"></script>
-    
 
-    
+
+
+</script>
+
+<script src="js/homeui.js">//Home js function for CSS</script>
+
+
+
 </html>
-

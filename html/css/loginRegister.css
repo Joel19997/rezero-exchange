@@ -84,13 +84,13 @@
 
 
 .image-container{
-    background: url('images/bookRegister.jpg') center no-repeat;
+    background: url('../images/bookRegister.jpg') center no-repeat;
     background-size: cover;
     height: 100vh;
 }
 
 .image-container1{
-    background: url('images/loginBg.jpg') center no-repeat;
+    background: url('../images/loginBg.jpg') center no-repeat;
     background-size: cover;
     height: 100vh;
 }
@@ -111,6 +111,7 @@
 
 .form-box h4{
     font-weight: bold;
+    color: #fff;
 }
 
 .form-box .form-input{
@@ -172,15 +173,33 @@
     box-shadow: 0px 9px 10px -2px rgba(0,0,0,0.55);   
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+
 .registerLink {
-    color: blue;
+    color: turquoise;
     font-weight: bold;
 }
 
 .registerLink:hover{
-    color: blue;
+    color: rgb(2, 255, 238);
     font-weight: bold;
 }
+
+#terms{
+    color: turquoise;
+    font-weight: bold;
+}
+
+#terms:hover{
+    color: rgb(2, 255, 238);
+    font-weight: bold;
+}
+
+
 
 
 @media screen and (max-width: 992px) {
