@@ -37,7 +37,7 @@
             }
         </style>
     </head>
-    <body class="body1" onload = 'getData()'>
+    <body class="body1" onload = 'getData()'style = 'height:100%'>
     </head>
     <body onload="">
       <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1" style = 'margin-top:-50px'>
@@ -121,9 +121,9 @@
         
         <div style='margin:50px;height:50px;'></div>
        
-        <div class = 'container-fluid-sm' style = 'animation: fadeIn;animation-duration: 1s'>
+        <div class = 'container-fluid-sm' style = 'animation: fadeInRight;animation-duration: 1s'>
             <div class="overlay" style="position:relative" id = 'listing' >
-                <div class = 'container-fluid'  >
+                <div class = 'container-fluid' >
                     
                     <div id = 'transactionMessage' class = 'text right' style = 'margin-left:20px'></div>
                     <div id = 'resultStatus' style='margin-top:20px;margin-left:20px'></div>
@@ -234,11 +234,11 @@
                 {
                     //main row of table
                     count = i+1;
-                    output+='<tr data-toggle="collapse" data-target="#data'+i+'" style = "background-color:#463f3a" data-parent="#myTable"><td class="expand-button">'+count+'</td>';
+                    output+='<tr data-toggle="collapse" data-target="#data'+i+'" style = "background-color:#463f3a;z-index:-1" data-parent="#myTable"><td class="expand-button">'+count+'</td>';
                     output+='<td scope="col" id = "main_image'+i+'"></td>';
                     output+='<td scope="col"><h3 id = "bktitle">'+myList['listing'][i]['title']+'</h3></br><p style = "margin-top:-30px"> ISBN: '+myList['listing'][i]['isbn']+'</p></br><p style = "margin-top:-30px"> Author: '+myList['listing'][i]['author']+'</p></td>';
                     selected = myList['listing'][i]['lid']
-                    output +=`<td scope="col"><button type = "button" class = "btn btn-lg" style ='color:white; background-color:#60d394 ;margin-left:30px;margin-top:40px'onclick = "createTradeReq(${selected},${i})">Trade</button></td></tr>`;
+                    output +=`<td scope="col"><button type = "button" class = "btn btn-lg" style ='color:white; background-color:#60d394 ;margin-left:30px;margin-top:40px;z-index:1'onclick = "createTradeReq(${selected},${i})">Trade</button></td></tr>`;
                     //additional expand information
                     //Need to collect data about the book
                     let book_isbn = myList['listing'][i]['isbn'];

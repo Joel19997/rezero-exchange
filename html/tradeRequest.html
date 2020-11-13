@@ -43,10 +43,10 @@
 
 </head>
 
-<body class="body1" onload='getData()'>
+<body class="body1" onload='getData()' style = 'height:100%'>
     
     <body onload="">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1" style = 'margin-top: -50px;'>
         <a class="navbar-brand" href="#">Re-Zero</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon" style="color: white;"></span>
@@ -138,17 +138,27 @@
 
     
     </div>
-    <body class ='body1'>
-    <div class = 'container-fluid-sm' style = 'animation: fadeInRight;animation-duration: 1s'>
-    <div class="overlay" id = 'listing' style = 'margin-top:250px;margin-bottom:-20px;'>
-        <div class = "container-fluid">
-            <div id='resultStatus' style='margin-bottom:-8px;'></div>
-        </div> 
-        <div id='displayTable' style = 'margin-bottom:-20px'></div>
-    </div>
-    </div>
+    <div style='margin:50px;height:50px;'></div>
+    <div class = 'container-fluid-sm' style = 'animation:fadeInRight;animation-duration: 1s'>
+        <div class="overlay" style="position:relative" id = 'listing' >
+            <div class = 'container-fluid'>
+                    <div class = "row" style = 'position:relative'>
+                        <div class ="col-sm" >
+                            
+                            <p id = 'transactionMessage' style = 'display:flex;transform: translateY(-50%);'></p>
+                            <p id = 'resultStatus' style='margin-top:20px;margin-right:20px'></p>
+                        </div>   
+                        </div>
+                
+                    
+            </div>
+            <div id = 'displayTable'></div>
+        </div>
+                
+                
+            </div>
 
-</body>
+
     
     <div class="modal hide fade" id="modalTrade">
         <div class="modal-dialog modal-dialog-centered" role="document">
