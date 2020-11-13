@@ -47,7 +47,6 @@ h2
 
 .overlay{
 
-    color: #fff;
     margin: 130px 70px 50px;
     content: " ";
     z-index: 1;
@@ -130,3 +129,6 @@ h2
     color: rgba(27, 27, 27, 0.802) !important;
 }
 
+.header{
+    color: black !important;
+}
