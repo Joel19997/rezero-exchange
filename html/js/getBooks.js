@@ -1,31 +1,58 @@
 
-
+console.log(user);
 const allListings = document.getElementById('listings');
 
-
-var request = new XMLHttpRequest();
-request.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200){
-        var books = JSON.parse(this.responseText).listing;
-        console.log(books);
-        for (const book of books){
-            var id = book.Lid;
-            var author = book.author;
-            var availability = book.availability;
-            var description = book.description;
-            var isbn = book.isbn;
-            var title = book.title;
-
-            if (availability === String(1) ){
-                createListings(isbn, author, title, id);
-            };
-
+if (user === 'no'){
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            var books = JSON.parse(this.responseText).listing;
+            console.log(books);
+            for (const book of books){
+                var id = book.Lid;
+                var author = book.author;
+                var availability = book.availability;
+                var description = book.description;
+                var isbn = book.isbn;
+                var title = book.title;
+    
+                if (availability === String(1) ){
+                    createListings(isbn, author, title, id);
+                };
+    
+            }
+            
         }
-        
     }
+    request.open("GET", 'database/getAllListings.php', true);
+    request.send();
+}else{
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            var books = JSON.parse(this.responseText).listing;
+            console.log(books);
+            for (const book of books){
+                var id = book.Lid;
+                var author = book.author;
+                var availability = book.availability;
+                var description = book.description;
+                var isbn = book.isbn;
+                var title = book.title;
+
+                if (availability === String(1) ){
+                    createListings(isbn, author, title, id);
+                };
+
+            }
+            
+        }
+    }
+    request.open("GET", `database/getListingByNonOwner.php?owner_email=${user}`, true);
+    request.send();
 }
-request.open("GET", 'database/getAllListings.php', true);
-request.send();
+
+
 
 
 function createListings(isbn, author, title, id){

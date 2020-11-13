@@ -1,5 +1,12 @@
 <?php
     session_start();
+    if ( !isset($_SESSION["user"]) ) {
+      $user = 'no';
+      
+    }
+    else{
+        $user = $_SESSION["user"];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -73,29 +80,26 @@
         
         <!-- SearchBar -->
         <section id="searchBar" class="search-bar">
-          <div class="container">
+          <div class="container mt-0">
             <div class="row">
               <div class="col-lg-10 mx-auto">
-                <!-- <form action="registerPage.html" method="GET"> -->
-                  <form action="searched.php" method="POST">
+                  <form action="searched.php" method="POST" name='form6'>
                   <div class="p-1 bg-light shadow-sm">
                     <div class="input-group">
-                      <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
-                      <div class="input-group-append">
+                      <input id='user_input' type="search" name="user_input" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
+                      <div class="input-group-append" name='form5'>
                         <!-- Button -->
                         <div class="btn-group">
-                          <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Title
-                          </button>
-                          <div class="dropdown-menu" name = 'drop_down_input'>
-                            <option class="dropdown-item" id="book" name="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
-                            <option class="dropdown-item" id="author" name="author" onclick="ChangeDropDownBox('Author')">Author</option>
-                            <option class="dropdown-item" id="genre" name="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
-                            <option class="dropdown-item" id="user" name="user" onclick="ChangeDropDownBox('User')">User</option> 
+                          <button id='laopuo' type="button" name="form" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Title</button>
+                          <div class="dropdown-menu">
+                            <option class="dropdown-item" id="book" name="Title" value="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
+                            <option class="dropdown-item" id="author" name="Author" value="author" onclick="ChangeDropDownBox('Author')">Author</option>
+                            <option class="dropdown-item" id="genre" name="Genre" value="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
+                            <option class="dropdown-item" id="user" name="User" value="user" onclick="ChangeDropDownBox('User')">User</option> 
                           </div>
                         </div>
                         <div class="input-group-append">
-                          <button type="submit"  class="btn btn-link"><a  class="searchIcon"></a></button>
+                          <button id="submit"  class="btn btn-link"><a  class="searchIcon"></a></button>
                         </div>
                       </div>
                     </div>
@@ -105,7 +109,7 @@
             </div>
           </div>
         </section>
-                
+                    
     
         <div class="overlay" >
             <h1 class='mt-3 header text-center display-3'>All Listings</h1>
@@ -115,8 +119,17 @@
         </div>
         
 
-
+        <script> var user = "<?=$user ?>"; </script>
         <script src="./js/homeui.js"></script>
         <script src='./js/getBooks.js'></script>
+        <script>
+          document.getElementById('submit').addEventListener('click',function(event) {
+            event.preventDefault();
+            let dropdownform = document.getElementById('laopuo').innerText
+            let text = document.getElementById('user_input').value
+            window.location = `searched.php?user_input=${text}&user_searched_option=${dropdownform}`
+          })
+        </script>
+    
     </body>
 </html>
