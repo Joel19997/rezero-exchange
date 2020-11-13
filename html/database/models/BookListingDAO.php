@@ -434,6 +434,36 @@
 
         }
         
+        function getNotMyListings($email)
+        {
+            $avail = 1;
+            $connManager = new ConnectionManager();
+            $pdo = $connManager->getConnection();
+            $sql = "select * from BOOK_LISTING WHERE owner_email != :email";
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+            $stmt->execute();
+            $results = [];
+            while ($row = $stmt->fetch()){
+                $l_id = $row['l_id'];
+                $ownerEmail = $row['owner_email'];
+                $isbn = $row['isbn'];
+                $bookTitle = $row['book_title'];  
+                $itemDesc = $row['item_desc'];  
+                $availability = $row['availability'];   
+                $author = $row['author'];  
+                $additional_images = $row['additional_images'];
+                
+                $book = new BookListing($l_id, $ownerEmail, $bookTitle, $isbn, '' , $itemDesc, $availability, $author, $additional_images);
+                $results[] = $book;
+            }
+            $pdo = null;
+            $stmt = null;
+            return $results;
+
+        }
+
         function getL_id($email,$isbn)//Get last value of entry of that session ID and ISBN, add into db
         {
             $connManager = new ConnectionManager();

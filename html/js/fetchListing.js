@@ -56,7 +56,7 @@ function createListing(isbn, author, description, title, email, additional_image
             }else{
                 right.innerHTML = `<h2 class='text-center mb-1'><u>Synopsis</u></h2>
                 <h4 class='mt-1'>${description.slice(0,250)}<span id='dots'>...</span><span id="more" class='d-none'>${description.slice(250,description.length)}</span></h4>
-                <button type="button" class="btn btn-primary mt-1" onclick="getMore()" id='moreButton'>Read More</button>`;    
+                <button type="button" class="btn btn-secondary mt-1" onclick="getMore()" id='moreButton'>Read More</button>`;    
             }
             fetchUserInfo(email);
         }

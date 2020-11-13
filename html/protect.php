@@ -8,6 +8,6 @@ if ( !isset($_SESSION["user"]) ) {
     header("Location: loginPage.html"); 
     exit;
 }
-echo("test");
-var_dump($_SESSION);
+// echo("test");
+// var_dump($_SESSION);
 ?>
