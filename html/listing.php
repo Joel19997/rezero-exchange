@@ -53,7 +53,7 @@
                 <a class="nav-link" href="testHome.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Browse</a>
+                <a class="nav-link" href="allListings.html">Browse</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
