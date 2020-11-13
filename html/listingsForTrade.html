@@ -87,6 +87,9 @@
                 else{
                   echo "
                   <li class='nav-item'>
+                    <a class='nav-link' href='myCurrentListings.html'>Profile</a>
+                  </li>
+                  <li class='nav-item'>
                     <a class='nav-link' href='logout.php' id='login'>Log Out</a>
                   </li>
                   ";
@@ -209,7 +212,6 @@
     let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;background-color:#463f3a">';
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-
       if (this.readyState == 4 && this.status == 200) {
         let myList = JSON.parse(this.responseText);
         //Check if listing exists

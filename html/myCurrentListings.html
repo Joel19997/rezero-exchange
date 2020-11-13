@@ -1,324 +1,328 @@
-<?php
-    session_start();
-    
-    require_once("protect.php"); //redirect to log in page since this is for logged in users to list
+<<?php
+session_start();
+
+require_once("protect.php"); //redirect to log in page since this is for logged in users to list
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <!-- Bootstraps -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" ng-href="https://mdbootstrap.com\docs\standard\data\tables\" target="_blank">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-  <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/testHome.css">
-  <link rel="stylesheet" href="css/homeresponsive.css">
-  <link rel="stylesheet" href="./css/createListing.css">
-  <!-- CSS -->
-  <style>
-    .table th,
-    .table td {
-      border-top: none !important;
-    }
+      <meta charset="UTF-8">
+      <!-- Bootstraps -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" ng-href="https://mdbootstrap.com\docs\standard\data\tables\" target="_blank">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+      <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="css/testHome.css">
+      <link rel="stylesheet" href="css/homeresponsive.css">
+      <link rel="stylesheet" href="./css/createListing.css">
+<!-- CSS -->
+<style>
+      .table th,
+      .table td {
+        border-top: none !important;
+      }
 
-    tr:nth-child(even) {
-      background-color: rgb(201, 99, 99);
-    }
-  </style>
+      tr:nth-child(even) {
+        background-color: rgb(201, 99, 99);
+      }
+</style>
 </head>
 
 <!-- Nav Bar -->
 
 <body class="body1" onload='getData()' style='height:100%'>
 
-  <body onload="clickSearchIcon()">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1" style='margin-top:-50px'>
-      <a class="navbar-brand" href="#">Re-Zero</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="color: white;"></span>
-      </button>
-      <div class="collapse navbar-collapse " id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;"
-              onclick="toggleSearch()"></button>
+<body onload="clickSearchIcon()">
+<nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1" style='margin-top:-25px'>
+  <a class="navbar-brand" href="#">Re-Zero</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon" style="color: white;"></span>
+  </button>
+  <div class="collapse navbar-collapse " id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;"
+          onclick="toggleSearch()"></button>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="testHome.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="searched.html">Browse</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <?php 
+        //Displays different buttons depending on user session status (whether user is logged in or not)
+        if ( !isset($_SESSION["user"]) ) {
+          echo "
+          <li class='nav-item'>
+            <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="testHome.html">Home</a>
+          <li class='nav-item'>
+            <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="searched.html">Browse</a>
+          ";
+        }
+        else{
+          echo "
+          <li class='nav-item'>
+            <a class='nav-link' href='myCurrentListings.html'>Profile</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+          <li class='nav-item'>
+            <a class='nav-link' href='logout.php' id='login'>Log Out</a>
           </li>
-          <?php 
-            //Displays different buttons depending on user session status (whether user is logged in or not)
-            if ( !isset($_SESSION["user"]) ) {
-              echo "
-              <li class='nav-item'>
-                <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
-              </li>
-              <li class='nav-item'>
-                <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
-              </li>
-              ";
-            }
-            else{
-              echo "
-              <li class='nav-item'>
-                <a class='nav-link' href='logout.php' id='login'>Log Out</a>
-              </li>
-              ";
-            }
-          ?>
-        </ul>
-      </div>
-    </nav>
+          
+          ";
+        }
+      ?>
+    </ul>
+  </div>
+</nav>
 
-    <!-- SearchBar -->
-    <section id="searchBar" class="search-bar">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <!-- <form action="registerPage.html" method="GET"> -->
-            <form action="searched.php" method="POST">
-              <div class="p-1 bg-light shadow-sm">
-                <div class="input-group">
-                  <input type="search" placeholder="Search based on title, genre, author"
-                    class="form-control border-0 bg-light">
-                  <div class="input-group-append">
-                    <!-- Button -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Title
-                      </button>
-                      <div class="dropdown-menu" name='drop_down_input'>
-                        <option class="dropdown-item" id="book" name="book" onclick="ChangeDropDownBox('Title')"
-                          selected>Title</option>
-                        <option class="dropdown-item" id="author" name="author" onclick="ChangeDropDownBox('Author')">
-                          Author</option>
-                        <option class="dropdown-item" id="genre" name="genre" onclick="ChangeDropDownBox('Genre')">Genre
-                        </option>
-                        <option class="dropdown-item" id="user" name="user" onclick="ChangeDropDownBox('User')">User
-                        </option>
-                      </div>
-                    </div>
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-link"><a class="searchIcon"></a></button>
-                    </div>
+<!-- SearchBar -->
+<section id="searchBar" class="search-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <!-- <form action="registerPage.html" method="GET"> -->
+        <form action="searched.php" method="POST">
+          <div class="p-1 bg-light shadow-sm">
+            <div class="input-group">
+              <input type="search" placeholder="Search based on title, genre, author"
+                class="form-control border-0 bg-light">
+              <div class="input-group-append">
+                <!-- Button -->
+                <div class="btn-group">
+                  <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Title
+                  </button>
+                  <div class="dropdown-menu" name='drop_down_input'>
+                    <option class="dropdown-item" id="book" name="book" onclick="ChangeDropDownBox('Title')"
+                      selected>Title</option>
+                    <option class="dropdown-item" id="author" name="author" onclick="ChangeDropDownBox('Author')">
+                      Author</option>
+                    <option class="dropdown-item" id="genre" name="genre" onclick="ChangeDropDownBox('Genre')">Genre
+                    </option>
+                    <option class="dropdown-item" id="user" name="user" onclick="ChangeDropDownBox('User')">User
+                    </option>
                   </div>
                 </div>
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-link"><a class="searchIcon"></a></button>
+                </div>
               </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- jQuery and JS bundle w/ Popper.js -->
-    <div style='margin:50px;height:50px;'></div>
-    <div class='container-fluid-sm' style='animation:fadeInRight;animation-duration: 1s'>
-      <div class="overlay" style="position:relative" id='listing'>
-        <div class='container-fluid'>
-          <div class="row" style='position:relative'>
-            <div class="col-sm-9">
-              <p id='transactionMessage' style='display:flex;transform: translateY(-50%);'></p>
-              <p id='resultStatus' style='margin-top:20px;margin-right:20px'></p>
-            </div>
-            <div class="col-sm-3 text-center">
-              <button class='btn btn-danger' id='createListing' style='margin:50px 0px 20px 0px;'
-                onclick='createListing()'>
-                <span style=font-size:20px;font-weight:bold>+
-                </span> Add new listing </button>
             </div>
           </div>
-        </div>
-        <div id='displayTable'></div>
+        </form>
       </div>
     </div>
-  </body>
+  </div>
+</section>
 
-  <!-- Navbar js-->
-  <script type="text/javascript">
-    window.addEventListener("scroll", function () {
-      var header = document.querySelector("header");
-      header.classList.toggle("sticky", window.scrollY > 0);
-    })
+<!-- jQuery and JS bundle w/ Popper.js -->
+<div style='margin:50px;height:50px;'></div>
+<div class='container-fluid-sm' style='animation:fadeInRight;animation-duration: 1s'>
+  <div class="overlay" style="position:relative" id='listing'>
+    <div class='container-fluid'>
+      <div class="row" style='position:relative'>
+        <div class="col-sm-9">
+          <p id='transactionMessage' style='display:flex;transform: translateY(-50%);'></p>
+          <p id='resultStatus' style='margin-top:20px;margin-right:20px'></p>
+        </div>
+        <div class="col-sm-3 text-center">
+          <button class='btn btn-danger' id='createListing' style='margin:50px 0px 20px 0px;'
+            onclick='createListing()'>
+            <span style=font-size:20px;font-weight:bold>+
+            </span> Add new listing </button>
+        </div>
+      </div>
+    </div>
+    <div id='displayTable'></div>
+  </div>
+</div>
+</body>
 
-  </script>
+<!-- Navbar js-->
+<script type="text/javascript">
+window.addEventListener("scroll", function () {
+  var header = document.querySelector("header");
+  header.classList.toggle("sticky", window.scrollY > 0);
+})
 
-  <!--Validate if session exists-->
-  <?php 
-    //Displays different buttons depending on user session status (whether user is logged in or not)
-    if ( !isset($_SESSION["user"]) ) {
-      header("location: loginPage.html");
-      
-    }
-    else{
-        $val = $_SESSION["user"];
-    }
-    
-  ?>
+</script>
 
+<!--Validate if session exists-->
+<?php 
+//Displays different buttons depending on user session status (whether user is logged in or not)
+if ( !isset($_SESSION["user"]) ) {
+  header("location: loginPage.html");
+  
+}
+else{
+    $val = $_SESSION["user"];
+}
 
-
-  <!--Start of Js-->
-  <script>
-    
-
-    //Retrieve data from database and API to populate the table onload
-    function getData() {
-      let username = "<?php echo $val?>";
-      let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;" >';
-      var request = new XMLHttpRequest();
-      request.onreadystatechange = function () {
-
-        if (this.readyState == 4 && this.status == 200) {
-          let myList = JSON.parse(this.responseText);
-          if (myList['listing'] == undefined) {
-            document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';
-          }
-          else if (myList['listing'].length == 0) {
-            document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';
-          }
-          else {
-            document.getElementById('resultStatus').innerHTML = '<h1 style="margin-bottom:-50px;margin-left:10px">Current listings: <h1><br><h2 style = margin-bottom:-50px;margin-left:10px>You have currently ' + myList['listing'].length + ' book(s) listed for trade<h2>';
-            let counter = 1;
-            output += '<thead><tr style ="background-color:#463f3a">';
-            output += '<th scope="col" ><h4>#</h4></th>';
-            output += '<th scope="col" style ="max-width:100px"><h4>Image</h4></th>';
-            output += '<th scope="col" style ="max-width:200px"><h4>Book</h4></th>';
-            output += '</thead><tbody class = "panel">';
-            for (var i = 0; i < myList['listing'].length; i++) {
-              count = i + 1;
-              output += '<tr data-toggle="collapse" data-target="#data' + i + '" style = "background-color:#463f3a" data-parent="#myTable"><td class="expand-button"><h4>' + count + '</h4></td>';
-              output += '<td scope="col" id = "main_image' + i + '"></td>';
-              output += '<td scope="col"><h3>' + myList['listing'][i]['title'] + '</h3></br><p style = "margin-top:-30px"> ISBN: ' + myList['listing'][i]['isbn'] + '</p></br><p style = "margin-top:-30px"> Author: ' + myList['listing'][i]['author'] + '</p></td>';
-              selected = myList['listing'][i]['lid']
-              output += `</tr>`;
-              let book_isbn = myList['listing'][i]['isbn'];
-              let image = '';
-              let img = 'img' + i;
-              let desc = 'desc' + i;
-              getBookFromApi(book_isbn, img, desc, i)
-              let read = 'read' + i;
-              displayMainImage(book_isbn, i);
-              output += '<tr id="data' + i + '" class="collapse"><td colspan="4" class="hiddenRow" ><div class="accordian-body collapse p-3"id = "data' + i + '" > <div id = "' + desc + '"style = "margin-left:50px;margin-right:50px;"><span id = "dots' + i + '"></span></div><button class = "btn btn-info" onclick="readSettings(' + i + ')" style = "margin-left:50px" id="' + read + '" >Read more</button></div> </br></td></tr>';
-            }
-            output += '</tbody></table></div>';
+?>
 
 
 
-            document.getElementById('displayTable').innerHTML = output;
-          }
+<!--Start of Js-->
+<script>
+
+
+//Retrieve data from database and API to populate the table onload
+function getData() {
+  let username = "<?php echo $val?>";
+  let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;" >';
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+
+    if (this.readyState == 4 && this.status == 200) {
+      let myList = JSON.parse(this.responseText);
+      if (myList['listing'] == undefined) {
+        document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';
+      }
+      else if (myList['listing'].length == 0) {
+        document.getElementById('resultStatus').innerHTML = '<h2>You do not have any listings!<h2>';
+      }
+      else {
+        document.getElementById('resultStatus').innerHTML = '<h1 style="margin-bottom:-50px;margin-left:10px">Current listings: <h1><br><h2 style = margin-bottom:-50px;margin-left:10px>You have currently ' + myList['listing'].length + ' book(s) listed for trade<h2>';
+        let counter = 1;
+        output += '<thead><tr style ="background-color:#463f3a">';
+        output += '<th scope="col" ><h4>#</h4></th>';
+        output += '<th scope="col" style ="max-width:100px"><h4>Image</h4></th>';
+        output += '<th scope="col" style ="max-width:200px"><h4>Book</h4></th>';
+        output += '</thead><tbody class = "panel">';
+        for (var i = 0; i < myList['listing'].length; i++) {
+          count = i + 1;
+          output += '<tr data-toggle="collapse" data-target="#data' + i + '" style = "background-color:#463f3a" data-parent="#myTable"><td class="expand-button"><h4>' + count + '</h4></td>';
+          output += '<td scope="col" id = "main_image' + i + '"></td>';
+          output += '<td scope="col"><h3>' + myList['listing'][i]['title'] + '</h3></br><p style = "margin-top:-30px"> ISBN: ' + myList['listing'][i]['isbn'] + '</p></br><p style = "margin-top:-30px"> Author: ' + myList['listing'][i]['author'] + '</p></td>';
+          selected = myList['listing'][i]['lid']
+          output += `</tr>`;
+          let book_isbn = myList['listing'][i]['isbn'];
+          let image = '';
+          let img = 'img' + i;
+          let desc = 'desc' + i;
+          getBookFromApi(book_isbn, img, desc, i)
+          let read = 'read' + i;
+          displayMainImage(book_isbn, i);
+          output += '<tr id="data' + i + '" class="collapse"><td colspan="4" class="hiddenRow" ><div class="accordian-body collapse p-3"id = "data' + i + '" > <div id = "' + desc + '"style = "margin-left:50px;margin-right:50px;"><span id = "dots' + i + '"></span></div><button class = "btn btn-info" onclick="readSettings(' + i + ')" style = "margin-left:50px" id="' + read + '" >Read more</button></div> </br></td></tr>';
         }
-
-      }
-      let url = './database/listingsForTrade.php';
-      request.open("POST", url, true);
-      request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      request.send("username=" + username);
-    }
-
-    
-
-    //Function to retrieve book image from the API
-    function displayMainImage(isbn, i) {
-      var request = new XMLHttpRequest();
-      let image = '';
-      request.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-
-          var data = JSON.parse(this.responseText).items[0].volumeInfo;
-          image = data.imageLinks.thumbnail;
-          let description = data.description;;
-          let mainImage = 'main_image' + i;
-          document.getElementById(mainImage).innerHTML = '<img src=' + image + 'style="height: 500px; margin-left:50px"  >';
-
-        }
-      }
-      request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
-      request.send();
-    }
+        output += '</tbody></table></div>';
 
 
-    //Function to get Book description from API
-    function getBookFromApi(isbn, img, desc, i) {
-      var request = new XMLHttpRequest();
-      let image = '';
-      request.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
 
-          var data = JSON.parse(this.responseText).items[0].volumeInfo;
-
-          let description = data.description;
-
-          if (description == undefined) {
-            document.getElementById(desc).innerHTML = 'No description';
-          }
-          else {
-            let dots = 'dots' + i;
-            let more = 'more' + i;
-            let read = 'read' + i;
-
-            document.getElementById(desc).innerHTML = '<h4 style =margin-bottom:-20px>Sypnosis</h4></br><p style=text-align:justify;>' + description.slice(0, 300) + '<span id="' + dots + '">...</span><span id="' + more + '" style = "display: none">' + description.slice(300, description.length) + '</span></p>';
-          }
-        }
-      }
-      request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
-      request.send();
-    }
-
-
-    //Function to manage the read more or read less function
-    function readSettings(i) {
-      var dots = document.getElementById("dots" + i);
-      var moreText = document.getElementById("more" + i);
-      var btnText = document.getElementById("read" + i);
-      if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more";
-        moreText.style.display = "none";
-
-      } else 
-      {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less";
-        moreText.style.display = "inline";
+        document.getElementById('displayTable').innerHTML = output;
       }
     }
 
-    //Function to redirect users when they want to create a page
-    function createListing() {
-      window.location.href = "createListing.html";
-    }
+  }
+  let url = './database/listingsForTrade.php';
+  request.open("POST", url, true);
+  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  request.send("username=" + username);
+}
 
-  </script>
-  <script src="js/homeui.js"></script>
+
+
+//Function to retrieve book image from the API
+function displayMainImage(isbn, i) {
+  var request = new XMLHttpRequest();
+  let image = '';
+  request.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+
+      var data = JSON.parse(this.responseText).items[0].volumeInfo;
+      image = data.imageLinks.thumbnail;
+      let description = data.description;;
+      let mainImage = 'main_image' + i;
+      document.getElementById(mainImage).innerHTML = '<img src=' + image + 'style="height: 500px; margin-left:50px"  >';
+
+    }
+  }
+  request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
+  request.send();
+}
+
+
+//Function to get Book description from API
+function getBookFromApi(isbn, img, desc, i) {
+  var request = new XMLHttpRequest();
+  let image = '';
+  request.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+
+      var data = JSON.parse(this.responseText).items[0].volumeInfo;
+
+      let description = data.description;
+
+      if (description == undefined) {
+        document.getElementById(desc).innerHTML = 'No description';
+      }
+      else {
+        let dots = 'dots' + i;
+        let more = 'more' + i;
+        let read = 'read' + i;
+
+        document.getElementById(desc).innerHTML = '<h4 style =margin-bottom:-20px>Sypnosis</h4></br><p style=text-align:justify;>' + description.slice(0, 300) + '<span id="' + dots + '">...</span><span id="' + more + '" style = "display: none">' + description.slice(300, description.length) + '</span></p>';
+      }
+    }
+  }
+  request.open("GET", `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, true);
+  request.send();
+}
+
+
+//Function to manage the read more or read less function
+function readSettings(i) {
+  var dots = document.getElementById("dots" + i);
+  var moreText = document.getElementById("more" + i);
+  var btnText = document.getElementById("read" + i);
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+
+  } else 
+  {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
+
+//Function to redirect users when they want to create a page
+function createListing() {
+  window.location.href = "createListing.html";
+}
+
+</script>
+<script src="js/homeui.js"></script>
 
 
 
