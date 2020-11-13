@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    //require_once("protect.php"); //redirect to log in page since this is for logged in users to list
+    require_once("protect.php"); //redirect to log in page since this is for logged in users to list
 ?>
 
 <!DOCTYPE html>
@@ -73,10 +73,10 @@
                         <a class="nav-link" href="testHome.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Browse</a>
+                        <a class="nav-link" href="allListings.html">Browse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <?php 
           //Displays different buttons depending on user session status (whether user is logged in or not)
@@ -107,43 +107,38 @@
             </div>
         </nav>
 
-        <!-- SearchBar -->
-        <section id="searchBar" class="search-bar" style='margin-top:-20px'>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        <form action="registerPage.html" method="GET">
-                            <div class="p-1 bg-light shadow-sm">
-                                <form method="POST">
-                                    <div class="input-group">
-                                        <input type="search" placeholder="Search based on title, genre, author"
-                                            class="form-control border-0 bg-light">
-                                        <div class="input-group-append">
-                                            <!-- Button -->
-                                            <div class="btn-group">
-                                                <button type="button"
-                                                    class="btn btn-secondary dropdown-toggle smallscreen"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Title
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <option class="dropdown-item" href="#" selected>Title</option>
-                                                    <option class="dropdown-item" href="#">Author</option>
-                                                    <option class="dropdown-item" href="#">Genre</option>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-link"><a
-                                                        class="searchIcon"></a></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-                        </form>
+    <!-- SearchBar -->
+    <section id="searchBar" class="search-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 mx-auto">
+              <!-- <form action="registerPage.html" method="GET"> -->
+                <form action="searched.php" method="POST" name='form6'>
+                <div class="p-1 bg-light shadow-sm">
+                  <div class="input-group">
+                    <input id='user_input' type="search" name="user_input" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
+                    <div class="input-group-append" name='form5'>
+                      <!-- Button -->
+                      <div class="btn-group">
+                        <button id='laopuo' type="button" name="form" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Title</button>
+                        <div class="dropdown-menu">
+                          <option class="dropdown-item" id="book" name="Title" value="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
+                          <option class="dropdown-item" id="author" name="Author" value="author" onclick="ChangeDropDownBox('Author')">Author</option>
+                          <option class="dropdown-item" id="genre" name="Genre" value="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
+                          <option class="dropdown-item" id="user" name="User" value="user" onclick="ChangeDropDownBox('User')">User</option> 
+                        </div>
+                      </div>
+                      <div class="input-group-append">
+                        <button id="submit"  class="btn btn-link"><a  class="searchIcon"></a></button>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </form>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
         </header>
         </div>
         <div style='margin:50px;height:50px;'></div>
@@ -511,5 +506,13 @@
     </script>
 
     <script src="js/homeui.js"></script>
+    <script>
+        document.getElementById('submit').addEventListener('click',function(event) {
+          event.preventDefault();
+          let dropdownform = document.getElementById('laopuo').innerText
+          let text = document.getElementById('user_input').value
+          window.location = `searched.php?user_input=${text}&user_searched_option=${dropdownform}`
+        })
+    </script>
 
 </html>
