@@ -139,14 +139,15 @@
     
     </div>
     <body class ='body1'>
-    
-    <div class="overlay" id = 'listing' style = 'margin-top:250px'>
-        <div class = "container-fluid" id='resultStatus' style='margin-bottom:-8px;'></div>
-        <div id='displayTable'></div>
-        <!-- <div class="container">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div> -->
+    <div class = 'container-fluid-sm' style = 'animation: fadeInRight;animation-duration: 1s'>
+    <div class="overlay" id = 'listing' style = 'margin-top:250px;margin-bottom:-20px;'>
+        <div class = "container-fluid">
+            <div id='resultStatus' style='margin-bottom:-8px;'></div>
+        </div> 
+        <div id='displayTable' style = 'margin-bottom:-20px'></div>
     </div>
+    </div>
+
 </body>
     
     <div class="modal hide fade" id="modalTrade">
@@ -281,12 +282,12 @@
                             idArr.push(getBookBylid(myList['trades'][i]['s_lid'], i));
                             idArr.push(getBookBylid(myList['trades'][i]['f_lid'], i));
                             //main row of table
-                            output += '<tr  data-toggle="collapse" data-target="#demo' + i + '" data-parent="#myTable"><td class="expand-button">'+count+'</td>';
+                            output += '<tr  data-toggle="collapse" data-target="#demo' + i + '" data-parent="#myTable"><td class="expand-button" style = "z-index:-1">'+count+'</td>';
                             let myBook = 'myBook'+i;
                             count +=1
                             output += '<td scope="col" ><p id = "username' + i + '" style ="margin:10px 0px 20px 0px"></p></td>';
                             output += '<td scope="col"> <p id = "hisBook' + i + '"></p><button type="button" class="btn btn-info" data-toggle="modal" data-target="#booksInformation" onclick = "generateModal(' + i + ',' + myList['trades'][i]['s_lid'] + ')">Book info</button></td> ';
-                            output += '<td scope="col" style = "max-width:200px"> <p id = "' + myBook+ '"></p><button type="button" class="btn btn-info" data-toggle="modal" data-target="#booksInformation" onclick = "generateModal(' + i + ',' + myList['trades'][i]['f_lid'] + ')">Book info</button></td>';
+                            output += '<td scope="col" style = "max-width:200px"> <p id = "' + myBook+ '"></p><button type="button" class="btn btn-info" style = "z-index:1"data-toggle="modal" data-target="#booksInformation" onclick = "generateModal(' + i + ',' + myList['trades'][i]['f_lid'] + ')">Book info</button></td>';
                             temp = [];
                             temp = myList['trades'][i]['s_lid'];
                             output += '<td scope="col"><button type = "button" class = "btn bg-success" style ="color:white ;display: flex;margin-top:10px" onclick = "formTrade('+myList['trades'][i]['s_lid']+','+myList['trades'][i]['f_lid']+')">Accept</button><button type = "button" class = "btn bg-danger" style ="color:white; margin-top:20px"onclick = "rejectTrade('+myList['trades'][i]['s_lid']+','+myList['trades'][i]['f_lid']+')">Reject</button></td></tr>';
