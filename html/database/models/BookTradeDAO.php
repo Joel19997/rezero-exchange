@@ -5,11 +5,11 @@
         {
             $connManager = new ConnectionManager();
             $pdo = $connManager->getConnection();
-            $sql = "INSERT INTO TRADES(first_lid, sec_lid, first_email, sec_email) VALUES(first_lid = :firstLid, sec_lid = :secLid, firstEmail = :firstEmail, secEmail = :secEmail)";
+            $sql = "INSERT INTO TRADES(first_lid, sec_lid, first_email, sec_email) VALUES(:firstLid,:secLid, :firstEmail,:secEmail)";
 
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':firstLid', $firstLid, PDO::PARAM_STR);
-            $stmt->bindParam(':secLid', $secLid, PDO::PARAM_STR);
+            $stmt->bindParam(':firstLid', $firstLid, PDO::PARAM_INT);
+            $stmt->bindParam(':secLid', $secLid, PDO::PARAM_INT);
             $stmt->bindParam(':firstEmail', $firstEmail, PDO::PARAM_STR);
             $stmt->bindParam(':secEmail', $secEmail, PDO::PARAM_STR);
 

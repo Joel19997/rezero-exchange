@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    //require_once("protect.php"); //redirect to log in page since this is for logged in users to list
+    require_once("protect.php"); //redirect to log in page since this is for logged in users to list
 ?> 
 
 <!DOCTYPE html>
@@ -159,10 +159,6 @@
     </div>
 
     </body>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        
-    </script>
     <?php 
     //Displays different buttons depending on user session status (whether user is logged in or not)
     if ( !isset($_SESSION["user"]) ) {
@@ -174,6 +170,11 @@
     }
     
   ?>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        
+    </script>
+
     <script type="text/javascript">
         $(window).on('load',function(){
             if (params.has('success')) {
@@ -195,15 +196,14 @@
         //Call to populate data on load
         //$username = $_SESSION['username'];
         //$book_id = $_POST['bookID'];// get post value from previous page
-
         var id = params.get('id');
-        console.log('hello this works');
+        
 
         console.log(id);
         var img = '';
         function getData(){
         let username = "<?php echo $val?>";
-        book_id = 4;
+        book_id = id;
         let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;background-color:#463f3a">';
         var request = new XMLHttpRequest();
         request.onreadystatechange = function()
@@ -287,9 +287,9 @@
         //$username = $_SESSION['username'];
         //$book_id = $_POST['bookID'];// get post value from previous page
         
-            let username ="jackandthebean@hotmail.com ";
-            let book_id = 4;
-            
+            let username ="<?php echo $val?>";
+            let id = params.get('id');
+            console.log(id);
             var request = new XMLHttpRequest();
             
             request.onreadystatechange = function()
@@ -381,11 +381,8 @@
             
         }
         }
+    
 
-    function getPrevBook(){
-      
-
-    }
     
 
 

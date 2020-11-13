@@ -4,33 +4,84 @@
         <title>Login Form</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        
-        <link rel="stylesheet" type="text/css" href="html/loginRegister.css">
+        <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" type="text/css" href="loginRegister.css">
+        <link rel="stylesheet" href="css/testHome.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,500&display=swap" rel="stylesheet"> 
-
-
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
-    <body>
-        <header class="header1">
-            <a href="testHome2.html" class="logo">Re-Zero</a>
-            <ul>
-                <li><a href="testHome2.html">Home</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">About</a></li>
-                <li class="login"><a href="loginPage.html" >Log In</a></li>
-            </ul>
-        </header>
+    <body onload="clickSearchIcon()">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1">
+            <a class="navbar-brand" href="testHome.html">Re-Zero</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon" style="color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="testHome.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="allListings.html">Browse</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
+          <!-- SearchBar -->
+          <section id="searchBar" class="search-bar">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-10 mx-auto">
+                  <form action="registerPage.html" method="GET">
+                    <div class="p-1 bg-light shadow-sm">
+                      <div class="input-group">
+                        <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
+                        <div class="input-group-append">
+                          <!-- Button -->
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Title
+                            </button>
+                            <div class="dropdown-menu">
+                              <option class="dropdown-item" href="#" selected>Title</option>
+                              <option class="dropdown-item" href="#">Author</option>
+                              <option class="dropdown-item" href="#">Genre</option>
+                            </div>
+                          </div>
+                          <div class="input-group-append">
+                            <button type="submit" class="btn btn-link"><a class="searchIcon"></a></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+      
         <div class="banner">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-6 d-none d-md-block image-container">
 
                 </div>
-                <div class="col-lg-6 col-md-6 form-container">
+                <div class="col-lg-6 col-md-12 form-container">
                     <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
                         <div class="logo mb-3">
                             
@@ -38,14 +89,13 @@
                         <div class="heading mb-4">
                             <h4>Login into your account</h4>
                         </div>
-                        <form>
+                        <form method="post" action="database/login.php">
                             <div class="form-input">
-                                <span></span>
-                                    <input id = 'email' type="email" placeholder="Email Address"  required>
+                                    <input type="email" name="email" placeholder="Email Address" required>
                             </div>
                             <div class="form-input">
-                                <span></span>
-                                <input id = 'password' type="password" placeholder="Password"  required>
+              
+                                <input type="password" name="password" placeholder="Password" required>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-6 d-flex">
@@ -59,9 +109,9 @@
                                 </div>
                             </div>
                             <div class="text-left mb-3">
-                                <button type="submit" class="btn" onclick ='login()'>Login</button>
+                                <button type="submit" class="btn">Login</button>
                             </div>
-                            <div style="color: rgb(0, 0, 0)">Don't have an account?
+                            <div style="color: #fff">Don't have an account?
                                 <a href="registerPage.html" class="registerLink">Click Here to Register</a>
                             </div> 
                         </form>
@@ -69,50 +119,6 @@
                 </div>
             </div>
         </div>
+        <script src="js/homeui.js"></script>
     </body>
 </html>
-
-<script>
-    function login(){
-        var username1 = document.getElementById('email').value;
-        var password1 = document.getElementById('password').value;
-        
-        
-        const request = new XMLHttpRequest();
-        let url = 'database/login.php';
-        request.open("POST",url, true);
-        alert(username1);
-        request.onreadystatechange = function()
-        {
-            let errormsg='-';
-            if(this.readyState == 4 && this.status == 200)
-            {
-                alert(this.responseText);
-                let y = this.responseText.trim();
-                
-                //alert(y);
-                if(y=='0')
-                {   
-                    errormsg +='Wrong username';
-                }
-                if(y=='1')
-                {   
-                    
-                    errormsg +='Correct password';
-                    window.location.assign('index.html');
-                }
-                if(y=='2')
-                {   
-                    errormsg +='Wrong password';
-                }
-                //document.getElementById('error').value = errormsg; 
-                console.log(errormsg);
-            }
-
-        }
-        
-        
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send("username="+username1+"&password="+password1);
-    }
-</script>
