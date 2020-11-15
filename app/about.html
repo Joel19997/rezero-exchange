@@ -1,0 +1,179 @@
+<?php
+    if(!isset($_SESSION))
+    {
+      session_start();
+    }
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="css/testHome.css">
+        <link rel="stylesheet" href="css/about.css">
+    </head>
+    <body onload="clickSearchIcon()">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1">
+            <a class="navbar-brand" href="index.html">Re-Zero</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon" style="color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="allListings.html">Browse</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+            <?php 
+              //Displays different buttons depending on user session status (whether user is logged in or not)
+              if ( !isset($_SESSION["user"]) ) {
+                echo "
+                <li class='nav-item'>
+                  <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
+                </li>
+                ";
+              }
+              else{
+                echo "
+                <li class='nav-item'>
+                  <a class='nav-link' href='myCurrentListings.html'>Profile</a>
+                </li>    
+                <li class='nav-item'>
+                  <a class='nav-link' href='logout.php' id='login'>Log Out</a>
+                </li>
+                ";
+              }
+            ?>
+      
+                
+              </ul>
+            </div>
+          </nav>
+          
+          <!-- SearchBar -->
+          <section id="searchBar" class="search-bar">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-10 mx-auto">
+                  <!-- <form action="registerPage.html" method="GET"> -->
+                    <form action="searched.php" method="POST">
+                    <div class="p-1 bg-light shadow-sm">
+                      <div class="input-group">
+                        <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
+                        <div class="input-group-append">
+                          <!-- Button -->
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Title
+                            </button>
+                            <div class="dropdown-menu" name = 'drop_down_input'>
+                              <option class="dropdown-item" id="book" name="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
+                              <option class="dropdown-item" id="author" name="author" onclick="ChangeDropDownBox('Author')">Author</option>
+                              <option class="dropdown-item" id="genre" name="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
+                              <option class="dropdown-item" id="user" name="user" onclick="ChangeDropDownBox('User')">User</option> 
+                            </div>
+                          </div>
+                          <div class="input-group-append">
+                            <button type="submit"  class="btn btn-link"><a  class="searchIcon"></a></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="banner">
+              <div class="bg">
+                 
+              </div>
+              <div class="goal">
+                  <h2>Our goal is to promote reuse of books!</h2><br><br><br><br>
+                  <h3>
+                      With over 1 million books ending up into landfills, books remains as one of the most common type of object found in landfills.
+                      <br><br>Re-ZeroXchange aims to reduce this problem by providing a platform for readers to trade their unwanted books for ones that they desire.
+                  </h3>
+                
+              </div>
+          </section>
+
+
+
+              <div class="container-fluid" style="padding-left: 100px; padding-right: 200px; padding-top: 100px; ">
+                <h1>Our Team</h1>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 profile text-center">
+                        <div class="img-box">
+                            <img src="images/steveFace.jpg" class="img-item">
+                        </div>
+                        <h2>Wang Xing Jie</h2>
+                        <h3>CEO</h3>
+                        <p>Do crabs think that fishes are flying?</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 profile text-center">
+                        <div class="img-box">
+                            <img src="images/coolFace.jpg" class="img-item">
+                        </div>
+                        <h2>Tok Tze Kiat</h2>
+                        <h3>Cat Whisperer</h3>
+                        <p>No project is too difficult for me to finish</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 profile text-center">
+                        <div class="img-box">
+                            <img src="images/swagFace.jpg" class="img-item">
+                        </div>
+                        <h2>Kenny Teo</h2>
+                        <h3>MLM expert</h3>
+                        <p>I proud business owner/ coder</p>
+                    </div>
+                   
+                </div>    <!-- End of row -->
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-lg-2 col-md-0 col-xs-0">
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 profile text-center">
+                        <div class="img-box">
+                            <img src="images/coolbeardman.jpg" class="img-item">
+                        </div>
+                        <h2>Yang Kai</h2>
+                        <h3>Singer</h3>
+                        <p>My voice charms the world</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 profile text-center">
+                        <div class="img-box">
+                            <img src="images/billFace.jpg" class="img-item">
+                        </div>
+                        <h2>Joel</h2>
+                        <h3>Belieber</h3>
+                        <p>My passion is coding new solutions for the world</p>
+                    </div>
+                    <div class="col-lg-2 col-md-0 col-xs-0">
+                    </div>
+                </div>
+                
+              </div>
+
+
+
+          <script src="js/homeui.js"></script>
+    </body>
+</html>
