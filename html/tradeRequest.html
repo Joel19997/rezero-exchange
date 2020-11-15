@@ -151,8 +151,10 @@
                             <p id='resultStatus' style='margin-top:20px;margin-right:20px'></p>
                         </div>
                     </div>
+                    
                 </div>
                 <div id='displayTable'></div>
+                
             </div>
         </div>
         <div class="modal hide fade" id="modalTrade">
@@ -264,7 +266,7 @@
         //Functions get data from API and database to populate table
         function getData() {
             let username = "<?php echo $val?>";
-            let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;background-color:#463f3a">';
+            let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-lg " id = "myTable" style ="color:white;background-color:#463f3a">';
             var request = new XMLHttpRequest();
             let count = 1
             request.onreadystatechange = function () {
