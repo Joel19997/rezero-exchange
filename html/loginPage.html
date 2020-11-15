@@ -117,6 +117,10 @@
                                     echo "<div style=' color: yellow;'>Incorrect email or password</div><br>";
                                     $_SESSION["error"] = "";
                                   }
+                                  else if ($_SESSION["error"] == "Not logged in"){
+                                    echo "<div style=' color: red;'>Not logged in</div><br>";
+                                    $_SESSION["error"] = "";
+                                  } 
                               
                                   
                                 }
