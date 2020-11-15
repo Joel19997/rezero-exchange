@@ -40,13 +40,13 @@ const vm = new Vue({
                 var request = new XMLHttpRequest();
                 request.onreadystatechange = function(){
                     if (this.readyState == 4 && this.status == 200){
-                        console.log(JSON.parse(this.responseText).totalItems)
+                        // console.log(JSON.parse(this.responseText).totalItems)
                         var output = JSON.parse(this.responseText).totalItems;
                         if (output === 0){
                             invalid();
                         }else{
                             var data = JSON.parse(this.responseText).items[0].volumeInfo;
-                            console.log(data)
+                            // console.log(data)
                             var title = data.title;
                             var authors = data.authors;
                             var description = data.description;
@@ -90,7 +90,7 @@ const vm = new Vue({
             event.preventDefault();
         },
         validateForm: function(){
-              console.log('hi');
+            showPopUp = this.showPopUp;
               if (!this.author) {
                 this.authorError = true;
                 event.preventDefault();
@@ -120,6 +120,10 @@ const vm = new Vue({
                 event.preventDefault();
               }else{
                   this.descriptionError = false;
+              }
+              if (this.titleError == false && this.authorError == false && this.isbnError == false && this.genreError == false && this.descriptionError == false){
+                event.preventDefault();
+                showPopUp();  
               }
 
 

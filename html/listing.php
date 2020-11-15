@@ -79,6 +79,9 @@
             else{
               echo "
               <li class='nav-item'>
+              <a class='nav-link' href='myCurrentListings.html'>Profile</a>
+              </li>  
+              <li class='nav-item'>
                 <a class='nav-link' href='logout.php' id='login'>Log Out</a>
               </li>
               ";
