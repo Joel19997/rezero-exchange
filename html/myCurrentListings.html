@@ -57,9 +57,8 @@ require_once("protect.php"); //redirect to log in page since this is for logged 
 
 <!-- Nav Bar -->
 
-<body class="body1" onload='getData()' style='height:100%'>
+<body class="body1" onload='getData();clickSearchIcon()' style='height:100%'>
 
-<body onload="clickSearchIcon()">
 <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1" style='margin-top:-25px'>
   <a class="navbar-brand" href="#">Re-Zero</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -107,7 +106,7 @@ require_once("protect.php"); //redirect to log in page since this is for logged 
 </nav>
 
 <!-- SearchBar -->
-<section id="searchBar" class="search-bar">
+<section id="searchBar" class="search-bar" style ='margin-top:-25px'>
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
@@ -195,13 +194,12 @@ require_once("protect.php"); //redirect to log in page since this is for logged 
 </div>
 
 <!-- jQuery and JS bundle w/ Popper.js -->
-<div style='margin:50px;height:50px;'></div>
-<div class='container-fluid-sm' style='animation:fadeInRight;animation-duration: 1s'>
+<div class='container-fluid-sm' style='animation:fadeInRight;animation-duration: 1s;margin-top:-110px'>
   <div class="overlay" style="position:relative" id='listing'>
     <div class='container-fluid'>
       <div class="row" style='position:relative'>
         <div class="col-sm-8">
-          <p id='transactionMessage' style='display:flex;transform: translateY(-50%);'></p>
+          <p id='transactionMessage' ></p>
           <p id='resultStatus' style='margin-top:20px;margin-right:20px'></p>
         </div>
         <div class="col-sm-4 text-center">
