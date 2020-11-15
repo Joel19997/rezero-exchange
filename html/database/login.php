@@ -11,18 +11,18 @@
     // var_dump($allEntries);
     // email: coffebean@hotmail.com  password: mlpodsaj21B
     $user = $dao->selectUser($email);
-    //var_dump($user);
+    var_dump($user);
     $hashed = $user->getPassword();
-    //var_dump($password);
-    //var_dump($hashed);
+    var_dump($password);
+    var_dump($hashed);
     $testHash = md5($password);
     $status = $testHash == $hashed;
     //(NOT usable since password was hashed using md5)$status = password_verify($password, $hashed); // return true if user entered password matches database hashed pw
-    //var_dump($status);
+    var_dump($status);
     if ($status){
         
         $_SESSION["user"] = $email;
-        header("Location: ../testHome.html");
+        header("Location: ../index.html");
     }
     else{
         
