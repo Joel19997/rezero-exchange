@@ -22,9 +22,9 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
-        <link rel="stylesheet" href="../html/css/homeresponsive.css">
-        <link rel="stylesheet" href="../html/css/individualListing.css">
-        <link rel="stylesheet" href="../html/css/testHome.css">
+        <link rel="stylesheet" href="css/homeresponsive.css">
+        <link rel="stylesheet" href="css/individualListing.css">
+        <link rel="stylesheet" href="css/testHome.css">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
