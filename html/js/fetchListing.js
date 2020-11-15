@@ -126,14 +126,14 @@ request.send()
 function addImages(image, additional_images, id){
     if (additional_images == 1){
         carousel.innerHTML = `
-                            <div class="swiper-slide"><img src="../html/userAdded/${id}-0.jpg" style="width: 70%; height: 80%"></div>
+                            <div class="swiper-slide"><img src="userAdded/${id}-0.jpg" style="width: 70%; height: 80%"></div>
                             <div class="swiper-slide"><img src="${image}" class="w-50 mx-auto"></div>`;
                 
 
     }else if(additional_images == 2){
         carousel.innerHTML = `
-        <div class="swiper-slide"><img src="../html/userAdded/${id}-0.jpg" style="width: 70%; height: 80%"></div>
-        <div class="swiper-slide"><img src="../html/userAdded/${id}-1.jpg" style="width: 70%; height: 80%"></div>
+        <div class="swiper-slide"><img src="userAdded/${id}-0.jpg" style="width: 70%; height: 80%"></div>
+        <div class="swiper-slide"><img src="userAdded/${id}-1.jpg" style="width: 70%; height: 80%"></div>
         <div class="swiper-slide"><img src="${image}" class="w-50 mx-auto"></div>
         `;                
 
