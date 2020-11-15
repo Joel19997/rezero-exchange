@@ -1,5 +1,5 @@
 
-console.log(user);
+// console.log(user);
 const allListings = document.getElementById('listings');
 
 if (user === 'no'){

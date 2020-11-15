@@ -45,7 +45,7 @@ h2
 .overlay{
 
     color: black;
-    margin: 160px 80px 50px;
+    margin: 160px 45px 50px;
     content: " ";
     z-index: 1;
     display: block;

@@ -1,4 +1,4 @@
-console.log('id at the top is',id);
+// console.log('id at the top is',id);
 
 const left = document.getElementById('left');
 // const title = document.getElementById('title');
@@ -11,7 +11,7 @@ var request = new XMLHttpRequest();
 request.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200){
         var listing = JSON.parse(this.responseText);
-        console.log(listing);
+        // console.log(listing);
 
         var id = listing.Lid;
         var email = listing.email;
@@ -38,7 +38,7 @@ function createListing(isbn, author, description, title, email, additional_image
             var data = JSON.parse(this.responseText).items[0].volumeInfo;
 
             var image = data.imageLinks.thumbnail;
-            console.log(image)
+            // console.log(image)
             addImages(image, additional_images, id);
             var details = document.createElement('div');
             details.className = 'container mt-3';
@@ -114,7 +114,7 @@ function fetchUserInfo(email){
                                 `;            
         }
         
-        console.log(listing)
+        // console.log(listing)
 
         right.appendChild(profile);
 

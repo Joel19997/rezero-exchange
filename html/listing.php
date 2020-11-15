@@ -46,7 +46,7 @@
     <body class="body1" onload="clickSearchIcon()">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1">
-          <a class="navbar-brand" href="testHome.html">Re-Zero</a>
+          <a class="navbar-brand" href="index.html">Re-Zero</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon" style="color: white;"></span>
           </button>
@@ -56,7 +56,7 @@
                 <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="testHome.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="allListings.html">Browse</a>
