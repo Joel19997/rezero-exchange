@@ -56,56 +56,51 @@
 <body class="body1" onload='getData();clickSearchIcon()' style='height:100%'>
     <!--Nav Bar-->
 
-    <body onload="">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="test1" style='margin-top: -50px;'>
-            <a class="navbar-brand" href="#">Re-Zero</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="color: white;"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;"
-                            onclick="toggleSearch()"></button>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="testHome.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="allListings.html">Browse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <?php 
-          //Displays different buttons depending on user session status (whether user is logged in or not)
-          if ( !isset($_SESSION["user"]) ) {
-            echo "
-            <li class='nav-item'>
-              <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1" style='margin-top:-50px'>
+        <a class="navbar-brand" href="#">Re-Zero</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="color: white;"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;"
+                onclick="toggleSearch()"></button>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="testHome.html">Home</a>
             </li>
-            ";
-          }
-          else{
-            echo "
-            <li class='nav-item'>
-                <a class='nav-link' href='myCurrentListings.html'>Profile</a>
-              </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='logout.php' id='login'>Log Out</a>
+            <li class="nav-item">
+              <a class="nav-link" href="allListings.html">Browse</a>
             </li>
-            ";
-          }
-        ?>
-
-
-                </ul>
-            </div>
-        </nav>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <?php 
+              //Displays different buttons depending on user session status (whether user is logged in or not)
+              if ( !isset($_SESSION["user"]) ) {
+                echo "
+                <li class='nav-item'>
+                  <a class='nav-link' href='loginPage.html' id='login'>Log In</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='registerPage.html' id='signup'>Sign Up</a>
+                </li>
+                ";
+              }
+              else{
+                echo "
+                <li class='nav-item'>
+                  <a class='nav-link' href='logout.php' id='login'>Log Out</a>
+                </li>
+                
+                ";
+              }
+            ?>
+          </ul>
+        </div>
+      </nav>
 
     <!-- SearchBar -->
     <section id="searchBar" class="search-bar" style ='margin-top:-20px'>
@@ -151,8 +146,10 @@
                             <p id='resultStatus' style='margin-top:20px;margin-right:20px'></p>
                         </div>
                     </div>
+                    
                 </div>
                 <div id='displayTable'></div>
+                
             </div>
         </div>
         <div class="modal hide fade" id="modalTrade">
@@ -264,7 +261,7 @@
         //Functions get data from API and database to populate table
         function getData() {
             let username = "<?php echo $val?>";
-            let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-sm" id = "myTable" style ="color:white;background-color:#463f3a">';
+            let output = '<div class = "container-sm-fluid" ><table class="table table-condensed table-responsive-lg " id = "myTable" style ="color:white;background-color:#463f3a">';
             var request = new XMLHttpRequest();
             let count = 1
             request.onreadystatechange = function () {
