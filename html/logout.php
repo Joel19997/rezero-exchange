@@ -12,9 +12,8 @@
     setcookie(session_name(),'',0,'/'); //clears cookies so the user email isn't retrieved again even after logout
     session_regenerate_id(true);
 
-    header("Location:testHome.html");
-    //var_dump($_SESSION);
+    header("Location:index.html");
+
     exit();
-    //var_dump($_SESSION);
-    //echo "<p>You have been logged out!</p>";
+
 ?>

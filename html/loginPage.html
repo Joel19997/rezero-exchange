@@ -1,3 +1,11 @@
+<?php
+    if(!isset($_SESSION))
+    {
+      session_start();
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,8 +24,12 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body onload="clickSearchIcon()">
+
+      
+
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1">
-            <a class="navbar-brand" href="testHome.html">Re-Zero</a>
+            <a class="navbar-brand" href="index.html">Re-Zero</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon" style="color: white;"></span>
             </button>
@@ -27,7 +39,7 @@
                   <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="testHome.html">Home</a>
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="allListings.html">Browse</a>
@@ -47,24 +59,24 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-10 mx-auto">
-                  <form action="registerPage.html" method="GET">
+                  <!-- <form action="registerPage.html" method="GET"> -->
+                    <form action="searched.php" method="POST" name='form6'>
                     <div class="p-1 bg-light shadow-sm">
                       <div class="input-group">
-                        <input type="search" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
-                        <div class="input-group-append">
+                        <input id='user_input' type="search" name="user_input" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
+                        <div class="input-group-append" name='form5'>
                           <!-- Button -->
                           <div class="btn-group">
-                            <button type="button" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Title
-                            </button>
+                            <button id='dropBtn' type="button" name="form" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Title</button>
                             <div class="dropdown-menu">
-                              <option class="dropdown-item" href="#" selected>Title</option>
-                              <option class="dropdown-item" href="#">Author</option>
-                              <option class="dropdown-item" href="#">Genre</option>
+                              <option class="dropdown-item" id="book" name="Title" value="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
+                              <option class="dropdown-item" id="author" name="Author" value="author" onclick="ChangeDropDownBox('Author')">Author</option>
+                              <option class="dropdown-item" id="genre" name="Genre" value="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
+                              <option class="dropdown-item" id="user" name="User" value="user" onclick="ChangeDropDownBox('User')">User</option> 
                             </div>
                           </div>
                           <div class="input-group-append">
-                            <button type="submit" class="btn btn-link"><a class="searchIcon"></a></button>
+                            <button id="submit"  class="btn btn-link"><a  class="searchIcon"></a></button>
                           </div>
                         </div>
                       </div>
@@ -91,12 +103,27 @@
                         </div>
                         <form method="post" action="database/login.php">
                             <div class="form-input">
-                                    <input type="email" name="email" placeholder="Email Address" required>
+                                <input type="email" name="email" placeholder="Email Address" required>
                             </div>
                             <div class="form-input">
               
                                 <input type="password" name="password" placeholder="Password" required>
                             </div>
+
+                            <?php
+                                if(isset($_SESSION["error"]))
+                                {
+                                  if($_SESSION["error"] == "You have entered the wrong email and/ password")
+                                  {
+                                    echo "<div style=' color: yellow;'>Incorrect email or password</div><br>";
+                                    $_SESSION["error"] = "";
+                                  }
+                              
+                                  
+                                }
+                            ?>
+
+
                             <div class="row mb-3">
                                 <div class="col-6 d-flex">
                                     <div class="custom-control custom-checkbox">

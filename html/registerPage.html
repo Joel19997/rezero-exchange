@@ -19,7 +19,7 @@
     </head>
     <body onload="clickSearchIcon()">
         <nav class="navbar navbar-expand-lg navbar-dark bg-light " id="test1">
-            <a class="navbar-brand" href="#">Re-Zero</a>
+            <a class="navbar-brand" href="index.html">Re-Zero</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon" style="color: white;"></span>
             </button>
@@ -29,7 +29,7 @@
                   <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="testHome.html">Home</a>
+                  <a class="nav-link" href="index.html.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="allListings.html">Browse</a>
@@ -47,38 +47,38 @@
             </div>
           </nav>
           
-        <!-- SearchBar -->
-        <section id="searchBar" class="search-bar">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-10 mx-auto">
-                <!-- <form action="registerPage.html" method="GET"> -->
-                  <form action="searched.php" method="POST" name='form6'>
-                  <div class="p-1 bg-light shadow-sm">
-                    <div class="input-group">
-                      <input id='user_input' type="search" name="user_input" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
-                      <div class="input-group-append" name='form5'>
-                        <!-- Button -->
-                        <div class="btn-group">
-                          <button id='laopuo' type="button" name="form" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Title</button>
-                          <div class="dropdown-menu">
-                            <option class="dropdown-item" id="book" name="Title" value="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
-                            <option class="dropdown-item" id="author" name="Author" value="author" onclick="ChangeDropDownBox('Author')">Author</option>
-                            <option class="dropdown-item" id="genre" name="Genre" value="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
-                            <option class="dropdown-item" id="user" name="User" value="user" onclick="ChangeDropDownBox('User')">User</option> 
+          <!-- SearchBar -->
+          <section id="searchBar" class="search-bar">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-10 mx-auto">
+                  <!-- <form action="registerPage.html" method="GET"> -->
+                    <form action="searched.php" method="POST" name='form6'>
+                    <div class="p-1 bg-light shadow-sm">
+                      <div class="input-group">
+                        <input id='user_input' type="search" name="user_input" placeholder="Search based on title, genre, author" class="form-control border-0 bg-light">
+                        <div class="input-group-append" name='form5'>
+                          <!-- Button -->
+                          <div class="btn-group">
+                            <button id='dropBtn' type="button" name="form" class="btn btn-secondary dropdown-toggle smallscreen" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Title</button>
+                            <div class="dropdown-menu">
+                              <option class="dropdown-item" id="book" name="Title" value="book" onclick="ChangeDropDownBox('Title')" selected>Title</option>
+                              <option class="dropdown-item" id="author" name="Author" value="author" onclick="ChangeDropDownBox('Author')">Author</option>
+                              <option class="dropdown-item" id="genre" name="Genre" value="genre" onclick="ChangeDropDownBox('Genre')">Genre</option>
+                              <option class="dropdown-item" id="user" name="User" value="user" onclick="ChangeDropDownBox('User')">User</option> 
+                            </div>
                           </div>
-                        </div>
-                        <div class="input-group-append">
-                          <button id="submit"  class="btn btn-link"><a  class="searchIcon"></a></button>
+                          <div class="input-group-append">
+                            <button id="submit"  class="btn btn-link"><a  class="searchIcon"></a></button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         <div class="container-fluid">
             <div class="row" style="padding-top: 30px;">
                 <div class="col-lg-6 col-md-6 d-none d-md-block image-container1">
@@ -136,13 +136,6 @@
             </div>
         </div>
         <script src="js/homeui.js"></script>
-        <script>
-          document.getElementById('submit').addEventListener('click',function(event) {
-            event.preventDefault();
-            let dropdownform = document.getElementById('laopuo').innerText
-            let text = document.getElementById('user_input').value
-            window.location = `searched.php?user_input=${text}&user_searched_option=${dropdownform}`
-          })
-        </script>
+
     </body>
 </html>
