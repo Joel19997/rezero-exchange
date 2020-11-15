@@ -15,7 +15,8 @@
     
     if($isOk)
     {
-    //     header("Location: ../registerSuccess.html");
+       $_SESSION["user"] = $email;
+        header("Location: ../testHome.html");
     //     exit();
            echo "Yes";
     }

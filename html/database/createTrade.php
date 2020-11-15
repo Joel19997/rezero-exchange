@@ -24,7 +24,7 @@
             #Next, create a new tradelisting
             $tradeDao = new BookTradeDAO();
         
-            $status = $tradeDao->createNewTrade($my_book_id, $book_id, $my_email, $trader_email);
+            $status = $tradeDao->createNewTrade($book_id, $my_book_id, $trader_email, $my_email);
             echo($status);
             #lastly, update both l_id availability values to pending (2)
             $dao->updateAvailability($my_book_id,2);

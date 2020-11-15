@@ -3,7 +3,8 @@
 require_once "common.php";
 $dao = new BookTradeDAO();
 
-$email = 'googleplot@gmail.com';
+$email = $_SESSION['user'];
+// $email = 'googleplot@gmail.com';
 //$email = 'infinty@yahoo.com';
 $resultArr = $dao->getMyTrades($email);
 
