@@ -125,13 +125,13 @@ INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author, availabi
 VALUES ("yomhanks@yahoo.com", '9781949202274', "Batter of Wits", "Hate at first sight couldn't possibly exist, right? That's what Grace Buchanan thought, before her useless car stranded her on the side of a deserted road just inside the Green Valley city limits. When Tucker Haywood—tall and handsome and full of southern charm— shows up to help, her reaction to him is the strongest thing she's ever felt in her life, and it makes no freaking sense. It doesn't make much sense to Tucker either. Not why she hates him, or why he finds her so intriguing. He knows well enough that Grace is moving to Green Valley for a fresh start, not to distract him when he's got no room for something like her in his life. The complications between them are endless, but that doesn't stop her definitely not love-at-first-sight feelings from changing into something else entirely. Grace and Tucker are about to learn the hard way that in Green Valley, hating someone has never tasted so sweet. ", "Karla Sorensen", 1, 0);
 
 INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author, availability, additional_images) 
-VALUES ("yomhanks@yahoo.com", "1250250463", "Cemetery Boys", "A trans boy determined to prove his gender to his traditional Latinx family summons a ghost who refuses to leave in Aiden Thomas's paranormal YA debut Cemetery Boys, described by Entertainment Weekly as 'groundbreaking.'", "Aiden Thomas",  1, 0);
+VALUES ("yomhanks@yahoo.com", "1250250463", "Cemetery Boys", "A trans boy determined to prove his gender to his traditional Latinx family summons a ghost who refuses to leave in Aiden Thomas's paranormal YA debut Cemetery Boys, described by Entertainment Weekly as 'groundbreaking.'", "Aiden Thomas",  1, 2);
 
 INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author, availability, additional_images) 
 VALUES ("yomhanks@yahoo.com", "1984805703","A Rogue of One's Own", "A lady must have money and an army of her own if she is to win a revolution - but first, she must pit her wits against the wiles of an irresistible rogue bent on wrecking her plans...and her heart.", "Evie Dunmore",  1, 0);
 
 INSERT INTO BOOK_LISTING (owner_email,isbn,book_title,item_desc,author, availability, additional_images) 
-VALUES ("unicorn666@gmail.com", "0593098196", "The White Coat Diaries", "Grey's Anatomy meets Scrubs in this brilliant debut novel about a young doctor's struggle to survive residency, love, and life.", "Amie Kaufman, Madi Sinha",  1, 0);
+VALUES ("unicorn666@gmail.com", "0593098196", "The White Coat Diaries", "Grey's Anatomy meets Scrubs in this brilliant debut novel about a young doctor's struggle to survive residency, love, and life.", "Amie Kaufman, Madi Sinha",  1, 1);
 
 
 INSERT INTO BOOK_GENRE (l_id, genre) VALUES (1, "Romance");
@@ -229,3 +229,9 @@ INSERT INTO BOOK_GENRE (l_id, genre) VALUES (25, "Business");
 #Trade 
 INSERT INTO TRADES(first_lid, sec_lid, first_email, sec_email, availability)
 VALUES(11, 12, "googleplot@gmail.com", "ofcourseweA@gmail.com", 1 );
+
+INSERT INTO TRADES(first_lid, sec_lid, first_email, sec_email, availability)
+VALUES(16, 17, "justinbieber@mail.com", "ofcourseweA@gmail.com", 1 );
+
+INSERT INTO TRADES(first_lid, sec_lid, first_email, sec_email, availability)
+VALUES(23, 22, "justinbieber@mail.com", "ofcourseweA@gmail.com", 1 );
