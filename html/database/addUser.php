@@ -18,11 +18,11 @@
        $_SESSION["user"] = $email;
         header("Location: ../index.html");
     //     exit();
-           echo "Yes";
+       //     echo "Yes";
     }
     else
     {
-    //     header("Location: ../registerFailed.html");
-           echo "No";
+        header("Location: ../registerPage.html?error=true");
+       //     echo "No";
     }
 ?>

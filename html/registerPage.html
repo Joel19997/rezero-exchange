@@ -134,6 +134,26 @@
                 </div>
             </div>
         </div>
+
+        
+        <div id='modal'>
+          <div class="modal hide fade" id="modalError">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header ">
+                          <h5 class="modal-title mx-auto" id="confirm">Registration Error</h5>
+                          <button type="button" class="close ml-0 pl-0" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body text-center">
+                          <p class='text-danger'><strong>Registration Failed</strong></p>
+                          <p>Please try again</p>
+                      </div>
+                  </div>
+              </div>
+          </div>    
+      </div>
         <script src="js/homeui.js"></script>
         <script>
           document.getElementById('submit').addEventListener('click',function(event) {
@@ -143,5 +163,17 @@
             window.location = `searched.php?user_input=${text}&user_searched_option=${dropdownform}`
           })
         </script>
+        <script>
+          const params = new URLSearchParams(window.location.search);
+            
+        </script>
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                if (params.has('error')) {
+                    $('#modalError').modal('show');
+                }
+              })
+        </script>
+      
     </body>
 </html>
