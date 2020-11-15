@@ -19,7 +19,7 @@ request.onreadystatechange = function(){
         var title = listing.title;
         var additionalImages = listing.additional_images;
         createListing(isbn, author, description, title, email, additionalImages, id);
-
+        document.title = title;
 
         
     }
