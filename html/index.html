@@ -115,14 +115,22 @@
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <?php
+          if(isset($_SESSION["user"]))
+          {
+            echo '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>';
+          }
+          
+        ?>
       </ol>
       <div class="carousel-inner" >
         <div class="carousel-item active">
           <div class="banner" style="background-image: linear-gradient( rgba(32, 31, 31, 0.632), rgba(27, 27, 27, 0.802)), url(images/bookshop.jpg) ;">
               <div class="carousel-caption d-none d-md-block">
-                  <h2>Recycle with the world with a few simple steps!</h2>
-                  <button type="button" class="btn btn-info">Learn more</button>
+                  <h2>Explore the huge number of books others have listed</h2>
+                  <form method="GET" action="allListings.html">
+                    <button type="submit" class="btn btn-info">Browse</button>
+                  </form>
               </div>
           </div>
         </div>
@@ -130,18 +138,28 @@
           <div class="banner" style="background-image: linear-gradient( rgba(32, 31, 31, 0.632), rgba(27, 27, 27, 0.802)),url(images/studentbackground.jpg) ;">
               <div class="carousel-caption d-none d-md-block">
                   <h2>Find out more about our team and our goal</h2>
-                  <button type="button" class="btn btn-info">Learn more</button>
+                  <form method="GET" action="about.html">
+                    <button type="submit" class="btn btn-info">Learn more</button>
+                  </form>
               </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="banner" style="background-image: linear-gradient( rgba(32, 31, 31, 0.632), rgba(27, 27, 27, 0.802)), url(images/slide3.jpg) ;"> 
-              <div class="carousel-caption d-none d-md-block">
-                  <h2>Search for your favorite genre</h2>
-                  <button type="button" class="btn btn-info">Learn more</button>
+        <?php
+          if(isset($_SESSION["user"]))
+          {
+            echo '<div class="carousel-item">
+              <div class="banner" style="background-image: linear-gradient( rgba(32, 31, 31, 0.632), rgba(27, 27, 27, 0.802)), url(images/slide3.jpg) ;"> 
+                  <div class="carousel-caption d-none d-md-block">
+                      <h2>Start listing your books for everyone to see</h2>
+                      <form method="GET" action="myCurrentListings.html">
+                        <button type="submit" class="btn btn-info">Go to my listings</button>
+                      </form>
+                  </div>
               </div>
-          </div>
-        </div>
+            </div>';
+          }
+            
+        ?>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span>
