@@ -14,6 +14,8 @@
   
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
         <link rel="stylesheet" href="css/allListings.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://use.fontawesome.com/a64b47fd82.js"></script>
@@ -29,7 +31,7 @@
     </head>
     <body class="body2" onload="clickSearchIcon()" onload= "ChangeDropDownBox('Title')">
     <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="test1">
-        <a class="navbar-brand" href="#">Re-Zero</a>
+        <a class="navbar-brand" href="index.html">Re-Zero</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon" style="color: white;"></span>
         </button>
@@ -39,7 +41,7 @@
               <button type="button" class="btn btn-linkNav" style="margin-top: 15px; padding-top:12px;" onclick="toggleSearch()"></button>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="testHome.html">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="allListings.html">Browse</a>

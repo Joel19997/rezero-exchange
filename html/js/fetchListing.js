@@ -1,7 +1,5 @@
-// console.log('id at the top is',id);
 
 const left = document.getElementById('left');
-// const title = document.getElementById('title');
 const carousel = document.getElementById('swiper')
 const right = document.getElementById('right');
 
@@ -11,7 +9,6 @@ var request = new XMLHttpRequest();
 request.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200){
         var listing = JSON.parse(this.responseText);
-        // console.log(listing);
 
         var id = listing.Lid;
         var email = listing.email;
@@ -38,12 +35,11 @@ function createListing(isbn, author, description, title, email, additional_image
             var data = JSON.parse(this.responseText).items[0].volumeInfo;
 
             var image = data.imageLinks.thumbnail;
-            // console.log(image)
             addImages(image, additional_images, id);
             var details = document.createElement('div');
-            details.className = 'container mt-3';
+            details.className = 'container-fluid mt-3';
             details.innerHTML = `
-                                <h1 class='display-4'>${title} <h1>
+                                <h1 class='display-5'>${title} <h1>
                                 <h3>by ${author}</h3>
                                 `;        
             left.appendChild(details);
@@ -94,7 +90,7 @@ function fetchUserInfo(email){
         var email = listing.email;
 
         var profile = document.createElement('div');
-        profile.className = 'container';
+        profile.className = 'container-fluid';
         if (loggedIn){
             profile.innerHTML = `<h5 class='mt-5'>
                                     <strong><u>Owner Details:</u></strong><br>
